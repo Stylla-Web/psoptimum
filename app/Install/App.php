@@ -10,12 +10,12 @@ use Modules\User\Entities\Role;
 
 class App
 {
-    public function setup()
+    public function setup($data)
     {
         $this->generateAppKey();
         $this->setEnvVariables();
         $this->createCustomerRole();
-        $this->setAppSettings();
+        $this->setAppSettings($data);
         $this->createDefaultCurrencyRate();
         $this->createStorageFolder();
     }
@@ -29,8 +29,8 @@ class App
     {
         $env = DotenvEditor::load();
 
-        $env->setKey('APP_ENV', 'production');
-        $env->setKey('APP_DEBUG', 'false');
+        $env->setKey('APP_ENV', 'development');
+        $env->setKey('APP_DEBUG', 'true');
         $env->setKey('APP_CACHE', 'true');
         $env->setKey('APP_URL', url('/'));
 
@@ -42,15 +42,15 @@ class App
         Role::create(['name' => 'Customer']);
     }
 
-    private function setAppSettings()
+    private function setAppSettings($data)
     {
         Setting::setMany([
             'active_theme' => 'Storefront',
-            'supported_countries' => ['BD'],
-            'default_country' => 'BD',
-            'supported_locales' => ['en'],
-            'default_locale' => 'en',
-            'default_timezone' => 'Asia/Dhaka',
+            'supported_countries' => ['CA'],
+            'default_country' => 'CA',
+            'supported_locales' => ['fr'],
+            'default_locale' => 'fr',
+            'default_timezone' => 'America/New_York',
             'customer_role' => 2,
             'reviews_enabled' => true,
             'auto_approve_reviews' => true,
@@ -58,13 +58,13 @@ class App
             'supported_currencies' => ['USD'],
             'default_currency' => 'USD',
             'send_order_invoice_email' => false,
-            'store_email' => 'admin@fleetcart.test',
+            'store_email' => $data['store_email'],
             'newsletter_enabled' => false,
-            'search_engine' => 'mysql',
+            'search_engine' => $data['search_engine'],
             'local_pickup_cost' => 0,
             'flat_rate_cost' => 0,
             'translatable' => [
-                'store_name' => 'FleetCart',
+                'store_name' => $data['store_name'],
                 'free_shipping_label' => 'Free Shipping',
                 'commercial_shipping_label' => 'Commercial Shipping',
                 'local_pickup_label' => 'Local Pickup',

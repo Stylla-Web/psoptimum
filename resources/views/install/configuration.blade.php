@@ -164,7 +164,7 @@
                 </div>
 
                 <div class="form-group {{ $errors->has('store.store_fax') ? 'has-error': '' }}">
-                    <label class="control-label col-sm-3" for="store_fax">Store Phone <span>*</span></label>
+                    <label class="control-label col-sm-3" for="store_fax">Store Fax <span>*</span></label>
 
                     <div class="col-sm-9">
                         <input type="text" name="store[store_fax]" value="{{ old('store.store_fax') }}" id="store_fax" class="form-control">
@@ -185,6 +185,10 @@
                             <option value="algolia" {{ old('store.search_engine') === 'algolia' ? 'selected' : '' }}>
                                 Algolia
                             </option>
+
+                            <option value="meilisearch" {{ old('store.search_engine') === 'meilisearch' ? 'selected' : '' }}>
+                                Meilisearch
+                            </option>
                         </select>
 
                         @if ($errors->has('store.search_engine'))
@@ -194,8 +198,7 @@
                         @endif
                     </div>
                 </div>
-
-                <div class="{{ old('store.search_engine') === 'algolia' ? '' : 'hide' }}" id="algolia-fields">
+                <div id="algolia-fields" style="display: none;">
                     <div class="form-group {{ $errors->has('store.algolia_app_id') ? 'has-error': '' }}">
                         <label class="control-label col-sm-3" for="store-algolia-app-id">Algolia Application ID <span>*</span></label>
 
@@ -228,7 +231,7 @@
 @push('scripts')
     <script>
         $('#store-search-engine').on('change', function () {
-            $('#algolia-fields').toggleClass('hide');
+            $('#algolia-fields').toggle($(this).val() === 'algolia');
         });
 
         $('.install-button').on('click', function (e) {
