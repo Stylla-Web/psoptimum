@@ -143,9 +143,6 @@ export default {
         if (this.defaultAddress.address_id) {
             this.form.billingAddressId = this.defaultAddress.address_id;
             this.form.shippingAddressId = this.defaultAddress.address_id;
-        } else {
-            this.form.billingAddressId = Object.keys(this.addresses)[0];
-            this.form.shippingAddressId = Object.keys(this.addresses)[0];
         }
 
         if (! this.hasAddress) {
@@ -181,6 +178,7 @@ export default {
 
             this.form.billing = {};
             this.form.newBillingAddress = ! this.form.newBillingAddress;
+            this.changeBillingCountry(this.firstCountry);
         },
 
         addNewShippingAddress() {

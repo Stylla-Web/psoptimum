@@ -18,7 +18,7 @@ export default {
 
     computed: {
         firstCountry() {
-            return Object.keys(this.countries)[0];
+            return FleetCart.defaultCountry;
         },
 
         hasAddress() {
