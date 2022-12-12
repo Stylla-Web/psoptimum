@@ -27,7 +27,7 @@ cardinal@^1.0.0:
     ansicolors "~0.2.1"
     redeyed "~1.0.0"
 
-chart.js@^2.9.4:
+chart.js@^2.7.3:
   version "2.9.4"
   resolved "https://registry.yarnpkg.com/chart.js/-/chart.js-2.9.4.tgz#0827f9563faffb2dc5c06562f8eb10337d5b9684"
   integrity sha512-B07aAzxcrikjAPyV+01j7BmOpxtQETxTSlQ26BEYJ+3iUkbNKaOJ/nDbT6JjyqYxseM0ON12COHYdU2cTIjC7A==
@@ -80,10 +80,10 @@ datatables.net@1.10.19:
   dependencies:
     jquery ">=1.7"
 
-datatables.net@^1.11.3:
-  version "1.11.3"
-  resolved "https://registry.yarnpkg.com/datatables.net/-/datatables.net-1.11.3.tgz#80e691036efcd62467558ee64c07dd566cb761b4"
-  integrity sha512-VMj5qEaTebpNurySkM6jy6sGpl+s6onPK8xJhYr296R/vUBnz1+id16NVqNf9z5aR076OGcpGHCuiTuy4E05oQ==
+datatables.net@^1.10.15:
+  version "1.13.1"
+  resolved "https://registry.yarnpkg.com/datatables.net/-/datatables.net-1.13.1.tgz#199f7cb63f4536c135e161f95254212835a1c130"
+  integrity sha512-cX5dDHsbVdLLYKsWOSE0MvuGUcV88zU5dZ/taK2puJV6F9Fw0CFsP3+U/kr+qpDSFOBLWISRyM4Q9wWWovPTNg==
   dependencies:
     jquery ">=1.7"
 
@@ -119,7 +119,7 @@ jquery-slimscroll@^1.3.8:
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
   integrity sha512-Ubldcmxp5np52/ENotGxlLe6aGMvmF4R8S6tZjsP6Knsaxd/xp3Zrh50cG93lR6nPXyUFwzN3ZSOQI0wRJNdGg==
 
-lodash@^4.17.14, lodash@^4.17.21:
+lodash@^4.17.14, lodash@^4.17.4:
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
@@ -187,10 +187,10 @@ sifter@^0.5.1:
   version "1.7.0"
   resolved "https://github.com/RubaXa/Sortable#96a5fec870ec6faa1bf167da2c3dddb465166461"
 
-tinymce@^5.10.0:
-  version "5.10.0"
-  resolved "https://registry.yarnpkg.com/tinymce/-/tinymce-5.10.0.tgz#5f88b40c2b26dc72b126f7d04944014dcb1ace05"
-  integrity sha512-SaqBK8GtTKYSsTfhKdN0+NrZRgmVWO+j3fvgzLjt0t/g0osNzRH5os8icm2Rv5HvaeTd4TpxetUuLE+R9yg/yg==
+tinymce@^5.2.2:
+  version "5.10.7"
+  resolved "https://registry.yarnpkg.com/tinymce/-/tinymce-5.10.7.tgz#d89d446f1962f2a1df6b2b70018ce475ec7ffb80"
+  integrity sha512-9UUjaO0R7FxcFo0oxnd1lMs7H+D0Eh+dDVo5hKbVe1a+VB0nit97vOqlinj+YwgoBDt6/DSCUoWqAYlLI8BLYA==
 
 wordwrap@~0.0.2:
   version "0.0.3"
