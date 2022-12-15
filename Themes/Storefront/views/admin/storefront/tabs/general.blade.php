@@ -21,6 +21,7 @@
         {{ Form::select('storefront_terms_page', trans('storefront::attributes.storefront_terms_page'), $errors, $pages, $settings) }}
         {{ Form::select('storefront_privacy_page', trans('storefront::attributes.storefront_privacy_page'), $errors, $pages, $settings) }}
         {{ Form::text('translatable[storefront_address]', trans('storefront::attributes.storefront_address'), $errors, $settings) }}
+        {{ Form::text('storefront_google_map_url', trans('storefront::attributes.storefront_google_map_url'), $errors, $settings) }}
     </div>
 </div>
 

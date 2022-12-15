@@ -44,7 +44,7 @@
                             @if (setting('storefront_address'))
                                 <li>
                                     <i class="las la-map"></i>
-                                    <span><a href="https://www.google.com/maps/search/{{ setting('storefront_address') }}" target="_blank">{{ setting('storefront_address') }}</a></span>
+                                    <span><a href="{{ setting('storefront_google_map_url') }}" target="_blank">{{ setting('storefront_address') }}</a></span>
                                 </li>
                             @endif
                         </ul>
