@@ -30,6 +30,8 @@ return [
     'supported_currencies' => 'Supported Currencies',
     'default_currency' => 'Default Currency',
     'currency_rate_exchange_service' => 'Exchange Rate Service',
+    'coinlayer_access_key' => 'Coinlayer Access Key',
+    'abstract_api_key' => 'Abstract API key',
     'fixer_access_key' => 'Fixer Access key',
     'forge_api_key' => 'Forge API key',
     'currency_data_feed_api_key' => 'Currency Data Feed API Key',

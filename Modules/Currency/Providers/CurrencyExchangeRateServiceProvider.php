@@ -40,8 +40,10 @@ class CurrencyExchangeRateServiceProvider extends ServiceProvider
     {
         config([
             'fleetcart.modules.currency.config.services.fixer.access_key' => setting('fixer_access_key'),
+            'fleetcart.modules.currency.config.services.coinlayer.access_key' => setting('fixer_access_key'),
             'fleetcart.modules.currency.config.services.forge.api_key' => setting('forge_api_key'),
             'fleetcart.modules.currency.config.services.currency_data_feed.api_key' => setting('currency_data_feed_api_key'),
+            'fleetcart.modules.currency.config.services.abstract_api.api_key' => setting('abstract_api_key'),
         ]);
     }
 }

@@ -53,6 +53,8 @@ class UpdateSettingRequest extends Request
             'store_country' => ['required', Rule::in(Country::codes())],
 
             'fixer_access_key' => 'required_if:currency_rate_exchange_service,fixer',
+            'coinlayer_access_key' => 'required_if:currency_rate_exchange_service,coinlayer',
+            'abstract_api_key' => 'required_if:currency_rate_exchange_service,abstract_api',
             'forge_api_key' => 'required_if:currency_rate_exchange_service,forge',
             'currency_data_feed_api_key' => 'required_if:currency_rate_exchange_service,currency_data_feed',
             'auto_refresh_currency_rates' => 'required|boolean',
