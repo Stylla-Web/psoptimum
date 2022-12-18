@@ -33,7 +33,7 @@
                                     <li>
                                         <i class="las la-map"></i>
                                         <span>
-                                            <a href="https://www.google.com/maps/search/{{ setting('storefront_address') }}"
+                                            <a href="{{ setting('storefront_google_map_url') }}"
                                                target="_blank">{{ setting('store_address_1') }}<br/>{{ setting('store_city') }}, {{ stateName(setting('store_country'), setting('store_state'))}}, {{ setting('store_zip') }}, {{ countryName(setting('store_country')) }}</a>
                                         </span>
                                     </li>

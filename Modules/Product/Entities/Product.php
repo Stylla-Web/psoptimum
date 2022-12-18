@@ -125,11 +125,11 @@ class Product extends Model
         /**
          * Update the selling price.
          */
-        static::retrieved(function ($product) {
-            $product->withoutEvents(function () use ($product) {
-                $product->update(['selling_price' => $product->getSellingPrice()->amount()]);
-            });
-        });
+//        static::retrieved(function ($product) {
+//            $product->withoutEvents(function () use ($product) {
+//                $product->update(['selling_price' => $product->getSellingPrice()->amount()]);
+//            });
+//        });
 
         static::saved(function ($product) {
             if (!empty(request()->all())) {
