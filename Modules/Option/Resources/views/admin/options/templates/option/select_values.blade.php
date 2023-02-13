@@ -21,7 +21,7 @@
             >
 
             <input
-                type="text"
+                type="<%- value.type %>"
                 <% if (optionId === undefined) { %>
                     name="values[<%- valueId %>][label]"
                     id="values-<%- valueId %>-label"

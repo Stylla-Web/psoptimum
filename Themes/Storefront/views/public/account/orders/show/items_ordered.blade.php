@@ -23,7 +23,12 @@
                                     @foreach ($product->options as $option)
                                         <li>
                                             @if ($option->isFieldType())
-                                                <label>{{ $option->name }}:</label> {{ $option->value }}
+                                                <label>{{ $option->name }}:</label>
+                                                @if ($option->option->type !== 'color')
+                                                    {{ $option->value }}
+                                                @else
+                                                    <span style="background-color: {{ $option->value }}; display: inline-block; height: 15px; width: 15px"></span>
+                                                @endif
                                             @else
                                                 <label>{{ $option->name }}:</label> {{ $option->values->implode('label', ', ') }}
                                             @endif

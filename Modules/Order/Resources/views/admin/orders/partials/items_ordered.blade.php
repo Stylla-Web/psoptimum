@@ -38,7 +38,11 @@
 
                                                     <span>
                                                         @if ($option->option->isFieldType())
-                                                            {{ $option->value }}
+                                                            @if ($option->option->type !== 'color')
+                                                                {{ $option->value }}
+                                                            @else
+                                                                <span style="background-color: {{ $option->value }}; display: inline-block; height: 15px; width: 15px"></span>
+                                                            @endif
                                                         @else
                                                             {{ $option->values->implode('label', ', ') }}
                                                         @endif

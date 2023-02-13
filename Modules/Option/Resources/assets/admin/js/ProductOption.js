@@ -129,11 +129,11 @@ export default class extends BaseOption {
         super.initOptionRow(template, selectValues);
     }
 
-    addOptionRowEventListener(optionId) {
+    addOptionRowEventListener(optionId, type) {
         $(`#option-${optionId}-add-new-row`).on('click', () => {
             let valueId = $(`#option-${optionId}-values .option-row`).length;
-
-            this.addOptionRow({ optionId, valueId });
+            let value = { label: '', price: '', price_type: 'fixed', type: type };
+            this.addOptionRow({ optionId, valueId, value });
         });
     }
 

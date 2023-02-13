@@ -20,11 +20,11 @@ export default class {
     changeOptionType({ optionId, type, values = [] }) {
         let optionValuesElement = this.getOptionValuesElement(optionId);
         let templateType = this.getTemplateType(type, optionValuesElement);
-        let optionValuesData = { optionId, value: { id: '', label: '', price: '', price_type: 'fixed' } };
+        let optionValuesData = { optionId, value: { id: '', label: '', price: '', price_type: 'fixed', type: type } };
 
-        if (this.shouldNotChangeTemplate(templateType, optionValuesElement)) {
-            return;
-        }
+        // if (this.shouldNotChangeTemplate(templateType, optionValuesElement)) {
+        //     return;
+        // }
 
         if (values.length !== 0 && templateType === 'text') {
             optionValuesData.value = values[0];
@@ -35,9 +35,9 @@ export default class {
         optionValuesElement.html(template(optionValuesData));
 
         if (templateType === 'select') {
-            this.addOptionRowEventListener(optionId);
+            this.addOptionRowEventListener(optionId, type);
 
-            this.addOptionRows({ optionId, values });
+            this.addOptionRows({ optionId, type, values });
 
             if (values.length === 0) {
                 this.getAddNewRowButton(optionId).trigger('click');
@@ -45,8 +45,10 @@ export default class {
         }
     }
 
-    addOptionRows({ optionId, values }) {
+    addOptionRows({ optionId, type, values }) {
         for (let [index, value] of values.entries()) {
+            Object.assign(value, { type: type });
+            console.log(value);
             this.addOptionRow({
                 optionId,
                 valueId: index,
@@ -70,7 +72,7 @@ export default class {
     }
 
     templateTypeIsSelect(type) {
-        return ['dropdown', 'checkbox', 'checkbox_custom', 'radio', 'radio_custom', 'multiple_select'].includes(type);
+        return ['dropdown', 'checkbox', 'checkbox_custom', 'radio', 'radio_custom', 'multiple_select', 'color'].includes(type);
     }
 
     shouldNotChangeTemplate(templateType, optionValuesElement) {

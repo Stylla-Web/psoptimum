@@ -47,6 +47,10 @@
                         <option value="multiple_select" {{ old('type', $option->type) === 'multiple_select' ? 'selected' : '' }}>
                             {{ trans('option::options.form.option_types.multiple_select') }}
                         </option>
+
+                        <option value="color" {{ old('type', $option->type) === 'color' ? 'selected' : '' }}>
+                            {{ trans('option::options.form.option_types.color') }}
+                        </option>
                     </optgroup>
 
                     <optgroup label="{{ trans('option::options.form.option_types.date') }}">

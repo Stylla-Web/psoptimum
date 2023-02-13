@@ -37,7 +37,7 @@
 
                     <ul class="list-inline product-options" v-cloak>
                         <li v-for="option in cartItem.options">
-                            <label>@{{ option.name }}:</label> @{{ optionValues(option) }}
+                            <label>@{{ option.name }}:</label> <span v-html="optionValues(option)"></span>
                         </li>
                     </ul>
                 </td>

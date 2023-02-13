@@ -36,6 +36,7 @@ return [
             'radio' => 'Radio Button',
             'radio_custom' => 'Custom Radio Button',
             'multiple_select' => 'Multiple Select',
+            'color' => 'Colors Select',
             'date' => 'Date',
             'date_time' => 'Date & Time',
             'time' => 'Time',

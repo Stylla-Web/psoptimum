@@ -3,8 +3,8 @@
 namespace Modules\Option\Http\Requests;
 
 use Illuminate\Validation\Rule;
-use Modules\Option\Entities\Option;
 use Modules\Core\Http\Requests\Request;
+use Modules\Option\Entities\Option;
 
 class SaveProductOptionsRequest extends Request
 {
@@ -26,7 +26,7 @@ class SaveProductOptionsRequest extends Request
             'options.*.name' => 'required_with:options.*.type',
             'options.*.type' => ['nullable', 'required_with:options.*.name', Rule::in(Option::TYPES)],
             'options.*.is_required' => ['required_with:options.*.name', 'boolean'],
-            'options.*.values.*.label' => 'required_if:options.*.type,dropdown,checkbox,checkbox_custom,radio,radio_custom,multiple_select',
+            'options.*.values.*.label' => 'required_if:options.*.type,dropdown,checkbox,checkbox_custom,radio,radio_custom,multiple_select,color',
             'options.*.values.*.price' => 'nullable|numeric|min:0|max:99999999999999',
             'options.*.values.*.price_type' => ['required', Rule::in(['fixed', 'percent'])],
         ];

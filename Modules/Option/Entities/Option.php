@@ -2,10 +2,10 @@
 
 namespace Modules\Option\Entities;
 
-use Modules\Support\Eloquent\Model;
-use Modules\Option\Admin\OptionTable;
-use Modules\Support\Eloquent\Translatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Modules\Option\Admin\OptionTable;
+use Modules\Support\Eloquent\Model;
+use Modules\Support\Eloquent\Translatable;
 
 class Option extends Model
 {
@@ -18,7 +18,7 @@ class Option extends Model
      */
     const TYPES = [
         'field', 'textarea', 'dropdown', 'checkbox', 'checkbox_custom',
-        'radio', 'radio_custom', 'multiple_select', 'date', 'date_time', 'time',
+        'radio', 'radio_custom', 'multiple_select', 'date', 'date_time', 'time','color'
     ];
 
     /**
@@ -75,7 +75,7 @@ class Option extends Model
 
     public function isFieldType()
     {
-        return in_array($this->type, ['field', 'textarea', 'dropdown', 'radio', 'date', 'date_time', 'time']);
+        return in_array($this->type, ['field', 'textarea', 'dropdown', 'radio', 'date', 'date_time', 'time', 'color']);
     }
 
     /**

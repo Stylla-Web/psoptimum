@@ -87,6 +87,12 @@
                                         >
                                             {{ trans('option::options.form.option_types.multiple_select') }}
                                         </option>
+
+                                        <option value="color"
+                                            <%= option.type === 'color' ? 'selected' : '' %>
+                                        >
+                                        {{ trans('option::options.form.option_types.color') }}
+                                        </option>
                                     </optgroup>
 
                                     <optgroup label="{{ trans('option::options.form.option_types.date') }}">

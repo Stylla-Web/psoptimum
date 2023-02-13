@@ -208,6 +208,13 @@
 				}
 			}
 		}
+
+        .color-selection {
+            > li {
+                height: 32px;
+                min-width: 32px;
+            }
+        }
 	}
 
 	.details-info-middle-actions {

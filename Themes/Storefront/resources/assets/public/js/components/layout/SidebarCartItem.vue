@@ -15,7 +15,7 @@
 
             <ul class="list-inline product-options">
                 <li v-for="option in cartItem.options" :key="option.id">
-                    <label>{{ option.name }}:</label> {{ optionValues(option) }}
+                    <label>{{ option.name }}:</label> <span v-html="optionValues(option)"></span>
                 </li>
             </ul>
 
@@ -33,10 +33,10 @@
 </template>
 
 <script>
-    import store from '../../store';
-    import ProductHelpersMixin from '../../mixins/ProductHelpersMixin';
+import store from '../../store';
+import ProductHelpersMixin from '../../mixins/ProductHelpersMixin';
 
-    export default {
+export default {
         mixins: [
             ProductHelpersMixin,
         ],
@@ -47,11 +47,14 @@
             optionValues(option) {
                 let values = [];
 
-                for (let value of option.values) {
-                    values.push(value.label);
+                if (option.type !== 'color') {
+                    for (let value of option.values) {
+                        values.push(value.label);
+                    }
+                    return values.join(', ');
+                } else {
+                    return `<span style="background-color: ${option.values[0].label} ; display: inline-block; height: 15px; width: 15px"></span>`;
                 }
-
-                return values.join(', ');
             },
 
             remove() {
