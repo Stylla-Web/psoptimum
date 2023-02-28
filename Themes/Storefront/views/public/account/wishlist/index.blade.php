@@ -9,7 +9,7 @@
 @section('panel')
     <my-wishlist inline-template>
         <div class="panel">
-            <div class="panel-header">
+            <div class="panel-header" ref="productsearchwrap">
                 <h4>{{ trans('storefront::account.pages.my_wishlist') }}</h4>
             </div>
 
@@ -76,7 +76,7 @@
                 <v-pagination
                     :total-page="totalPage"
                     :current-page="currentPage"
-                    @page-changed="fetchProducts"
+                    @page-changed="changePage"
                     v-if="products.total > 20"
                 >
                 </v-pagination>

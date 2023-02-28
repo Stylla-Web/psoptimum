@@ -55,5 +55,11 @@ export default {
 
             store.removeFromWishlist(product.id);
         },
+
+        changePage(page) {
+            this.currentPage = page;
+
+            this.fetchWishlist();
+        },
     },
 };
