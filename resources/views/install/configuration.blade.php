@@ -219,6 +219,27 @@
                         </div>
                     </div>
                 </div>
+                <div id="meilisearch-fields" style="display: none;">
+                    <div class="form-group {{ $errors->has('store.meilisearch_host') ? 'has-error': '' }}">
+                        <label class="control-label col-sm-3" for="store-meilisearch-host">Meilisearch host <span>*</span></label>
+
+                        <div class="col-sm-9">
+                            <input type="text" name="store[meilisearch_host]" value="{{ old('store.meilisearch_host') }}" id="store-meilisearch-host" class="form-control">
+
+                            {!! $errors->first('store.meilisearch_host', '<span class="help-block">:message</span>') !!}
+                        </div>
+                    </div>
+
+                    <div class="form-group {{ $errors->has('store.meilisearch_key') ? 'has-error': '' }}">
+                        <label class="control-label col-sm-3" for="store-meilisearch-key">Meilisearch API Key <span>*</span></label>
+
+                        <div class="col-sm-9">
+                            <input type="password" name="store[meilisearch_key]" value="{{ old('store.meilisearch_key') }}" id="store-meilisearch-key" class="form-control">
+
+                            {!! $errors->first('store.meilisearch_key', '<span class="help-block">:message</span>') !!}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -232,6 +253,7 @@
     <script>
         $('#store-search-engine').on('change', function () {
             $('#algolia-fields').toggle($(this).val() === 'algolia');
+            $('#meilisearch-fields').toggle($(this).val() === 'meilisearch');
         });
 
         $('.install-button').on('click', function (e) {

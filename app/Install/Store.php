@@ -18,6 +18,8 @@ class Store
             'search_engine' => $data['search_engine'],
             'algolia_app_id' => $data['algolia_app_id'],
             'algolia_secret' => $data['algolia_secret'],
+            'meilisearch_host' => $data['meilisearch_host'],
+            'meilisearch_key' => $data['meilisearch_key'],
         ]);
     }
 }

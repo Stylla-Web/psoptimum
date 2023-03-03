@@ -47,7 +47,7 @@ class InstallController extends Controller
             $database->setup($request->db);
             $admin->setup($request->admin);
             $store->setup($request->store);
-            $app->setup();
+            $app->setup($request->store);
         } catch (Exception $e) {
             return back()->withInput()
                 ->with('error', $e->getMessage());
