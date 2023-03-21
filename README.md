@@ -21,6 +21,6 @@ When you start to develop, you can :
 
 at this point your application will be up and running on http://127.0.0.1:8000
 
-Author: Jawad khan
-email: jawadk116@gmail.com
-company: NEXTIN
+Author: Kamel HEMDANE
+email: kam@arkhame.com
+company: ARKHAME
