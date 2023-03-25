@@ -189,6 +189,7 @@ class Order extends Model
                         );
                     });
                 }
+                return trans("storefront::shipped.with.{$shippingMethod}");
             } else {
                 return trans("storefront::shipped.with.{$shippingMethod}");
             }

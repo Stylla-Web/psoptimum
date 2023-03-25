@@ -192,7 +192,7 @@
 
         computed: {
             initialCategoryIsNotInCategoryList() {
-                return ! this.categories.includes(this.initialCategory);
+                return ! this.categories.some(e => e.slug === this.initialCategory);
             },
 
             shouldShowSuggestions() {
@@ -274,7 +274,7 @@
                     return;
                 }
 
-                if (this.form.category) {
+                if (this.form.category && this.initialCategoryIsNotInCategoryList()) {
                     window.location.href = route('categories.products.index', this.form);
 
                     return;
