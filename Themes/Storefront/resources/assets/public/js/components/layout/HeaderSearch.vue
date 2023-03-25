@@ -190,6 +190,10 @@
             };
         },
 
+        mounted() {
+            this.setRightCategory();
+        },
+
         computed: {
             initialCategoryIsNotInCategoryList() {
                 return ! this.categories.some(e => e.slug === this.initialCategory);
@@ -241,6 +245,11 @@
         },
 
         methods: {
+            setRightCategory() {
+                if(this.initialCategoryIsNotInCategoryList) {
+                    this.form.category = "";
+                }
+            },
             changeCategory(category) {
                 this.form.category = category;
 
@@ -274,7 +283,7 @@
                     return;
                 }
 
-                if (this.form.category && this.initialCategoryIsNotInCategoryList()) {
+                if (this.form.category) {
                     window.location.href = route('categories.products.index', this.form);
 
                     return;
