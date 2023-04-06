@@ -195,7 +195,7 @@ class Order extends Model
             }
         }
 
-        return ShippingMethod::get($shippingMethod)->label;
+        return ShippingMethod::get($shippingMethod)->label ?? null;
     }
 
     public function getShipmentLabel()

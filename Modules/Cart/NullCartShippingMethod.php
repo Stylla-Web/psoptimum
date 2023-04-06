@@ -16,6 +16,16 @@ class NullCartShippingMethod
         //
     }
 
+    public function label()
+    {
+
+    }
+
+    public function shipment_rate_id()
+    {
+
+    }
+
     public function cost()
     {
         return Money::inDefaultCurrency(0);
