@@ -14,7 +14,7 @@ class SubscriberController
      */
     public function store(StoreSubscriberRequest $request)
     {
-        if (setting('newsletter_last_name_enabled')) {
+        if (setting('newsletter_last_name_enabled') && $request->has(['name', 'lname'])) {
             Newsletter::subscribeOrUpdate($request->email, ['FNAME' => $request->name, 'LNAME' => $request->lname]);
         } else {
             Newsletter::subscribeOrUpdate($request->email);

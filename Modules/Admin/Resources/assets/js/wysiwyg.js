@@ -18,6 +18,7 @@ tinyMCE.init({
     document_base_url : window.location.origin,
     directionality: FleetCart.rtl ? 'rtl' : 'ltr',
     cache_suffix: `?v=${FleetCart.version}`,
+    content_css: '/themes/storefront/public/css/app.css',
     plugins: 'lists, link, table, image, media, paste, autosave, autolink, wordcount, code, fullscreen',
     toolbar: 'styleselect bold italic underline | bullist numlist | alignleft aligncenter alignright | outdent indent | image media link table | code fullscreen',
 
