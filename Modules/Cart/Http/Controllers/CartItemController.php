@@ -74,6 +74,15 @@ class CartItemController extends Controller
     {
         Cart::remove($cartItemId);
 
+        try {
+            resolve(Pipeline::class)
+                ->send(Cart::coupon())
+                ->through($this->checkers)
+                ->thenReturn();
+        } catch (MinimumSpendException | MaximumSpendException $e) {
+            Cart::removeCoupon();
+        }
+
         return Cart::instance();
     }
 }

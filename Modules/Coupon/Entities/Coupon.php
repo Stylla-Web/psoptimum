@@ -186,7 +186,7 @@ class Coupon extends Model
             return false;
         }
 
-        return Cart::subTotal()->lessThan($this->minimum_spend);
+        return Cart::subTotalWithoutConditions()->lessThan($this->minimum_spend);
     }
 
     public function spentMoreThanMaximumAmount()
@@ -195,7 +195,7 @@ class Coupon extends Model
             return false;
         }
 
-        return Cart::subTotal()->greaterThan($this->maximum_spend);
+        return Cart::subTotalWithoutConditions()->greaterThan($this->maximum_spend);
     }
 
     public function products()

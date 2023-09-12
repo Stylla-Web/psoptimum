@@ -42,7 +42,7 @@ export default {
             if (! this.couponCode) {
                 return;
             }
-
+            this.couponError = '';
             this.loadingOrderSummary = true;
             this.applyingCoupon = true;
 
