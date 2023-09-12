@@ -246,8 +246,8 @@
 
         methods: {
             setRightCategory() {
-                if(this.initialCategoryIsNotInCategoryList) {
-                    this.form.category = "";
+                if (this.initialCategoryIsNotInCategoryList) {
+                    this.form.category = '';
                 }
             },
             changeCategory(category) {

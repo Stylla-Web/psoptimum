@@ -32,6 +32,8 @@ class QueryStringFilter
         'qty',
         'new_from',
         'new_to',
+        'unit',
+        'brand_id',
     ];
 
     public function sort($query, $sortType)
