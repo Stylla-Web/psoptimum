@@ -9,7 +9,7 @@ class CartClearController
     /**
      * Store a newly created resource in storage.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Modules\Cart\Cart
      */
     public function store()
     {

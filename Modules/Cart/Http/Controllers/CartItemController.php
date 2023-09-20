@@ -57,7 +57,7 @@ class CartItemController extends Controller
                         ExcludedBrands::class
                     ])
                     ->thenReturn();
-            } catch (MinimumSpendException|MaximumSpendException|InapplicableCouponException $e) {
+            } catch (MinimumSpendException | MaximumSpendException | InapplicableCouponException $e) {
                 Cart::removeCoupon();
             }
         }
@@ -80,7 +80,7 @@ class CartItemController extends Controller
                 ->send(Cart::coupon())
                 ->through($this->checkers)
                 ->thenReturn();
-        } catch (MinimumSpendException|MaximumSpendException $e) {
+        } catch (MinimumSpendException | MaximumSpendException $e) {
             Cart::removeCoupon();
         }
 
@@ -112,7 +112,7 @@ class CartItemController extends Controller
                         ApplicableBrands::class,
                     ])
                     ->thenReturn();
-            } catch (MinimumSpendException|InapplicableCouponException $e) {
+            } catch (MinimumSpendException | InapplicableCouponException $e) {
                 Cart::removeCoupon();
             }
         }
