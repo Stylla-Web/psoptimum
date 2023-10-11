@@ -3,15 +3,16 @@
 namespace Modules\Coupon\Exceptions;
 
 use Exception;
+use Illuminate\Http\JsonResponse;
 
 class InapplicableCouponException extends Exception
 {
     /**
      * Render the exception into an HTTP response.
      *
-     * @return \Illuminate\Http\Response
+     * @return JsonResponse
      */
-    public function render()
+    public function render(): JsonResponse
     {
         return response()->json([
             'message' => trans('coupon::messages.inapplicable'),

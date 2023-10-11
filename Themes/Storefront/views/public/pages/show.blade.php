@@ -20,10 +20,16 @@
 @section('content')
     <section class="custom-page-wrap">
         <div class="container">
-            <div class="custom-page-content">
-                <div class="custom-page-left">
-                    @include('public.products.index.latest_products')
+            @if($page->banner->path)
+                <div class="custom-page-header" style="background: url('{{ $page->banner->path }}')">
                 </div>
+            @endif
+            <div class="custom-page-content">
+                @if ($latestProducts->isNotEmpty())
+                    <div class="custom-page-left">
+                        @include('public.products.index.latest_products')
+                    </div>
+                @endif
                 <div class="custom-page-right">
                     {!! nl2br_save_html($page->body) !!}
                 </div>

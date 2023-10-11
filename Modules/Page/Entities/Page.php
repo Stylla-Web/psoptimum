@@ -3,13 +3,15 @@
 namespace Modules\Page\Entities;
 
 use Modules\Admin\Ui\AdminTable;
+use Modules\Media\Eloquent\HasMedia;
+use Modules\Media\Entities\File;
 use Modules\Meta\Eloquent\HasMetaData;
 use Modules\Support\Eloquent\Model;
 use Modules\Support\Eloquent\Translatable;
 
 class Page extends Model
 {
-    use Translatable, HasMetaData;
+    use Translatable, HasMedia, HasMetaData;
 
     /**
      * The relations to eager load on every query.
@@ -93,5 +95,15 @@ class Page extends Model
             $routeArray[$locale] = $slugTranslated->slug;
         }
         return $routeArray;
+    }
+
+    /**
+     * Get the brand's banner.
+     *
+     * @return \Modules\Media\Entities\File
+     */
+    public function getBannerAttribute()
+    {
+        return $this->files->where('pivot.zone', 'banner')->first() ?: new File;
     }
 }

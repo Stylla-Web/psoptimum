@@ -15,8 +15,8 @@
                         @foreach ($slider->slides as $slide)
                             @if($slide->hasDateToShow())
                                 <div class="slide">
-                                    <img src="{{ $slide->file->path }}" data-animation-in="zoomInImage"
-                                         class="slider-image animated">
+                                    <img crossorigin src="{{ $slide->file->path }}" data-animation-in="zoomInImage"
+                                         class="slider-image animated" alt="{{ $slide->file->name }}">
 
                                     <div
                                         class="slide-content {{ $slide->isAlignedLeft() ? 'align-left' : 'align-right' }}">

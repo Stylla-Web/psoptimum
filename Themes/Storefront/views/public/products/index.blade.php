@@ -90,13 +90,13 @@
                         <div class="search-result">
                             <div class="search-result-top">
                                 <div class="content-left">
-                                    <h4 v-if="queryParams.query">
+                                    <h1 v-if="queryParams.query">
                                         {{ trans('storefront::products.search_results_for') }} <span>"@{{ queryParams.query }}"</span>
-                                    </h4>
-                                    <h4 v-else-if="queryParams.brand && !brandPresentation" v-text="initialBrandName"></h4>
-                                    <h4 v-else-if="queryParams.category" v-text="categoryName"></h4>
-                                    <h4 v-else-if="queryParams.tag" v-text="initialTagName"></h4>
-                                    <h4 v-else>{{ trans('storefront::products.shop') }}</h4>
+                                    </h1>
+                                    <h1 v-else-if="queryParams.brand && !brandPresentation" v-text="initialBrandName"></h1>
+                                    <h1 v-else-if="queryParams.category" v-text="categoryName"></h1>
+                                    <h1 v-else-if="queryParams.tag" v-text="initialTagName"></h1>
+                                    <h1 v-else>{{ trans('storefront::products.shop') }}</h1>
                                 </div>
 
                                 <div class="content-right">

@@ -5,16 +5,23 @@ namespace Modules\Cart\Http\Controllers;
 use Modules\Cart\Facades\Cart;
 use Illuminate\Pipeline\Pipeline;
 use Illuminate\Routing\Controller;
-use Modules\Coupon\Checkers\MaximumSpend;
-use Modules\Coupon\Checkers\MinimumSpend;
+use Modules\Cart\Http\Middleware\CheckProductIsInStock;
 use Modules\Cart\Http\Requests\StoreCartItemRequest;
 use Modules\Coupon\Exceptions\MaximumSpendException;
 use Modules\Coupon\Exceptions\MinimumSpendException;
-use Modules\Cart\Http\Middleware\CheckProductIsInStock;
+use Modules\Coupon\Exceptions\InapplicableCouponException;
+use Modules\Coupon\Checkers\MaximumSpend;
+use Modules\Coupon\Checkers\MinimumSpend;
+use Modules\Coupon\Checkers\ExcludedBrands;
+use Modules\Coupon\Checkers\ApplicableCategories;
+use Modules\Coupon\Checkers\ApplicableProducts;
+use Modules\Coupon\Checkers\ApplicableBrands;
+use Modules\Coupon\Checkers\ExcludedCategories;
+use Modules\Coupon\Checkers\ExcludedProducts;
 
 class CartItemController extends Controller
 {
-    private $checkers = [
+    private array $checkers = [
         MinimumSpend::class,
         MaximumSpend::class,
     ];
@@ -33,11 +40,27 @@ class CartItemController extends Controller
      * Store a newly created resource in storage.
      *
      * @param \Modules\Cart\Http\Requests\StoreCartItemRequest $request
-     * @return \Illuminate\Http\Response
+     * @return \Modules\Cart\Cart
      */
-    public function store(StoreCartItemRequest $request)
+    public function store(StoreCartItemRequest $request): \Modules\Cart\Cart
     {
         Cart::store($request->product_id, $request->qty, $request->options ?? []);
+
+        if (Cart::hasCoupon()) {
+            try {
+                resolve(Pipeline::class)
+                    ->send(Cart::coupon()->entity())
+                    ->through([
+                        MaximumSpend::class,
+                        ExcludedProducts::class,
+                        ExcludedCategories::class,
+                        ExcludedBrands::class
+                    ])
+                    ->thenReturn();
+            } catch (MinimumSpendException|MaximumSpendException|InapplicableCouponException $e) {
+                Cart::removeCoupon();
+            }
+        }
 
         return Cart::instance();
     }
@@ -46,9 +69,9 @@ class CartItemController extends Controller
      * Update the specified resource in storage.
      *
      * @param mixed $cartItemId
-     * @return \Illuminate\Http\Response
+     * @return \Modules\Cart\Cart
      */
-    public function update($cartItemId)
+    public function update($cartItemId): \Modules\Cart\Cart
     {
         Cart::updateQuantity($cartItemId, request('qty'));
 
@@ -57,7 +80,7 @@ class CartItemController extends Controller
                 ->send(Cart::coupon())
                 ->through($this->checkers)
                 ->thenReturn();
-        } catch (MinimumSpendException | MaximumSpendException $e) {
+        } catch (MinimumSpendException|MaximumSpendException $e) {
             Cart::removeCoupon();
         }
 
@@ -68,19 +91,30 @@ class CartItemController extends Controller
      * Remove the specified resource from storage.
      *
      * @param string $cartItemId
-     * @return \Illuminhtate\Http\Response
+     * @return \Modules\Cart\Cart
      */
-    public function destroy($cartItemId)
+    public function destroy(string $cartItemId): \Modules\Cart\Cart
     {
         Cart::remove($cartItemId);
 
-        try {
-            resolve(Pipeline::class)
-                ->send(Cart::coupon())
-                ->through($this->checkers)
-                ->thenReturn();
-        } catch (MinimumSpendException | MaximumSpendException $e) {
+        if (Cart::items()->isEmpty()) {
             Cart::removeCoupon();
+        }
+
+        if (Cart::hasCoupon()) {
+            try {
+                resolve(Pipeline::class)
+                    ->send(Cart::coupon()->entity())
+                    ->through([
+                        MinimumSpend::class,
+                        ApplicableProducts::class,
+                        ApplicableCategories::class,
+                        ApplicableBrands::class,
+                    ])
+                    ->thenReturn();
+            } catch (MinimumSpendException|InapplicableCouponException $e) {
+                Cart::removeCoupon();
+            }
         }
 
         return Cart::instance();

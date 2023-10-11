@@ -175,6 +175,7 @@ class Product extends Model
             ->withPrice()
             ->withCount('options')
             ->with('reviews')
+            ->with('brand')
             ->addSelect([
                 'products.id',
                 'products.in_stock',
@@ -182,6 +183,7 @@ class Product extends Model
                 'products.qty',
                 'products.new_from',
                 'products.new_to',
+                'products.brand_id',
             ]);
     }
 
@@ -478,11 +480,21 @@ class Product extends Model
         }
     }
 
-    public function hasUnit() {
-        return $this->unit !== trans('product::products.form.units.none');
+    public function hasUnit(): ?bool
+    {
+        return $this->unit ?? false;
     }
 
-    public function getUnit() {
+    public function getUnitAttribute($unit)
+    {
+        if ($unit) {
+            return trans('product::products.form.units.' . $unit);
+        }
+        return null;
+    }
+
+    public function getUnit()
+    {
         if ($this->hasUnit()) {
             return "<span class='unit'>$this->unit</span>";
         }
@@ -598,7 +610,7 @@ class Product extends Model
         $productTranslations = ProductTranslation::where('slug', $slug)->firstOrFail();
         return self::with([
             'categories', 'tags', 'attributes.attribute.attributeSet',
-            'options', 'files', 'relatedProducts', 'upSellProducts',
+            'options', 'files', 'relatedProducts', 'upSellProducts', 'brand',
         ])
             ->where('id', $productTranslations->product_id)
             ->firstOrFail();
@@ -692,5 +704,10 @@ class Product extends Model
     public function searchColumns()
     {
         return ['name', 'description'];
+    }
+
+    public function getBrandLogo()
+    {
+        return $this->brand->files->first()->path;
     }
 }

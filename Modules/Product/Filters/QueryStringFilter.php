@@ -19,7 +19,7 @@ class QueryStringFilter
         'pricehightolow',
     ];
 
-    private $groupColumns = [
+    private array $groupColumns = [
         'products.id',
         'price',
         'selling_price',

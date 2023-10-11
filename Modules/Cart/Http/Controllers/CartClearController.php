@@ -14,6 +14,7 @@ class CartClearController
     public function store()
     {
         Cart::clear();
+        Cart::removeCoupon();
 
         return Cart::instance();
     }
