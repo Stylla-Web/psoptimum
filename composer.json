@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        "php": "^7.2 || ^8.0",
+        "php": "^7.4 || ^8.0",
         "ext-json": "*",
         "cache/filesystem-adapter": "^1.0",
         "cache/predis-adapter": "^1.0",
@@ -69,7 +69,9 @@
             "php": "7.4.0"
         },
         "allow-plugins": {
-            "wikimedia/composer-merge-plugin": true
+            "wikimedia/composer-merge-plugin": true,
+            "php-http/discovery": true,
+            "ocramius/package-versions": true
         }
     },
     "extra": {

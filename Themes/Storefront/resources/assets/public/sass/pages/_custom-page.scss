@@ -1,6 +1,14 @@
 .custom-page-wrap {
     margin-top: 50px;
 
+    .custom-page-header {
+        height: 200px;
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        margin: 0 0 3em;
+    }
+
     .custom-page-content {
         display: flex;
 

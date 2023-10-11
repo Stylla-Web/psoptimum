@@ -12,6 +12,7 @@ class PageTabs extends Tabs
         $this->group('page_information', trans('page::pages.tabs.group.page_information'))
             ->active()
             ->add($this->general())
+            ->add($this->images())
             ->add($this->seo());
     }
 
@@ -30,6 +31,18 @@ class PageTabs extends Tabs
         return tap(new Tab('seo', trans('page::pages.tabs.seo')), function (Tab $tab) {
             $tab->weight(10);
             $tab->view('page::admin.pages.tabs.seo');
+        });
+    }
+
+    private function images()
+    {
+        if (! auth()->user()->hasAccess('admin.media.index')) {
+            return;
+        }
+
+        return tap(new Tab('images', trans('page::pages.tabs.banner')), function (Tab $tab) {
+            $tab->weight(10);
+            $tab->view('page::admin.pages.tabs.images');
         });
     }
 }

@@ -23,7 +23,7 @@ class PageServiceProvider extends ServiceProvider
         TabManager::register('pages', PageTabs::class);
 
         $this->addAdminAssets('admin.pages.(create|edit)', [
-            'admin.page.js',
+            'admin.media.css', 'admin.media.js', 'admin.page.js',
         ]);
         $this->registerPageRoute();
     }

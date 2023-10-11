@@ -27,7 +27,7 @@ class ExcludedBrands
 
     private function inExcludedBrands($coupon, $cartItem)
     {
-        return $coupon->excludeBrands->intersect($cartItem->product->brands)->isNotEmpty();
+        return $coupon->excludeBrands->contains($cartItem->product->brands);
     }
 
 }

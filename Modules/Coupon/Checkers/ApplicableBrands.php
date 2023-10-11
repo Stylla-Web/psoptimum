@@ -17,7 +17,7 @@ class ApplicableBrands
         }
 
         $cartItems = Cart::items()->filter(function ($cartItem) use ($coupon) {
-            return $coupon->brands->intersect($cartItem->product->brands)->isNotEmpty();
+            return $coupon->brands->contains($cartItem->product->brand);
         });
 
         if ($cartItems->isEmpty()) {

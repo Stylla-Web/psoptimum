@@ -2,7 +2,9 @@
 
 namespace Modules\Cart\Http\Requests;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Validation\Rule;
+use Modules\Option\Entities\Option;
 use Modules\Product\Entities\Product;
 use Modules\Core\Http\Requests\Request;
 
@@ -13,7 +15,7 @@ class StoreCartItemRequest extends Request
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         $product = Product::with('options')
             ->select('id', 'manage_stock', 'qty')
@@ -27,23 +29,24 @@ class StoreCartItemRequest extends Request
     /**
      * Get the max qty rule for the given product.
      *
-     * @param \Modules\Product\Entities\Product $product
+     * @param Product $product
      * @return string|null
      */
-    private function maxQty($product)
+    private function maxQty(Product $product): ?string
     {
         if ($product->manage_stock) {
             return "max:{$product->qty}";
         }
+        return null;
     }
 
     /**
      * Get rules for the given options.
      *
-     * @param \Illuminate\Database\Eloquent\Collection $options
+     * @param Collection $options
      * @return array
      */
-    private function getOptionsRules($options)
+    private function getOptionsRules(Collection $options): array
     {
         return $options->flatMap(function ($option) {
             return ["options.{$option->id}" => $this->getOptionRules($option)];
@@ -53,10 +56,10 @@ class StoreCartItemRequest extends Request
     /**
      * Get rules for the given option.
      *
-     * @param \Modules\Option\Entities\Option $option
+     * @param Option $option
      * @return array
      */
-    private function getOptionRules($option)
+    private function getOptionRules(Option $option): array
     {
         $rules = [];
 
@@ -76,7 +79,7 @@ class StoreCartItemRequest extends Request
      *
      * @return array
      */
-    public function validationData()
+    public function validationData(): array
     {
         return array_merge(
             $this->all(),
@@ -91,7 +94,7 @@ class StoreCartItemRequest extends Request
      *
      * @return array
      */
-    public function messages()
+    public function messages(): array
     {
         return array_merge([
             'options.*.required' => trans('cart::validation.this_field_is_required'),

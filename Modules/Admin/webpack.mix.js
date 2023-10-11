@@ -16,11 +16,13 @@ let tinymcePlugins = [
     'link',
     'table',
     'image',
+    'imagetools',
     'media',
     'paste',
     'autosave',
     'autolink',
     'wordcount',
+    'preview',
     'code',
     'fullscreen',
 ];

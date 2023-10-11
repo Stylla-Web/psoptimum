@@ -12,8 +12,10 @@ return [
         ],
         'general' => 'General',
         'seo' => 'SEO',
+        'banner' => 'Banner'
     ],
     'form' => [
         'enable_the_page' => 'Enable the page',
+        'banner' => 'Banner',
     ],
 ];
