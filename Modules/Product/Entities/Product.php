@@ -122,15 +122,6 @@ class Product extends Model
      */
     protected static function booted()
     {
-        /**
-         * Update the selling price.
-         */
-//        static::retrieved(function ($product) {
-//            $product->withoutEvents(function () use ($product) {
-//                $product->update(['selling_price' => $product->getSellingPrice()->amount()]);
-//            });
-//        });
-
         static::saved(function ($product) {
             if (!empty(request()->all())) {
                 $product->saveRelations(request()->all());
@@ -485,18 +476,10 @@ class Product extends Model
         return $this->unit ?? false;
     }
 
-    public function getUnitAttribute($unit)
-    {
-        if ($unit) {
-            return trans('product::products.form.units.' . $unit);
-        }
-        return null;
-    }
-
-    public function getUnit()
+    public function getUnit(): ?string
     {
         if ($this->hasUnit()) {
-            return "<span class='unit'>$this->unit</span>";
+            return "<span class='unit'>".trans('product::products.form.units.' . $this->unit)."</span>";
         }
         return null;
     }
