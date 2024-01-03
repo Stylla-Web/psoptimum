@@ -24,6 +24,11 @@
             <link rel="stylesheet" href="{{ v(Theme::url('public/css/app.css')) }}">
         @endif
 
+        <link rel="stylesheet" href="{{ v(Theme::url('public/css/plugins.css')) }}">
+        <link rel="stylesheet" href="{{ v(Theme::url('public/css/responsive.css')) }}">
+        <link rel="stylesheet" href="{{ v(Theme::url('public/css/theme.css')) }}">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
         <link rel="shortcut icon" href="{{ $favicon }}" type="image/x-icon">
 
         @stack('styles')
@@ -83,18 +88,20 @@
     </head>
 
     <body
-        class="page-template {{ is_rtl() ? 'rtl' : 'ltr' }}"
+        class="template-index index-demo22 page-template {{ is_rtl() ? 'rtl' : 'ltr' }}"
         data-theme-color="#{{ $themeColor->getHex() }}"
         style="--color-primary: #{{ $themeColor->getHex() }};
             --color-primary-hover: #{{ $themeColor->darken(8) }};
             --color-primary-transparent: {{ color2rgba($themeColor, 0.8) }};
             --color-primary-transparent-lite: {{ color2rgba($themeColor, 0.3) }};"
     >
-        <div class="wrapper" id="app">
-            @include('public.layout.top_nav')
+        <!-- Page Loader -->
+{{--        <div id="pre-loader"><img src="assets/images/loader.gif" alt="Loading..." /></div>--}}
+        <!-- End Page Loader -->
+
+        <div class="page-wrapper" id="app">
             @include('public.layout.header')
-            @include('public.layout.navigation')
-            @include('public.layout.breadcrumb')
+{{--            @include('public.layout.breadcrumb')--}}
 
             @yield('content')
 
@@ -113,6 +120,12 @@
         @stack('pre-scripts')
 
         <script src="{{ v(Theme::url('public/js/app.js')) }}"></script>
+
+        {{--  Theme js --}}
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script src="{{ v(Theme::url('public/js/plugins.js')) }}"></script>
+        <script src="{{ v(Theme::url('public/js/main.js')) }}"></script>
+
         <script src="/background-check.min.js" type="text/javascript"></script>
         @stack('scripts')
 

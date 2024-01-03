@@ -21,10 +21,15 @@ ansi-styles@^3.2.1:
   dependencies:
     color-convert "^1.9.0"
 
+book-of-spells@^1.0.18:
+  version "1.0.18"
+  resolved "https://registry.yarnpkg.com/book-of-spells/-/book-of-spells-1.0.18.tgz#ae8c8ff9583bba2f2b393f48eb83de182630f167"
+  integrity sha512-eMCLaAvZ0eA8xB0VUIdmNOxfv7U/iyM9+fBHngkngEFazTra+r3Up+ZLuE95VItXfVzIqffWtR4QFi3nS8FoAw==
+
 bootstrap@^4.3.1:
-  version "4.6.1"
-  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.6.1.tgz#bc25380c2c14192374e8dec07cf01b2742d222a2"
-  integrity sha512-0dj+VgI9Ecom+rvvpNZ4MUZJz8dcX7WCX+eTID9+/8HgOkv3dsRzi8BGeZJCQU6flWQVYxwTQnEZFrmJSEO7og==
+  version "4.6.2"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.6.2.tgz#8e0cd61611728a5bf65a3a2b8d6ff6c77d5d7479"
+  integrity sha512-51Bbp/Uxr9aTuy6ca/8FbFloBUJZLHwnhTcnjIeRn2suQWsWzcuJhGjKDB5eppVte/8oCdOL3VuwxvZDUggwGQ==
 
 chalk@^2.4.1, chalk@^2.4.2:
   version "2.4.2"
@@ -183,3 +188,10 @@ vue@^2.6.11:
   version "2.6.14"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.14.tgz#e51aa5250250d569a3fbad3a8a5a687d6036e235"
   integrity sha512-x2284lgYvjOMj3Za7kqzRcUSxBboHqtgRE2zlos1qWaOye5yUmHn42LB1250NJBLRwEcdrB0JRwyPTEPhfQjiQ==
+
+youtube-background@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/youtube-background/-/youtube-background-1.1.2.tgz#e797f4d8c039153804238c156a3a35cf1b887e10"
+  integrity sha512-elCRTjCvZfLmeuNctiP0nOMov7ABfdvbFJOfp7p2T8YA/SawhNAvajZwNUcRKx4DR0u8bAmQwbf/3L7WGso6Qw==
+  dependencies:
+    book-of-spells "^1.0.18"

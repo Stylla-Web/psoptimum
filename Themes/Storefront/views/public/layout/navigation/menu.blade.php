@@ -1,14 +1,12 @@
-<li class="{{ mega_menu_classes($menu, $type) }}">
-    <a href="{{ $menu->url() }}" class="nav-link menu-item" target="{{ $menu->target() }}" data-text="{{ $menu->name() }}">
+<li class="lvl1 parent megamenu {{ mega_menu_classes($menu, $type) }}">
+    <a href="{{ $menu->url() }}">
         @if ($type === 'category_menu' && $menu->hasIcon())
             <span class="menu-item-icon">
                 <i class="{{ $menu->icon() }}"></i>
             </span>
         @endif
-
-        {{ $menu->name() }}
+        {{ $menu->name() }} <i class="an an-angle-down-l"></i>
     </a>
-
     @if ($menu->isFluid())
         @include('public.layout.navigation.fluid', ['subMenus' => $menu->subMenus()])
     @else

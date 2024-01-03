@@ -8,6 +8,7 @@ node_modules/
 /public/storage/
 /Modules/*/Assets/
 /Themes/*/assets/
+/Themes/*/vendor/
 /tags
 mix-manifest.json
 npm-debug.log

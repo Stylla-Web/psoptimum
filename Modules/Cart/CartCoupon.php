@@ -96,6 +96,10 @@ class CartCoupon implements JsonSerializable
             return $this->inApplicableCategories($cartItem);
         })->reject(function ($cartItem) {
             return $this->inExcludedCategories($cartItem);
+        })->reject(function ($cartItem) {
+            return $this->inApplicableBrands($cartItem);
+        })->filter(function ($cartItem) {
+            return $this->inExcludedBrands($cartItem);
         });
     }
 
@@ -135,22 +139,22 @@ class CartCoupon implements JsonSerializable
         return $this->coupon->excludeCategories->intersect($cartItem->product->categories)->isNotEmpty();
     }
 
-    private function inApplicableBrands($cartItem)
+    private function inApplicableBrands($cartItem): bool
     {
-        if ($this->coupon->categories->isEmpty()) {
+        if ($this->coupon->brands->isEmpty()) {
             return true;
         }
 
-        return $this->coupon->brands->intersect($cartItem->product->brands)->isNotEmpty();
+        return $this->coupon->brands->contains($cartItem->product->brand);
     }
 
-    private function inExcludedBrands($cartItem)
+    private function inExcludedBrands($cartItem): bool
     {
         if ($this->coupon->excludeBrands->isEmpty()) {
             return false;
         }
 
-        return $this->coupon->excludeBrands->intersect($cartItem->product->brands)->isNotEmpty();
+        return $this->coupon->excludeBrands->contains($cartItem->product->brand);
     }
 
     public function toArray()

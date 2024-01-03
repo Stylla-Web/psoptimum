@@ -36,6 +36,7 @@ import CheckoutCreate from './components/checkout/Create';
 import CompareIndex from './components/compare/Index';
 import MyWishlist from './components/account/wishlist/Index';
 import MyAddresses from './components/account/addresses/Index';
+import 'youtube-background';
 
 Vue.prototype.route = route;
 Vue.prototype.$notify = notify;

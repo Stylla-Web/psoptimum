@@ -70,9 +70,9 @@ if (!function_exists('mega_menu_classes')) {
         }
 
         if ($menu->isFluid()) {
-            $classes[] = 'fluid-menu';
+            $classes[] = 'megamenu';
         } elseif ($menu->hasSubMenus()) {
-            array_push($classes, 'dropdown', 'multi-level');
+            array_push($classes, 'dropdown');
         }
 
         return implode(' ', $classes);
@@ -122,10 +122,10 @@ if (!function_exists('social_links')) {
     function social_links()
     {
         return collect([
-            'lab la-facebook' => setting('storefront_facebook_link'),
-            'lab la-twitter' => setting('storefront_twitter_link'),
-            'lab la-instagram' => setting('storefront_instagram_link'),
-            'lab la-youtube' => setting('storefront_youtube_link'),
+            'an an-facebook' => setting('storefront_facebook_link'),
+            'an an-twitter' => setting('storefront_twitter_link'),
+            'an an-instagram' => setting('storefront_instagram_link'),
+            'an an-youtube' => setting('storefront_youtube_link'),
         ])->reject(function ($link) {
             return is_null($link);
         });

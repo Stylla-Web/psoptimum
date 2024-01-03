@@ -24,4 +24,10 @@ trait Searchable
 
         return new Builder($this, $scoutBuilder);
     }
+
+
+    public function searchableAs()
+    {
+        return  config('scout.prefix', 'psoptimum-') . $this->getTable() ;
+    }
 }

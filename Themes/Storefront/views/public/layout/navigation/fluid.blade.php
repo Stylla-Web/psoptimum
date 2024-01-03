@@ -1,31 +1,23 @@
-<ul
-    class="list-inline fluid-menu-wrap"
-
-    @if ($menu->hasBackgroundImage())
-        style="background-image: url({{ $menu->backgroundImage() }});"
-    @endif
->
-    <li>
-        <div class="fluid-menu-content">
+<div class="megamenu style4"
+     @if ($menu->hasBackgroundImage())
+         style="background-image: url({{ $menu->backgroundImage() }});"
+    @endif>
+    <div class="row">
+        <div class="lvl-1 col-md-3 col-lg-3">
             @foreach ($subMenus as $subMenu)
-                <div class="fluid-menu-list">
-                    <h5 class="fluid-menu-title">
-                        <a href="{{ $subMenu->url() }}" target="{{ $subMenu->target() }}">
-                            {{ $subMenu->name() }}
+            <a  href="{{ $subMenu->url() }}" target="{{ $subMenu->target() }}" class="site-nav lvl-1 menu-title">
+                {{ $subMenu->name() }}
+            </a>
+            <ul class="subLinks">
+                @foreach ($subMenu->items() as $item)
+                    <li class="lvl-2">
+                        <a href="{{ $item->url() }}" target="{{ $subMenu->target() }}" class="site-nav lvl-2">
+                            {{ $item->name() }}
                         </a>
-                    </h5>
-
-                    <ul class="list-inline fluid-sub-menu-list">
-                        @foreach ($subMenu->items() as $item)
-                            <li>
-                                <a href="{{ $item->url() }}" target="{{ $subMenu->target() }}">
-                                    {{ $item->name() }}
-                                </a>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
+                    </li>
+                @endforeach
+            </ul>
             @endforeach
         </div>
-    </li>
-</ul>
+    </div>
+</div>
