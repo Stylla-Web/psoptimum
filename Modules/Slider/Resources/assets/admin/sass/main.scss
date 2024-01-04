@@ -113,6 +113,25 @@
     .form-group {
         margin-left: 0;
         margin-right: 0;
+
+        .input-group-addon {
+            padding: 0;
+            border: 0;
+        }
+
+        [type=color] {
+            padding: 3px 9px;
+            border: 0;
+            background: #fff;
+        }
+
+        .video-controller {
+            display: flex;
+            gap: 2em;
+            .checkbox {
+                margin-top: auto;
+            }
+        }
     }
 }
 

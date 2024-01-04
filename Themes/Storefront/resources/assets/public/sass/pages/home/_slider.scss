@@ -36,6 +36,16 @@
             opacity: 1 !important;
             animation-duration: 3s;
         }
+
+        button {
+            background: transparent;
+            border: none;
+            color: #fff;
+            opacity: .7;
+            &:hover {
+                opacity: 1;
+            }
+        }
     }
 
     .slide-content {

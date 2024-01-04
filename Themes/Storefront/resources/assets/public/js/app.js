@@ -99,6 +99,12 @@ $.ajaxSetup({
 });
 
 $(function () {
+
+
+    /* Loading video as background on slide
+    /* ---------------------------------------------- */
+    const myVideoBackground = new VideoBackgrounds('[data-vbg]');
+
     $('#register-form #validate-email, #register-form #email').on('change', function (e) {
         $('#email, #validate-email').siblings('.error-message').remove();
         $('#email, #validate-email').removeClass('is-invalid');

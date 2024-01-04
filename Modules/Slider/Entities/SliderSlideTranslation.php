@@ -18,5 +18,6 @@ class SliderSlideTranslation extends TranslationModel
         'direction',
         'call_to_action_text',
         'call_to_action_url',
+        'url_video',
     ];
 }

@@ -127,6 +127,7 @@
         <script src="{{ v(Theme::url('public/js/main.js')) }}"></script>
 
         <script src="/background-check.min.js" type="text/javascript"></script>
+        <script src="https://kit.fontawesome.com/228006f19a.js" crossorigin="anonymous"></script>
         @stack('scripts')
 
         {!! setting('custom_footer_assets') !!}

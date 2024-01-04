@@ -22,7 +22,19 @@ class SliderSlide extends Model
      *
      * @var array
      */
-    protected $fillable = ['options', 'open_in_new_window', 'position', 'enable', 'start_date', 'end_date'];
+    protected $fillable = [
+        'options',
+        'open_in_new_window',
+        'position',
+        'enable',
+        'start_date',
+        'end_date',
+        'caption_1_color',
+        'caption_2_color',
+        'video_auto_play',
+        'video_btn_play',
+        'video_btn_mute',
+    ];
 
     /**
      * The attributes that should be mutated to dates.
@@ -42,7 +54,10 @@ class SliderSlide extends Model
     protected $casts = [
         'options' => 'array',
         'open_in_new_window' => 'boolean',
-        'enable' => 'boolean'
+        'enable' => 'boolean',
+        'video_auto_play' => 'boolean',
+        'video_btn_play' => 'boolean',
+        'video_btn_mute' => 'boolean',
     ];
 
     /**
@@ -57,6 +72,7 @@ class SliderSlide extends Model
         'direction',
         'call_to_action_text',
         'call_to_action_url',
+        'url_video',
     ];
 
     public function isAlignedLeft()

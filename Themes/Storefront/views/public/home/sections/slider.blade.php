@@ -15,14 +15,26 @@
                         @foreach ($slider->slides as $slide)
                             @if($slide->hasDateToShow())
                                 <div class="slide">
-                                    <img crossorigin src="{{ $slide->file->path }}" data-animation-in="zoomInImage"
-                                         class="slider-image animated" alt="{{ $slide->file->name }}">
+                                    @if($slide->url_video)
+                                        <svg width="970" height="63vh" xmlns="http://www.w3.org/2000/svg">
+                                        </svg>
+                                        <div data-vbg="{{ $slide->url_video }}"
+                                             data-vbg-play-button="{{ $slide->video_btn_play }}"
+                                             data-vbg-mute-button="{{ $slide->video_btn_mute }}"
+                                             data-vbg-always-play="{{ $slide->video_auto_play }}"
+                                             data-vbg-load-background="true">
+                                        </div>
+                                    @else
+                                        <img crossorigin src="{{ $slide->file->path }}" data-animation-in="zoomInImage"
+                                             class="slider-image animated" alt="{{ $slide->file->name }}">
 
+                                    @endif
                                     <div
                                         class="slide-content {{ $slide->isAlignedLeft() ? 'align-left' : 'align-right' }}">
                                         <div class="captions">
                                         <span
                                             class="caption caption-1"
+                                            style="color: {{ $slide->caption_1_color }}"
                                             data-animation-in="{{ data_get($slide->options, 'caption_1.effect', 'fadeInRight') }}"
                                             data-delay-in="{{ data_get($slide->options, 'caption_1.delay', '0') }}"
                                         >
@@ -31,6 +43,7 @@
 
                                             <span
                                                 class="caption caption-2"
+                                                style="color: {{ $slide->caption_2_color }}"
                                                 data-animation-in="{{ data_get($slide->options, 'caption_2.effect', 'fadeInRight') }}"
                                                 data-delay-in="{{ data_get($slide->options, 'caption_2.delay', '0.3') }}"
                                             >

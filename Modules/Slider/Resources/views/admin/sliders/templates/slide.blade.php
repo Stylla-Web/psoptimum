@@ -66,12 +66,19 @@
                                         {{ trans('slider::attributes.caption_1') }}
                                     </label>
 
-                                    <input type="text"
-                                           name="slides[<%- slideNumber %>][caption_1]"
-                                           class="form-control"
-                                           id="slides-<%- slideNumber %>-caption-1"
-                                           value="<%- slide.caption_1 %>"
-                                    >
+                                    <div class="input-group">
+                                        <input type="text"
+                                               name="slides[<%- slideNumber %>][caption_1]"
+                                               class="form-control"
+                                               id="slides-<%- slideNumber %>-caption-1"
+                                               value="<%- slide.caption_1 %>"
+                                        >
+                                        <span class="input-group-addon">
+                                            <input type="color"
+                                                   name="slides[<%- slideNumber %>][caption_1_color]"
+                                                   value="<%- slide.caption_1_color %>"/>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
 
@@ -80,14 +87,21 @@
                                     <label for="slides-<%- slideNumber %>-caption-2">
                                         {{ trans('slider::attributes.caption_2') }}
                                     </label>
-
-                                    <input type="text"
-                                           name="slides[<%- slideNumber %>][caption_2]"
-                                           class="form-control"
-                                           id="slides-<%- slideNumber %>-caption-2"
-                                           value="<%- slide.caption_2 %>"
-                                    >
+                                    <div class="input-group">
+                                        <input type="text"
+                                               name="slides[<%- slideNumber %>][caption_2]"
+                                               class="form-control"
+                                               id="slides-<%- slideNumber %>-caption-2"
+                                               value="<%- slide.caption_2 %>"
+                                        />
+                                        <span class="input-group-addon">
+                                            <input type="color"
+                                                   name="slides[<%- slideNumber %>][caption_2_color]"
+                                                   value="<%- slide.caption_2_color %>" />
+                                        </span>
+                                    </div>
                                 </div>
+
                             </div>
 
                             <div class="col-lg-4 col-md-6">
@@ -147,7 +161,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-4 col-md-12">
+                            <div class="col-lg-4 col-md-6">
                                 <div class="checkbox">
                                     <input type="hidden" name="slides[<%- slideNumber %>][open_in_new_window]"
                                            value="0">
@@ -165,6 +179,70 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row m-b-30">
+                            <div class="col-lg-8 col-md-6">
+                                <div class="form-group">
+                                    <label for="slides-<%- slideNumber %>-url-video">
+                                        {{ trans('slider::attributes.url_video') }}
+                                    </label>
+
+                                    <input type="text"
+                                           name="slides[<%- slideNumber %>][url_video]"
+                                           class="form-control"
+                                           id="slides-<%- slideNumber %>-url-video"
+                                           value="<%- slide.url_video %>"
+                                    >
+                                    <div class="video-controller">
+                                        <div class="checkbox">
+                                            <input type="hidden" name="slides[<%- slideNumber %>][video_auto_play]"
+                                                   value="0">
+
+                                            <input type="checkbox"
+                                                   name="slides[<%- slideNumber %>][video_auto_play]"
+                                                   value="1"
+                                                   id="slides-<%- slideNumber %>-video-auto-play"
+                                            <%= slide.video_auto_play ? 'checked' : '' %>
+                                            >
+
+                                            <label for="slides-<%- slideNumber %>-video-auto-play">
+                                                {{ trans('slider::attributes.video_auto_play') }}
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <input type="hidden" name="slides[<%- slideNumber %>][video_btn_play]"
+                                                   value="0">
+
+                                            <input type="checkbox"
+                                                   name="slides[<%- slideNumber %>][video_btn_play]"
+                                                   value="1"
+                                                   id="slides-<%- slideNumber %>-video-btn-play"
+                                            <%= slide.video_btn_play ? 'checked' : '' %>
+                                            >
+
+                                            <label for="slides-<%- slideNumber %>-video-btn-play">
+                                                {{ trans('slider::attributes.video_btn_play') }}
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <input type="hidden" name="slides[<%- slideNumber %>][video_btn_mute]"
+                                                   value="0">
+
+                                            <input type="checkbox"
+                                                   name="slides[<%- slideNumber %>][video_btn_mute]"
+                                                   value="1"
+                                                   id="slides-<%- slideNumber %>-video-btn-mute"
+                                            <%= slide.video_btn_play ? 'checked' : '' %>
+                                            >
+
+                                            <label for="slides-<%- slideNumber %>-video-btn-mute">
+                                                {{ trans('slider::attributes.video_btn_mute') }}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="row">
 
                             <div class="col-lg-4 col-md-6">
