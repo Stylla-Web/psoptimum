@@ -1,5 +1,9 @@
 @if (setting('reviews_enabled'))
-    <div id="reviews" class="tab-pane reviews" :class="{ active: activeTab === 'reviews' }">
+    <div id="reviews"
+         class="tab-pane fade reviews"
+         role="tabpanel"
+         aria-labelledby="reviews-tab"
+         :class="{ active: activeTab === 'reviews' }">
         <div class="row">
             <div class="col-xl-9 col-lg-18">
                 <div class="review-form-wrap">

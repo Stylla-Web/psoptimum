@@ -271,7 +271,7 @@ $(() => {
     /*      slider
     /*----------------------------------------*/
 
-    let homeSlider = $('.home-slider');
+    let homeSlider = $('.home-slideshow');
 
     if (homeSlider.length !== 0) {
 

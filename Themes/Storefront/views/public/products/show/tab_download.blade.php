@@ -1,5 +1,9 @@
 @if ($product->hasDownloadsAttribute())
-    <div id="download" class="tab-pane download" :class="{ active: activeTab === 'download' }">
+    <div id="download"
+         class="tab-pane fade download"
+         role="tabpanel"
+         aria-labelledby="download-tab"
+         :class="{ active: activeTab === 'download' }">
         {{--        <div class="download-inner">--}}
         {{--            <div class="download-row">--}}
         {{--                <div class="title">--}}

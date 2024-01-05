@@ -201,9 +201,15 @@
 
                     <div class="product-details-bottom-inner">
                         <div class="product-details-tab clearfix">
-                            <ul class="nav nav-tabs tabs">
-                                <li class="nav-item">
-                                    <a href="#description" data-toggle="tab" class="nav-link"
+                            <ul class="nav nav-tabs tabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <a href="#description"
+                                       data-bs-toggle="tab"
+                                       data-bs-target="#description"
+                                       class="nav-link"
+                                       role="tab"
+                                       aria-controls="description"
+                                       :aria-selected="{ active: activeTab === 'description' }"
                                        :class="{ active: activeTab === 'description' }">
                                         {{ trans('storefront::product.description') }}
                                     </a>
@@ -211,7 +217,13 @@
 
                                 @if ($product->hasAnyAttribute())
                                     <li class="nav-item">
-                                        <a href="#specification" data-toggle="tab" class="nav-link"
+                                        <a href="#specification"
+                                           data-bs-toggle="tab"
+                                           data-bs-target="#specification"
+                                           class="nav-link"
+                                           role="tab"
+                                           aria-controls="specification"
+                                           :aria-selected="{ active: activeTab === 'specification' }"
                                            :class="{ active: activeTab === 'specification' }">
                                             {{ trans('storefront::product.specification') }}
                                         </a>
@@ -221,7 +233,13 @@
 
                                 @if ($product->hasDownloadsAttribute())
                                     <li class="nav-item">
-                                        <a href="#download" data-toggle="tab" class="nav-link"
+                                        <a href="#download"
+                                           data-bs-toggle="tab"
+                                           data-bs-target="#download"
+                                           class="nav-link"
+                                           role="tab"
+                                           aria-controls="download"
+                                           :aria-selected="{ active: activeTab === 'download' }"
                                            :class="{ active: activeTab === 'download' }">
                                             {{ trans('product::products.tabs.downloads') }}
                                         </a>
@@ -230,7 +248,13 @@
 
                                 @if (setting('reviews_enabled'))
                                     <li class="nav-item">
-                                        <a href="#reviews" data-toggle="tab" class="nav-link"
+                                        <a href="#reviews"
+                                           data-bs-toggle="tab"
+                                           data-bs-target="#reviews"
+                                           class="nav-link"
+                                           role="tab"
+                                           aria-controls="reviews"
+                                           :aria-selected="{ active: activeTab === 'reviews' }"
                                            :class="{ active: activeTab === 'reviews' }" v-cloak>
                                             @{{ $trans('storefront::product.reviews', { count: totalReviews }) }}
                                         </a>

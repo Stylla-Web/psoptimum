@@ -1,15 +1,15 @@
 @if ($subMenus->isNotEmpty())
-    <ul class="list-inline sub-menu">
+{{--    <ul class="{{ $subMenu->hasItems() ? 'dropdown' : '' }}">--}}
+    <ul class="dropdown">
         @foreach ($subMenus as $subMenu)
-            <li class="{{ $subMenu->hasItems() ? 'dropdown' : '' }}">
-                <a href="{{ $subMenu->url() }}" target="{{ $subMenu->target() }}">
-                    {{ $subMenu->name() }}
-                </a>
-
-                @if ($subMenu->hasItems())
-                    @include('public.layout.navigation.dropdown', ['subMenus' => $subMenu->items()])
-                @endif
-            </li>
+        <li>
+            <a href="{{ $subMenu->url() }}" target="{{ $subMenu->target() }}" class="site-nav">
+                {{ $subMenu->name() }} <i class="an an-angle-right-l"></i>
+            </a>
+            @if ($subMenu->hasItems())
+                @include('public.layout.navigation.dropdown', ['subMenus' => $subMenu->items()])
+            @endif
+        </li>
         @endforeach
     </ul>
 @endif

@@ -1,5 +1,9 @@
 @if ($product->hasAnyAttribute())
-    <div id="specification" class="tab-pane specification" :class="{ active: activeTab === 'specification' }">
+    <div id="specification"
+         class="tab-pane fade specification"
+         role="tabpanel"
+         aria-labelledby="specification-tab"
+         :class="{ active: activeTab === 'specification' }">
         <div class="specification-inner">
             @foreach ($product->attributeSets as $attributeSet => $attributes)
                 <div class="specification-row">

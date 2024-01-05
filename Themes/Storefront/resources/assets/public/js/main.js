@@ -264,35 +264,36 @@
     /*--------------------------------------
      8. Promotion / Notification Cookie Bar
      -------------------------------------- */
-    function cookie_promo() {
-        if ($.cookie('promotion') != 'true') {
-            $(".notification-bar").show();
-        }
-        $(".close-announcement").on('click', function () {
-            $(".notification-bar").slideUp();
-            $.cookie('promotion', 'true', {expires: 1});
-        });
-    }
-    cookie_promo();
+    // @TODO Update this part.
+    // function cookie_promo() {
+    //     if ($.cookie('promotion') !== 'true') {
+    //         $(".notification-bar").show();
+    //     }
+    //     $(".close-announcement").on('click', function () {
+    //         $(".notification-bar").slideUp();
+    //         $.cookie('promotion', 'true', {expires: 1});
+    //     });
+    // }
+    // cookie_promo();
 
     /*-----------------------------------------
      9. Slick Slider
      -----------------------------------------*/
     /* 9.1 Homepage Slideshow */
-    function home_slider() {
-        $('.home-slideshow').slick({
-            dots: true,
-            infinite: true,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            fade: true,
-            arrows: true,
-            autoplay: true,
-            autoplaySpeed: 8000,
-            lazyLoad: 'ondemand'
-        });
-    }
-    home_slider();
+    // function home_slider() {
+    //     $('.home-slideshow').slick({
+    //         dots: true,
+    //         infinite: true,
+    //         slidesToShow: 1,
+    //         slidesToScroll: 1,
+    //         fade: true,
+    //         arrows: true,
+    //         autoplay: true,
+    //         autoplaySpeed: 8000,
+    //         lazyLoad: 'ondemand'
+    //     });
+    // }
+    // home_slider();
 
     // Full Size Banner on the Any Screen
     $(window).resize(function () {
@@ -934,20 +935,20 @@
     /*-----------------------------------
      11. Price Range Slider
      -------------------------------------*/
-    function price_slider() {
-        $("#slider-range").slider({
-            range: true,
-            min: 12,
-            max: 200,
-            values: [0, 100],
-            slide: function (event, ui) {
-                $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
-            }
-        });
-        $("#amount").val("$" + $("#slider-range").slider("values", 0) +
-                " - $" + $("#slider-range").slider("values", 1));
-    }
-    price_slider();
+    // function price_slider() {
+    //     $("#slider-range").slider({
+    //         range: true,
+    //         min: 12,
+    //         max: 200,
+    //         values: [0, 100],
+    //         slide: function (event, ui) {
+    //             $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+    //         }
+    //     });
+    //     $("#amount").val("$" + $("#slider-range").slider("values", 0) +
+    //             " - $" + $("#slider-range").slider("values", 1));
+    // }
+    // price_slider();
 
     /*-----------------------------------
      12. Color Swacthes
@@ -1123,21 +1124,21 @@
         });
     }
 
-    /*--------------------------
-     19. Product Zoom
-     ---------------------------- */
-    function product_zoom() {
-        $(".zoompro").elevateZoom({
-            gallery: "gallery",
-            galleryActiveClass: "active",
-            zoomWindowWidth: 300,
-            zoomWindowHeight: 100,
-            scrollZoom: false,
-            zoomType: "inner",
-            cursor: "crosshair"
-        });
-    }
-    product_zoom();
+    // /*--------------------------
+    //  19. Product Zoom
+    //  ---------------------------- */
+    // function product_zoom() {
+    //     $(".zoompro").elevateZoom({
+    //         gallery: "gallery",
+    //         galleryActiveClass: "active",
+    //         zoomWindowWidth: 300,
+    //         zoomWindowHeight: 100,
+    //         scrollZoom: false,
+    //         zoomType: "inner",
+    //         cursor: "crosshair"
+    //     });
+    // }
+    // product_zoom();
 
     /*----------------------------
      20. Product Detail Slider
@@ -1250,91 +1251,92 @@
     }
     sticky_cart();
 
-    /*--------------------------
-     22. Product Page Popup
-     ---------------------------- */
-    function video_popup() {
-        if ($('.popup-video').length) {
-            $('.popup-video').magnificPopup({
-                type: 'iframe', mainClass: 'mfp-zoom-in', removalDelay: 400, preloader: false, fixedContentPos: false
-            });
-        }
-    }
-    video_popup();
+    //
+    // /*--------------------------
+    //  22. Product Page Popup
+    //  ---------------------------- */
+    // function video_popup() {
+    //     if ($('.popup-video').length) {
+    //         $('.popup-video').magnificPopup({
+    //             type: 'iframe', mainClass: 'mfp-zoom-in', removalDelay: 400, preloader: false, fixedContentPos: false
+    //         });
+    //     }
+    // }
+    // video_popup();
 
     /* Size Popup */
-    function size_popup() {
-        $('.sizelink').magnificPopup({
-            type: 'inline',
-            midClick: true,
-            mainClass: 'mfp-zoom-in',
-            removalDelay: 400
-        });
-    }
-    size_popup();
+    // function size_popup() {
+    //     $('.sizelink').magnificPopup({
+    //         type: 'inline',
+    //         midClick: true,
+    //         mainClass: 'mfp-zoom-in',
+    //         removalDelay: 400
+    //     });
+    // }
+    // size_popup();
 
     /*ShippingInfo Popup */
-    function shippingInfo_popup() {
-        $('.shippingInfo').magnificPopup({
-            type: 'inline',
-            midClick: true,
-            mainClass: 'mfp-zoom-in',
-            removalDelay: 400
-        });
-    }
-    shippingInfo_popup();
+    // function shippingInfo_popup() {
+    //     $('.shippingInfo').magnificPopup({
+    //         type: 'inline',
+    //         midClick: true,
+    //         mainClass: 'mfp-zoom-in',
+    //         removalDelay: 400
+    //     });
+    // }
+    // shippingInfo_popup();
 
     /* Inquiry Popup */
-    function inquiry_popup() {
-        $('.emaillink').magnificPopup({
-            type: 'inline',
-            midClick: true,
-            mainClass: 'mfp-zoom-in',
-            removalDelay: 400
-        });
-    }
-    inquiry_popup();
+    // function inquiry_popup() {
+    //     $('.emaillink').magnificPopup({
+    //         type: 'inline',
+    //         midClick: true,
+    //         mainClass: 'mfp-zoom-in',
+    //         removalDelay: 400
+    //     });
+    // }
+    // inquiry_popup();
 
     /* Addtocart Popup */
-    function addtocart_popup() {
-        $('.pro-addtocart-popup').magnificPopup({
-            type: 'inline',
-            midClick: true,
-            mainClass: 'mfp-zoom-in',
-            removalDelay: 400
-        });
-    }
-    addtocart_popup();
+    // function addtocart_popup() {
+    //     $('.pro-addtocart-popup').magnificPopup({
+    //         type: 'inline',
+    //         midClick: true,
+    //         mainClass: 'mfp-zoom-in',
+    //         removalDelay: 400
+    //     });
+    // }
+    // addtocart_popup();
 
     /* Portfolio Popup */
-    function portfolio_popup() {
-        $('.portfolio-popup').magnificPopup({
-            type: 'inline',
-            midClick: true,
-            mainClass: 'mfp-zoom-in',
-            removalDelay: 400
-        });
-    }
-    portfolio_popup();
+    // function portfolio_popup() {
+    //     $('.portfolio-popup').magnificPopup({
+    //         type: 'inline',
+    //         midClick: true,
+    //         mainClass: 'mfp-zoom-in',
+    //         removalDelay: 400
+    //     });
+    // }
+    // portfolio_popup();
 
     /*----------------------------------
      23. Quantity Plus Minus
      ------------------------------------*/
-    function qnt_incre() {
-        $(".qtyBtn").on("click", function () {
-            var qtyField = $(this).parent(".qtyField"),
-                    oldValue = $(qtyField).find(".qty").val(),
-                    newVal = 1;
-
-            if ($(this).is(".plus")) {
-                newVal = parseInt(oldValue) + 1;
-            } else if (oldValue > 1) {
-                newVal = parseInt(oldValue) - 1;
-            }
-            $(qtyField).find(".qty").val(newVal);
-        });
-    }
-    qnt_incre();
+    // function qnt_incre() {
+    //     $(".qtyBtn").on("click", function () {
+    //         var qtyField = $(this).parent(".qtyField"),
+    //                 oldValue = $(qtyField).find(".qty").val(),
+    //                 newVal = 1;
+    //
+    //         if ($(this).is(".plus")) {
+    //             newVal = parseInt(oldValue) + 1;
+    //         } else if (oldValue > 1) {
+    //             newVal = parseInt(oldValue) - 1;
+    //         }
+    //         $(qtyField).find(".qty").val(newVal);
+    //     });
+    // }
+    // qnt_incre();
 
     /*----------------------------------
      24. Visitor Fake Message
@@ -1569,15 +1571,15 @@
             });
         });
 
-        $('.quick-view-popup').magnificPopup({
-            items: {
-                src: '#quickView-modal'
-            },
-            type: 'inline',
-            midClick: true,
-            removalDelay: 500,
-            mainClass: 'mfp-zoom-in'
-        });
+        // $('.quick-view-popup').magnificPopup({
+        //     items: {
+        //         src: '#quickView-modal'
+        //     },
+        //     type: 'inline',
+        //     midClick: true,
+        //     removalDelay: 500,
+        //     mainClass: 'mfp-zoom-in'
+        // });
     }
     quick_view_popup();
 

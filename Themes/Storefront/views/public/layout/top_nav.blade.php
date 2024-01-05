@@ -9,7 +9,6 @@
                             <li class="list-inline-item">
                                 <a href="{{ $socialLink }}" target="_blank">
                                     <i class="{{ $icon }}" aria-hidden="true"></i>
-                                    <span class="tooltip-label">Facebook</span>
                                 </a>
                             </li>
                         @endforeach
@@ -22,12 +21,13 @@
             <div class="col-4 col-sm-4 col-md-4 col-lg-4 d-none d-lg-block d-md-block text-right">
                 <div class="phone-no m-0 px-2 d-inline-block">
                     <a href="tel:{{ setting('store_phone') }}" class="d-flex align-items-center">
-                        <i class="an an-phone-l me-2"></i> <span class="pno">{{ format_phone_number(setting('store_phone')) }}</span>
+                        <i class="bi bi-telephone me-2"></i>
+                        <span class="pno">{{ format_phone_number(setting('store_phone')) }}</span>
                     </a>
                 </div>
                 <div class="m-0 d-inline email-id d-none d-xl-inline-block">
                     <a href="mailto:{{ setting('store_email') }}" class="d-flex align-items-center">
-                        <i class="an an-envelope-l me-2"></i> <span class="eno">{{ setting('store_email') }}</span>
+                        <i class="bi bi-envelope me-2"></i> <span class="eno">{{ setting('store_email') }}</span>
                     </a>
                 </div>
             </div>

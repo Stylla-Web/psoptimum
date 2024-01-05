@@ -24,10 +24,9 @@
             <link rel="stylesheet" href="{{ v(Theme::url('public/css/app.css')) }}">
         @endif
 
-        <link rel="stylesheet" href="{{ v(Theme::url('public/css/plugins.css')) }}">
-        <link rel="stylesheet" href="{{ v(Theme::url('public/css/responsive.css')) }}">
         <link rel="stylesheet" href="{{ v(Theme::url('public/css/theme.css')) }}">
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+        <link rel="stylesheet" href="{{ v(Theme::url('public/css/responsive.css')) }}">
 
         <link rel="shortcut icon" href="{{ $favicon }}" type="image/x-icon">
 
@@ -88,7 +87,7 @@
     </head>
 
     <body
-        class="template-index index-demo22 page-template {{ is_rtl() ? 'rtl' : 'ltr' }}"
+        class="template-index page-template {{ is_rtl() ? 'rtl' : 'ltr' }}"
         data-theme-color="#{{ $themeColor->getHex() }}"
         style="--color-primary: #{{ $themeColor->getHex() }};
             --color-primary-hover: #{{ $themeColor->darken(8) }};
@@ -123,7 +122,7 @@
 
         {{--  Theme js --}}
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-        <script src="{{ v(Theme::url('public/js/plugins.js')) }}"></script>
+{{--        <script src="{{ v(Theme::url('public/js/plugins.js')) }}"></script>--}}
         <script src="{{ v(Theme::url('public/js/main.js')) }}"></script>
 
         <script src="/background-check.min.js" type="text/javascript"></script>

@@ -65,9 +65,9 @@ if (!function_exists('mega_menu_classes')) {
     {
         $classes = [];
 
-        if ($type === 'primary_menu') {
-            $classes[] = 'nav-item';
-        }
+//        if ($type === 'primary_menu') {
+//            $classes[] = 'nav-item';
+//        }
 
         if ($menu->isFluid()) {
             $classes[] = 'megamenu';
@@ -122,10 +122,10 @@ if (!function_exists('social_links')) {
     function social_links()
     {
         return collect([
-            'an an-facebook' => setting('storefront_facebook_link'),
-            'an an-twitter' => setting('storefront_twitter_link'),
-            'an an-instagram' => setting('storefront_instagram_link'),
-            'an an-youtube' => setting('storefront_youtube_link'),
+            'bi bi-facebook' => setting('storefront_facebook_link'),
+            'bi bi-twitter' => setting('storefront_twitter_link'),
+            'bi bi-instagram' => setting('storefront_instagram_link'),
+            'bi bi-youtube' => setting('storefront_youtube_link'),
         ])->reject(function ($link) {
             return is_null($link);
         });

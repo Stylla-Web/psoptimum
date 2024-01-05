@@ -1,28 +1,42 @@
-<div class="category-nav {{ request()->routeIs('home') ? 'show' : '' }}">
-    <div class="category-nav-inner">
-        {{ trans('storefront::layout.all_categories_header') }}
-        <i class="las la-bars"></i>
-    </div>
-
-    @if ($categoryMenu->menus()->isNotEmpty())
-        <div class="category-dropdown-wrap">
-            <div class="category-dropdown">
-                <ul class="list-inline mega-menu vertical-megamenu">
-                    @foreach ($categoryMenu->menus() as $menu)
-                        @include('public.layout.navigation.menu', ['type' => 'category_menu'])
-                    @endforeach
-
-                    <li class="more-categories">
-                        <a href="{{ route('categories.index') }}" class="menu-item">
-                            <span class="menu-item-icon">
-                                <i class="las la-plus-square"></i>
-                            </span>
-
-                            {{ trans('storefront::layout.all_categories') }}
+@if ($categoryMenu->menus()->isNotEmpty())
+    <li class="lvl1 parent megamenu">
+        <a href="{{ route('categories.index') }}">
+            {{ trans('storefront::layout.all_categories') }}
+            @if ($categoryMenu->menus()->count())
+                <span class="bi bi-chevron-down"></span>
+            @endif
+        </a>
+        <div class="megamenu style2">
+            <div class="row">
+                @foreach ($categoryMenu->menus() as $menu)
+                    <div class="d-flex flex-column justify-content-between lvl-1 col-md-3 col-lg-3">
+                        <a href="{{ $menu->url() }}" target="{{ $menu->target() }}" class="site-nav lvl-1 menu-title">
+                            {{ $menu->name() }}
                         </a>
-                    </li>
-                </ul>
+                        <ul class="subLinks flex-fill">
+                            @foreach ($menu->subMenus() as $subMenu)
+                                <li class="lvl-2">
+                                    <a href="{{ $subMenu->url() }}"
+                                       target="{{ $subMenu->target() }}"
+                                       class="site-nav lvl-2">
+                                        {{ $subMenu->name() }}
+                                    </a>
+                                    @foreach($subMenu->items() as $item)
+                                        $subMenu -> {{ $item->name() }}<br/>
+                                    @endforeach
+                                </li>
+                            @endforeach
+                        </ul>
+
+                        @if ($menu->hasBackgroundImage())
+                            <a class="mt-4" href="{{ $menu->url() }}">
+                                <img src="{{ $menu->backgroundImage() }}"
+                                     data-src="{{ $menu->backgroundImage() }}" alt="image"/>
+                            </a>
+                        @endif
+                    </div>
+                @endforeach
             </div>
         </div>
-    @endif
-</div>
+    </li>
+@endif
