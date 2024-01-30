@@ -1726,6 +1726,9 @@ label[for] {
 
         li {
             display: block;
+            &.logout {
+                border-top: 1px solid $color-green-lite;
+            }
         }
     }
 

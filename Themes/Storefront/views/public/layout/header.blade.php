@@ -130,6 +130,13 @@
                                     {{ trans('storefront::layout.compare') }}
                                 </a>
                             </li>
+                            @auth
+                                <li class="logout">
+                                    <a href="{{ route('logout') }}">
+                                        {{ trans('storefront::account.pages.logout') }}
+                                    </a>
+                                </li>
+                            @endif
                         </ul>
                     </div>
                     <!--End Setting Dropdown-->
@@ -229,29 +236,29 @@
         @endif
         @include('public.layout.sidebar_menu.menu', ['menu' => $primaryMenu])
         <li class="acLink"></li>
-            @auth
-                <li class="lvl1 bottom-link">
-                    <a href="{{ route('account.dashboard.index') }}">
-                        {{ trans('storefront::layout.account') }}
-                    </a>
-                </li>
-                <li class="lvl1 bottom-link">
-                    <a href="{{ route('account.orders.index') }}">
-                        {{ trans('storefront::layout.order') }}
-                    </a>
-                </li>
-            @else
-                <li class="lvl1 bottom-link">
-                    <a href="{{ route('login') }}">
-                        {{ trans('storefront::layout.login') }}
-                    </a>
-                </li>
-                <li class="lvl1 bottom-link">
-                    <a href="{{ route('register') }}">
-                        {{ trans('user::auth.create_account') }}
-                    </a>
-                </li>
-            @endauth
+        @auth
+            <li class="lvl1 bottom-link">
+                <a href="{{ route('account.dashboard.index') }}">
+                    {{ trans('storefront::layout.account') }}
+                </a>
+            </li>
+            <li class="lvl1 bottom-link">
+                <a href="{{ route('account.orders.index') }}">
+                    {{ trans('storefront::layout.order') }}
+                </a>
+            </li>
+        @else
+            <li class="lvl1 bottom-link">
+                <a href="{{ route('login') }}">
+                    {{ trans('storefront::layout.login') }}
+                </a>
+            </li>
+            <li class="lvl1 bottom-link">
+                <a href="{{ route('register') }}">
+                    {{ trans('user::auth.create_account') }}
+                </a>
+            </li>
+        @endauth
         <li class="lvl1 bottom-link">
             <a href="{{ route('account.wishlist.index') }}">
                 {{ trans('storefront::layout.wishlist') }}
