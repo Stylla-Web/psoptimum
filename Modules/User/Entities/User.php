@@ -2,18 +2,18 @@
 
 namespace Modules\User\Entities;
 
-use Modules\Order\Entities\Order;
-use Modules\User\Admin\UserTable;
-use Modules\Review\Entities\Review;
-use Illuminate\Auth\Authenticatable;
-use Modules\Address\Entities\Address;
-use Modules\Product\Entities\Product;
-use Modules\User\Repositories\Permission;
-use Cartalyst\Sentinel\Users\EloquentUser;
-use Modules\Address\Entities\DefaultAddress;
 use Cartalyst\Sentinel\Laravel\Facades\Activation;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Cartalyst\Sentinel\Users\EloquentUser;
+use Illuminate\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Modules\Address\Entities\Address;
+use Modules\Address\Entities\DefaultAddress;
+use Modules\Order\Entities\Order;
+use Modules\Product\Entities\Product;
+use Modules\Review\Entities\Review;
+use Modules\User\Admin\UserTable;
+use Modules\User\Repositories\Permission;
 
 class User extends EloquentUser implements AuthenticatableContract
 {
@@ -31,6 +31,8 @@ class User extends EloquentUser implements AuthenticatableContract
         'last_name',
         'first_name',
         'permissions',
+        'global_marge',
+        'increase_or_decrease',
     ];
 
     /**
@@ -77,6 +79,25 @@ class User extends EloquentUser implements AuthenticatableContract
         }
 
         return $this->hasRoleId(setting('customer_role'));
+    }
+
+
+    /**
+     * Determine if the user is a reseller.
+     *
+     * @return bool
+     */
+    public function isReseller()
+    {
+        return $this->hasRoleName('reseller');
+    }
+
+    public function getMargeInterest() {
+        return $this->global_marge;
+    }
+
+    public function isMargeIncrease() {
+        return $this->increase_or_decrease === '1';
     }
 
     /**

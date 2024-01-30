@@ -3,6 +3,7 @@
 namespace Modules\Product\Entities;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Modules\Admin\Traits\CanSaveQuietly;
 use Modules\Attribute\Entities\ProductAttribute;
 use Modules\Brand\Entities\Brand;
 use Modules\Category\Entities\Category;
@@ -26,7 +27,8 @@ class Product extends Model
         Searchable,
         HasMedia,
         HasMetaData,
-        SoftDeletes;
+        SoftDeletes,
+        CanSaveQuietly;
 
     /**
      * The relations to eager load on every query.
@@ -265,9 +267,29 @@ class Product extends Model
         return $filter->apply($this);
     }
 
+    private function finalPrice($price)
+    {
+        if (auth()->user() !== null && !auth()->user()->isCustomer()) {
+
+            $marge = (auth()->user()->getMargeInterest() / 100) * $price;
+
+            if (auth()->user()->isMargeIncrease()) {
+                return $price + $marge;
+            }
+
+            return $price - $marge;
+        }
+
+        return $price;
+    }
+
     public function getPriceAttribute($price)
     {
-        return Money::inDefaultCurrency($price);
+        if($this->hasSpecialPrice()) {
+            return Money::inDefaultCurrency($price);
+        }
+
+        return Money::inDefaultCurrency($this->finalPrice($price));
     }
 
     public function getSpecialPriceAttribute($specialPrice)
@@ -279,9 +301,7 @@ class Product extends Model
 
     public function getSellingPriceAttribute($sellingPrice)
     {
-        if (FlashSale::contains($this)) {
-            $sellingPrice = FlashSale::pivot($this)->price->amount();
-        }
+        $sellingPrice = FlashSale::contains($this) ? FlashSale::pivot($this)->price->amount() : $this->finalPrice($sellingPrice);
 
         return Money::inDefaultCurrency($sellingPrice);
     }
