@@ -24,9 +24,12 @@ return [
     'you_might_also_like' => 'You might also like',
     'description' => 'Description',
     'downloadFiles' => 'Download',
+    'here_you_will_find_full_user_manual' => 'Here you will find the full user manual and other relevant documents specific to the product you are viewing.Here you will find the full user manual and other relevant documents specific to the product you are viewing.',
     'specification' => 'Specification',
     'reviews' => 'Reviews (:count)',
+    'ask_a_question' => 'Ask a question',
     'add_a_review' => 'Add a review',
+    'customer_review' => 'Customer Review',
     'review_form' => [
         'your_rating' => 'Your Rating',
         'name' => 'Name',

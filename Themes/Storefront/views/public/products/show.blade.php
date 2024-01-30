@@ -194,7 +194,7 @@
                                         @if($product->isOutOfStock())
                                             <button class="btn rounded product-form__cart-submit out-of-stock-btn"
                                                     disabled="disabled">
-                                                Sold out
+                                                {{ trans('storefront::product.out_of_stock') }}
                                             </button>
                                         @else
                                             <button type="submit" name="add"
@@ -214,13 +214,14 @@
                                     </button>
                                     <button class="btn add-to-wishlist" :class="{ 'added': inCompareList }" @click="syncCompareList">
                                         <i class="icon an an-sync-ar me-1" aria-hidden="true"></i>
-                                        <span>Add to Compare</span>
+                                        <span>{{ trans('storefront::product.compare') }}</span>
                                     </button>
                                     <a class="btn shippingInfo" href="#ShippingInfo">
                                         <i class="icon an an-paper-l-plane me-1"></i> Delivery &amp; Returns
                                     </a>
                                     <a class="btn emaillink me-0" href="{{ route('contact.create') }}">
-                                        <i class="icon an an-question-cil me-1"></i> Ask A Question
+                                        <i class="icon an an-question-cil me-1"></i>
+                                        {{ trans('storefront::product.ask_a_question') }}
                                     </a>
                                 </p>
                                 <!-- End Product Info link -->
@@ -275,7 +276,7 @@
                                          aria-labelledby="headingTwo" data-bs-parent="#productAccordian">
                                         <div class="accordion-body pb-3 size-chart">
                                             <p class="text-center">
-                                                Ici vous trouverez le manuel d'utilisation complet et d'autres documents pertinents spécifiques au produit que vous consultez.
+                                                {{ trans('storefront::product.here_you_will_find_full_user_manual') }}
                                             </p>
 
                                             @include('public.products.show.tab_download')
@@ -289,7 +290,8 @@
                                     <h2 class="accordion-header" id="headingFour">
                                         <button class="accordion-button collapsed" type="button"
                                                 data-bs-toggle="collapse" data-bs-target="#collapseFour"
-                                                aria-expanded="false" aria-controls="collapseFour">Reviews
+                                                aria-expanded="false" aria-controls="collapseFour">
+                                            @{{ $trans('storefront::product.reviews', { count: totalReviews }) }}
                                         </button>
                                     </h2>
                                     <div id="collapseFour" class="accordion-collapse collapse"

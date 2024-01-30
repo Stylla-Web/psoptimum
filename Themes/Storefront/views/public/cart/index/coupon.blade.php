@@ -1,7 +1,7 @@
 <h5>Discount Codes</h5>
 <form @submit.prevent="applyCoupon">
     <div class="form-group">
-        <label for="address_zip">Enter your coupon code if you have one.</label>
+        <label for="address_zip">{{ trans('storefront::cart.enter_coupon_code') }}</label>
         <input type="text"
                v-model="couponCode"
                placeholder="{{ trans('storefront::cart.enter_coupon_code') }}"

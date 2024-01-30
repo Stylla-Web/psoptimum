@@ -3,11 +3,11 @@
 namespace Modules\Review\Entities;
 
 use Illuminate\Http\Request;
-use Modules\User\Entities\User;
 use Illuminate\Support\Facades\DB;
-use Modules\Support\Eloquent\Model;
 use Modules\Product\Entities\Product;
 use Modules\Review\Admin\ReviewTable;
+use Modules\Support\Eloquent\Model;
+use Modules\User\Entities\User;
 
 class Review extends Model
 {
@@ -65,7 +65,7 @@ class Review extends Model
 
     public function getCreatedAtFormattedAttribute()
     {
-        return $this->created_at->toFormattedDateString();
+        return $this->created_at->translatedFormat(trans('storefront::layout.format_date_locale'));
     }
 
     public function status()

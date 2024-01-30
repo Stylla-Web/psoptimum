@@ -92,7 +92,7 @@
 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
     <div class="spr-reviews">
         <h4 class="spr-form-title text-uppercase mb-3">
-            Customer Reviews
+            {{ trans('storefront::product.customer_review') }}
         </h4>
         <div class="review-inner" :class="{ loading: fetchingReviews }">
             <div class="empty-message" v-if="emptyReviews">
@@ -118,7 +118,7 @@
                     <h5 class="spr-review-header-title mt-1" v-text="review.reviewer_name">
                     </h5>
                     <span class="spr-review-header-byline" v-if="review.is_approved">
-                            On <strong v-text="review.created_at_formatted"></strong>
+                            <strong v-text="review.created_at_formatted"></strong>
                         </span>
                     <span class="spr-review-header-byline" v-else>
                             {{ trans("review::messages.submitted_for_approval") }}

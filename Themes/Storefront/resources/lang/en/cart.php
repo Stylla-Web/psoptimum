@@ -12,6 +12,7 @@ return [
         'quantity' => 'QTY',
     ],
     'table' => [
+        'remove' => 'REMOVE',
         'image' => 'IMAGE',
         'product_name' => 'PRODUCT NAME',
         'unit_price' => 'UNIT PRICE',
@@ -38,4 +39,5 @@ return [
     'proceed_to_checkout' => 'PROCEED TO CHECKOUT',
     'your_cart_is_empty' => 'Your cart is empty',
     'looks_like_you_haven\'t_made_any_choice_yet' => 'Looks like you haven\'t made any choice yet.',
+    'free_shipping_eligible' => '<b>FREE SHIPPING</b> ELIGIBLE'
 ];

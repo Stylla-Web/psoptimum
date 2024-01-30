@@ -45,4 +45,5 @@ return [
     'tags' => 'Tags',
     'select_language' => 'Select language',
     'spent_for_free_shipping' => 'SPENT <b>:amount</b> FOR FREE SHIPPING',
+    'format_date_locale' => 'M d Y',
 ];

@@ -76,7 +76,7 @@
                title="Remove"
                class="removeMb d-md-none d-inline-block text-decoration-underline mt-2 me-3"
             >
-                Remove
+                {{ trans('storefront::cart.table.remove') }}
             </a>
         </td>
         <td class="cart-price cart-flex-item text-center small--hide">
