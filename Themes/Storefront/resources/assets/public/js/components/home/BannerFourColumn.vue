@@ -22,7 +22,8 @@
                                 </div>
                                 <a :href="data.banner_1.call_to_action_url"
                                    :target="data.banner_1.open_in_new_window ? '_blank' : '_self'"
-                                   class="btn mt20">Shop Now</a>
+                                   class="btn mt20" v-text="$trans('storefront::layout.shop')">
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -46,7 +47,8 @@
                                 </div>
                                 <a :href="data.banner_2.call_to_action_url"
                                    :target="data.banner_2.open_in_new_window ? '_blank' : '_self'"
-                                   class="btn mt20">Shop Now</a>
+                                   class="btn mt20" v-text="$trans('storefront::layout.shop')">
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -70,7 +72,8 @@
                                 </div>
                                 <a :href="data.banner_3.call_to_action_url"
                                    :target="data.banner_3.open_in_new_window ? '_blank' : '_self'"
-                                   class="btn mt20">Shop Now</a>
+                                   class="btn mt20" v-text="$trans('storefront::layout.shop')">
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -94,7 +97,8 @@
                                 </div>
                                 <a :href="data.banner_4.call_to_action_url"
                                    :target="data.banner_4.open_in_new_window ? '_blank' : '_self'"
-                                   class="btn mt20">Shop Now</a>
+                                   class="btn mt20" v-text="$trans('storefront::layout.shop')">
+                                </a>
                             </div>
                         </div>
                     </div>

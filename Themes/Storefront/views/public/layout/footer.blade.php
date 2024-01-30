@@ -43,13 +43,26 @@
                         </p>
                     @endif
                     @if (setting('store_email') && ! setting('store_email_hide'))
-                        <p class="d-flex mb-0">
+                        <p class="d-flex mb-2">
                             <i class="bi bi-envelope"></i>
                             <a href="mailto:{{ setting('store_email') }}">{{ setting('store_email') }}</a>
                         </p>
                     @endif
+
+                    @if (social_links()->isNotEmpty())
+                        <ul class="list-inline social-icons pt-1">
+                            @foreach (social_links() as $icon => $socialLink)
+                                <li class="list-inline-item">
+                                    <a href="{{ $socialLink }}" data-bs-toggle="tooltip" data-bs-placement="top"
+                                       title="Facebook" target="_blank">
+                                        <i class="{{ $icon }}" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    @endif
                     @if ($acceptedPaymentMethodsImage->exists)
-                    <img class="mt-4" src="{{ $acceptedPaymentMethodsImage->path }}" alt="Paypal Visa Payments"/>
+                        <img class="mt-4" src="{{ $acceptedPaymentMethodsImage->path }}" alt="Paypal Visa Payments"/>
                     @endif
                 </div>
 
@@ -122,37 +135,7 @@
                 @endif
 
                 <div class="col-12 col-sm-12 col-md-12 col-lg-3 newsletter-col mt-0 pb-4 pb-lg-0">
-                    <div class="display-table">
-                        <div class="display-table-cell footer-newsletter">
-                            <form action="#" method="post">
-                                <label class="h4 body-font">NEWSLETTER SIGN UP</label>
-                                <p>Enter your email to receive daily news and get 20% off coupon for all items.</p>
-                                <div class="input-group">
-                                    <input type="email"
-                                           class="brounded-start input-group__field newsletter-input rounded-0 mb-0"
-                                           name="EMAIL" value="" placeholder="Email address" required>
-                                    <span class="input-group__btn">
-                                        <button type="submit" class="btn newsletter__submit rounded-0" name="commit"
-                                                id="Subscribe">
-                                            <i class="bi bi-envelope"></i>
-                                        </button>
-                                    </span>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    @if (social_links()->isNotEmpty())
-                        <ul class="list-inline social-icons mt-3 pt-1">
-                            @foreach (social_links() as $icon => $socialLink)
-                                <li class="list-inline-item">
-                                    <a href="{{ $socialLink }}" data-bs-toggle="tooltip" data-bs-placement="top"
-                                       title="Facebook" target="_blank">
-                                        <i class="{{ $icon }}" aria-hidden="true"></i>
-                                    </a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    @endif
+                    @include('public.home.sections.subscribe')
                 </div>
             </div>
             <div class="row">

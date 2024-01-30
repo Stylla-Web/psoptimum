@@ -24,8 +24,7 @@
                                         <p class="subtitle mt-3 mb-0">
                                             {{  data.banner_1.call_to_action_body }}
                                         </p>
-                                        <span class="btn btn-outline-primary mt-3 mt-sm-4">
-                                            Shop Now
+                                        <span class="btn btn-outline-primary mt-3 mt-sm-4" v-text="$trans('storefront::layout.shop')">
                                         </span>
                                     </div>
                                 </div>
@@ -50,8 +49,7 @@
                                         <h3 class="title lh-1">
                                             {{  data.banner_1.call_to_action_body }}
                                         </h3>
-                                        <span class="btn btn-outline-primary mt-3 mt-sm-4">
-                                            Shop Now
+                                        <span class="btn btn-outline-primary mt-3 mt-sm-4" v-text="$trans('storefront::layout.shop')">
                                         </span>
                                     </div>
                                 </div>
@@ -77,8 +75,7 @@
                                         <p class="subtitle mt-2 mt-lg-3 mb-0 small--hide">
                                             {{  data.banner_3.call_to_action_body }}
                                         </p>
-                                        <span class="btn btn-outline-primary mt-3 mt-lg-4 small--hide">
-                                            Shop Now
+                                        <span class="btn btn-outline-primary mt-3 mt-lg-4 small--hide" v-text="$trans('storefront::layout.shop')">
                                         </span>
                                     </div>
                                 </div>

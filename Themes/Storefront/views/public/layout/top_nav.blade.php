@@ -3,7 +3,7 @@
         <div class="inner d-flex align-items-center">
             <div class="col-4 col-sm-4 col-md-4 col-lg-4 d-none d-lg-flex d-md-flex">
                 @if (social_links()->isNotEmpty())
-                    <span class="d-inline me-1">Follow Us:</span>
+                    <span class="d-inline me-1 d-none">Follow Us:</span>
                     <ul class="social-icons list-inline align-items-center">
                         @foreach (social_links() as $icon => $socialLink)
                             <li class="list-inline-item">

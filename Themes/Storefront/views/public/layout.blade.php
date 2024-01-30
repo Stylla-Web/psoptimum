@@ -98,6 +98,7 @@
                     'storefront::product_card.seconds': '{{ trans("storefront::product_card.seconds") }}',
                     'auth::validation.confirmed': '{{ trans("user::auth.validation.confirmed") }}',
                     'auth::validation.email': '{{ trans("user::auth.validation.email") }}',
+                    'storefront::layout.shop': '{{ trans("storefront::layout.shop") }}',
                 },
             };
         </script>
@@ -130,7 +131,7 @@
 
             @yield('content')
 
-            @include('public.home.sections.subscribe')
+
             @include('public.layout.footer')
 
 {{--            <div class="overlay"></div>--}}
