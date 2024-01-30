@@ -1,80 +1,112 @@
 <template>
-    <div class="list-product-card">
-        <div class="list-product-card-inner">
-            <div class="product-card-left">
-                <a :href="productUrl" class="product-image">
-                    <img :src="baseImage" :class="{ 'image-placeholder': ! hasBaseImage }" alt="product-image">
+    <div class="product-list">
+        <!--Start Product Image-->
+        <div class="product-image">
+            <!--Start Product Image-->
+            <a :href="productUrl" class="product-img">
+                <!-- image -->
+                <img class="primary blur-up lazyload" :data-src="baseImage" :src="baseImage" alt="image" :title="product.name">
+                <!-- End image -->
+                <!-- Hover image -->
+                <img class="hover blur-up lazyload" :data-src="additionalImages" :src="additionalImages" alt="image" :title="'Image additionnelles du ' + product.name" v-if="hasAdditionalImages">
+                <!-- End hover image -->
+                <!-- product label -->
+                <div class="product-labels">
+                    <span class="lbl on-sale rounded" v-if="product.is_out_of_stock">
+                        {{ $trans('storefront::product_card.out_of_stock') }}
+                    </span>
+                    <span class="lbl new rounded" v-else-if="product.is_new">
+                        {{ $trans('storefront::product_card.new') }}
+                    </span>
+                    <span class="lbl hot rounded" v-if="product.has_percentage_special_price">
+                        -{{ product.special_price_percent }}%
+                    </span>
+                </div>
+                <!-- End product label -->
+            </a>
+            <!--End Product Image-->
 
-                    <ul class="list-inline product-badge">
-                        <li class="badge badge-danger" v-if="product.is_out_of_stock">
-                            {{ $trans('storefront::product_card.out_of_stock') }}
-                        </li>
-
-                        <li class="badge badge-primary" v-else-if="product.is_new">
-                            {{ $trans('storefront::product_card.new') }}
-                        </li>
-
-                        <li class="badge badge-success" v-if="product.has_percentage_special_price">
-                            -{{ product.special_price_percent }}%
-                        </li>
-                    </ul>
+            <!--Countdown Timer-->
+<!--            <div class="saleTime" data-countdown="2024/10/01"></div>-->
+            <!--End Countdown Timer-->
+        </div>
+        <!--End Product Image-->
+        <!--Start Product Details-->
+        <div class="product-details text-center">
+            <!--Product Name-->
+            <div class="product-name text-uppercase">
+                <a :href="productUrl">
+                    {{ product.name }}
                 </a>
             </div>
-
-            <div class="product-card-right">
-                <a :href="productUrl" class="product-name">
-                    <h6>{{ product.name }}</h6>
-                    <span class="product-short-description" v-html="product.short_description">
-                    </span>
-                </a>
-
-                <div class="clearfix"></div>
-
+            <!--End Product Name-->
+            <!--Product Price-->
+            <div class="product-price" v-html="product.formatted_price">
+            </div>
+            <!--End Product Price-->
+            <!--Product Review-->
+            <div class="product-review d-flex align-items-center justify-content-center">
                 <ProductRating :ratingPercent="product.rating_percent" :reviewCount="product.reviews.length"/>
-
-                <div class="product-price" v-html="product.formatted_price"></div>
-
-                <button
-                    v-if="hasNoOption || product.is_out_of_stock"
-                    class="btn btn-primary btn-add-to-cart"
-                    :class="{ 'btn-loading': addingToCart }"
-                    :disabled="product.is_out_of_stock"
-                    @click="addToCart"
-                >
-                    <i class="las la-cart-arrow-down"></i>
-                    {{ $trans('storefront::product_card.add_to_cart') }}
-                </button>
-
-                <a
-                    v-else
-                    :href="productUrl"
-                    class="btn btn-primary btn-add-to-cart"
-                >
-                    <i class="las la-eye"></i>
-                    {{ $trans('storefront::product_card.view_options') }}
-                </a>
-
-                <div class="product-card-actions">
+            </div>
+            <!--End Product Review-->
+            <!--Sort Description-->
+            <p class="hidden sort-desc product-short-description" v-html="product.short_description">
+            </p>
+            <!--End Sort Description-->
+            <!-- Product Button -->
+            <div class="button-action d-flex">
+                <div class="addtocart-btn">
                     <button
-                        class="btn btn-wishlist"
-                        :class="{ 'added': inWishlist }"
-                        @click="syncWishlist"
+                        class="btn pro-addtocart-popup"
+                        v-if="hasNoOption || product.is_out_of_stock"
+                        :class="{ 'btn-loading': addingToCart }"
+                        :disabled="product.is_out_of_stock"
+                        @click="addToCart"
                     >
-                        <i class="la-heart" :class="inWishlist ? 'las' : 'lar'"></i>
+                        <i class="icon hidden an an-cart-l me-1"></i>{{ $trans('storefront::product_card.add_to_cart') }}
+                    </button>
+                    <a
+                        v-else
+                        :href="productUrl"
+                        class="btn pro-addtocart-popup"
+                    >
+                        <i class="las la-eye me-1"></i>{{ $trans('storefront::product_card.view_options') }}
+                    </a>
+                </div>
+<!--                <div class="quickview-btn">-->
+<!--                    <a class="btn btn-icon quick-view quick-view-popup" href="javascript:void(0)" data-toggle="modal" data-target="#content_quickview">-->
+<!--                        <i class="icon an an-search-l"></i>-->
+<!--                        <span class="tooltip-label top">Quick View</span>-->
+<!--                    </a>-->
+<!--                </div>-->
+                <div class="wishlist-btn">
+                    <a class="btn btn-icon wishlist add-to-wishlist"
+                       href="javascript:void(0)"
+                       :class="{ 'added': inWishlist }"
+                       @click="syncWishlist"
+                    >
+                        <i class="icon la-heart" :class="inWishlist ? 'las' : 'lar'"></i>
+                        <span class="tooltip-label top">
                         {{ $trans('storefront::product_card.wishlist') }}
-                    </button>
-
-                    <button
-                        class="btn btn-compare"
-                        :class="{ 'added': inCompareList }"
-                        @click="syncCompareList"
+                        </span>
+                    </a>
+                </div>
+                <div class="compare-btn">
+                    <a class="btn btn-icon compare add-to-compare"
+                       href="compare.html"
+                       :class="{ 'added': inCompareList }"
+                       @click="syncCompareList"
                     >
-                        <i class="las la-random"></i>
+                        <i class="icon an an-sync-ar"></i>
+                        <span class="tooltip-label top">
                         {{ $trans('storefront::product_card.compare') }}
-                    </button>
+                        </span>
+                    </a>
                 </div>
             </div>
+            <!-- End Product Button -->
         </div>
+        <!--End Product Details-->
     </div>
 </template>
 

@@ -32,21 +32,22 @@ class StorefrontTabs extends Tabs
             ->add($this->footer())
             ->add($this->newsletter())
             ->add($this->features())
-            ->add($this->productPage())
+//            ->add($this->productPage())
             ->add($this->socialLinks());
 
         $this->group('home_page_sections', trans('storefront::storefront.tabs.group.home_page_sections'))
-            ->add($this->sliderBanners())
-            ->add($this->threeColumnFullWidthBanners())
-            ->add($this->featuredCategories())
-            ->add($this->productTabsOne())
+//            ->add($this->sliderBanners())
+//            ->add($this->threeColumnFullWidthBanners())
+//            ->add($this->featuredCategories())
+//            ->add($this->productTabsOne())
             ->add($this->topBrands())
-            ->add($this->flashSaleAndVerticalProducts())
-            ->add($this->twoColumnBanners())
+//            ->add($this->flashSaleAndVerticalProducts())
+//            ->add($this->twoColumnBanners())
             ->add($this->productGrid())
             ->add($this->threeColumnBanners())
-            ->add($this->productTabsTwo())
-            ->add($this->oneColumnBanner());
+            ->add($this->fourColumnBanners());
+//            ->add($this->productTabsTwo())
+//            ->add($this->oneColumnBanner());
     }
 
     private function general()
@@ -290,6 +291,16 @@ class StorefrontTabs extends Tabs
             $tab->weight(75);
             $tab->view('admin.storefront.tabs.three_column_banners', [
                 'banners' => Banner::getThreeColumnBanners(),
+            ]);
+        });
+    }
+
+    private function fourColumnBanners()
+    {
+        return tap(new Tab('four_column_banners', trans('storefront::storefront.tabs.four_column_banners')), function (Tab $tab) {
+            $tab->weight(75);
+            $tab->view('admin.storefront.tabs.four_column_banners', [
+                'banners' => Banner::getFourColumnBanners(),
             ]);
         });
     }

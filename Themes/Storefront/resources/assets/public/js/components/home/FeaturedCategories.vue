@@ -1,13 +1,13 @@
 <template>
     <section class="featured-categories-wrap">
         <div class="container">
-            <div class="featured-categories-header">
-                <div class="featured-categories-text">
-                    <h2 class="title">{{ data.title }}</h2>
-                    <span class="excerpt">{{ data.subtitle }}</span>
+            <div class="featured-categories-header row">
+                <div class="featured-categories-text row">
+                    <h2 class="title col-12 col-md-3">{{ data.title }}</h2>
+                    <span class="excerpt col-12 col-md-9">{{ data.subtitle }}</span>
                 </div>
 
-                <ul class="tabs featured-categories-tabs">
+                <ul class="tabs featured-categories-tabs col-12 mt-5 mb-0">
                     <li
                         v-for="(tab, index) in tabs"
                         :key="index"
@@ -24,8 +24,11 @@
                 </ul>
             </div>
 
-            <div class="tab-content featured-category-products">
-                <ProductCard v-for="product in products" :key="product.id" :product="product"/>
+            <div class="tab-content featured-category-products row mt-3" v-if="products.length > 0">
+                <ProductCard v-for="product in products" :key="product.id" :product="product" :nbr-columns="'col-6 col-sm-6 col-md-4 col-lg-4'"/>
+            </div>
+            <div class="empty-products text-center p-5" v-else>
+                <h3>Aucun produits</h3>
             </div>
         </div>
 
@@ -65,8 +68,8 @@ export default {
                     dots: true,
                     arrows: false,
                     infinite: true,
-                    slidesToShow: 6,
-                    slidesToScroll: 6,
+                    slidesToShow: 4,
+                    slidesToScroll: 4,
                     rtl: window.FleetCart.rtl,
                     prevArrow: slickPrevArrow(),
                     nextArrow: slickNextArrow(),
@@ -74,8 +77,8 @@ export default {
                         {
                             breakpoint: 1761,
                             settings: {
-                                slidesToShow: 5,
-                                slidesToScroll: 5,
+                                slidesToShow: 4,
+                                slidesToScroll: 4,
                             },
                         },
                         {

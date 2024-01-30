@@ -249,6 +249,8 @@
       <excludeFolder url="file://$MODULE_DIR$/public/storage" />
       <excludeFolder url="file://$MODULE_DIR$/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/carbonphp/carbon-doctrine-types" />
+      <excludeFolder url="file://$MODULE_DIR$/public/themes/storefront/public/css" />
+      <excludeFolder url="file://$MODULE_DIR$/public/themes/storefront/public/js" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

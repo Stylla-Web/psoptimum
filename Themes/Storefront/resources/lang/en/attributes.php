@@ -30,6 +30,8 @@ return [
     'caption_2' => 'Caption 2',
     'call_to_action_text' => 'Call to Action Text',
     'call_to_action_url' => 'Call to Action URL',
+    'call_to_action_title' => 'Call to Action Title',
+    'call_to_action_body' => 'Call to Action Message',
     'url' => 'URL',
     'enabled' => 'Enabled',
     'open_in_new_window' => 'Open in new window',

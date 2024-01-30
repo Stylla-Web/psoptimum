@@ -199,7 +199,7 @@ class Product extends Model
     public function scopeWithBaseImage($query)
     {
         $query->with(['files' => function ($q) {
-            $q->wherePivot('zone', 'base_image');
+            $q->wherePivot('zone', 'base_image')->orWherePivot('zone', '=', 'additional_images');
         }]);
     }
 
@@ -479,7 +479,7 @@ class Product extends Model
     public function getUnit(): ?string
     {
         if ($this->hasUnit()) {
-            return "<span class='unit'>".trans('product::products.form.units.' . $this->unit)."</span>";
+            return "<sup class='unit'>".trans('product::products.form.units.' . $this->unit)."</sup>";
         }
         return null;
     }
@@ -606,7 +606,6 @@ class Product extends Model
             'short_description',
             'translations',
             'categories',
-            'files',
             'is_active',
             'in_stock',
             'brand_id',

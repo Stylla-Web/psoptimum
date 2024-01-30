@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { isEmpty } from './functions';
+import {isEmpty, notify} from './functions';
 
 export default {
     state: Vue.observable({
@@ -7,6 +7,10 @@ export default {
         wishlist: FleetCart.wishlist,
         compareList: FleetCart.compareList,
     }),
+
+    minicartDrawer() {
+        return new bootstrap.Modal($('#minicart-drawer'));
+    },
 
     cartIsEmpty() {
         return isEmpty(this.state.cart.items);
@@ -91,6 +95,7 @@ export default {
             url: route('compare.store'),
             data: { productId },
         });
+        notify('Ajouter', {'type': 'success'});
     },
 
     removeFromCompareList(productId) {
@@ -100,5 +105,7 @@ export default {
             method: 'DELETE',
             url: route('compare.destroy', { productId }),
         });
+
+        notify('Retirer', {'type': 'error'});
     },
 };

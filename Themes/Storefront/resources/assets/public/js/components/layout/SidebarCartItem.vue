@@ -1,35 +1,47 @@
 <template>
-    <div class="sidebar-cart-item">
-        <a :href="productUrl(cartItem.product)" class="product-image">
-            <img
-                :src="baseImage(cartItem.product)"
-                :class="{ 'image-placeholder': ! hasBaseImage(cartItem.product) }"
-                alt="product image"
-            >
+    <li class="item d-flex">
+        <a class="product-image" :href="productUrl(cartItem.product)">
+            <img class="blur-up lazyload"
+                 :data-src="baseImage(cartItem.product)"
+                 :src="baseImage(cartItem.product)"
+                 :class="{ 'image-placeholder': ! hasBaseImage(cartItem.product) }"
+                 alt="image"
+                 title="">
         </a>
-
-        <div class="product-info">
-            <a :href="productUrl(cartItem.product)" class="product-name" :title="cartItem.product.name">
+        <div class="product-details">
+            <a class="product-title" :href="productUrl(cartItem.product)" :title="cartItem.product.name">
                 {{ cartItem.product.name }}
             </a>
-
-            <ul class="list-inline product-options">
-                <li v-for="option in cartItem.options" :key="option.id">
-                    <label>{{ option.name }}:</label> <span v-html="optionValues(option)"></span>
-                </li>
-            </ul>
-
-            <div class="product-quantity">
-                {{ cartItem.qty }} x <span v-html="cartItem.unitPrice.inCurrentCurrency.formatted"></span>
+            <div class="variant-cart">
+                <ul>
+                    <li v-for="option in cartItem.options" :key="option.id">
+                        <label class="d-inline">{{ option.name }}:</label> <span v-html="optionValues(option)"></span>
+                    </li>
+                </ul>
+            </div>
+            <div class="priceRow">
+                <div class="product-price">
+                    {{ cartItem.qty }} x <span v-html="cartItem.unitPrice.inCurrentCurrency.formatted"></span>
+                </div>
             </div>
         </div>
-
-        <div class="remove-cart-item">
+        <div class="qtyDetail text-center">
             <button class="btn-remove" @click="remove">
                 <i class="las la-times"></i>
             </button>
+<!--            <div class="wrapQtyBtn">-->
+<!--                <div class="qtyField">-->
+<!--                    <a class="qtyBtn minus" href="javascript:void(0);">-->
+<!--                        <i class="icon an an-minus-r" aria-hidden="true"></i>-->
+<!--                    </a>-->
+<!--                    <input type="text" name="quantity" value="1" class="qty">-->
+<!--                    <a class="qtyBtn plus" href="javascript:void(0);">-->
+<!--                        <i class="icon an an-plus-l" aria-hidden="true"></i>-->
+<!--                    </a>-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
-    </div>
+    </li>
 </template>
 
 <script>

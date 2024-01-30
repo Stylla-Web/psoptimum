@@ -82,9 +82,9 @@
     }
 }
 
-.tabs:not(.featured-categories-tabs) {
+.tabs:not(.featured-categories-tabs):not(.product-grid-tabs) {
     list-style: none;
-    margin-bottom: -1px;
+    //margin-bottom: -1px;
 
     .tab-item {
         @extend %nav-link;
@@ -104,7 +104,7 @@
     }
 }
 
-.tab-content {
+.tab-content:not(.featured-category-products):not(.grid-products) {
     .slick-list {
         margin: 0 -15px -50px;
         padding: 30px 0 50px;

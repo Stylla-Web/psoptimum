@@ -95,7 +95,7 @@ export default {
             }).then((cart) => {
                 store.updateCart(cart);
 
-                $('.header-cart').trigger('click');
+                store.minicartDrawer().show();
             }).catch((xhr) => {
                 this.$notify(xhr.responseJSON.message);
             });

@@ -14,6 +14,7 @@ return [
         'banner_1' => 'Banner 1',
         'banner_2' => 'Banner 2',
         'banner_3' => 'Banner 3',
+        'banner_4' => 'Banner 4',
         'feature_1' => 'Feature 1',
         'feature_2' => 'Feature 2',
         'feature_3' => 'Feature 3',
@@ -30,6 +31,7 @@ return [
         'enable_two_column_banners_section' => 'Enable two column banners section',
         'enable_product_grid_section' => 'Enable product grid section',
         'enable_three_column_banners_section' => 'Enable three column banners section',
+        'enable_four_column_banners_section' => 'Enable four column banners section',
         'enable_product_tabs_two_section' => 'Enable product tabs two section',
         'enable_one_column_banner_section' => 'Enable One column banner section',
         'product_types' => [
@@ -76,6 +78,7 @@ return [
         'two_column_banners' => 'Two column banners',
         'product_grid' => 'Product Grid',
         'three_column_banners' => 'Three Column Banners',
+        'four_column_banners' => 'Four Column Banners',
         'product_tabs_two' => 'Product Tabs Two',
         'one_column_banner' => 'One Column Banner',
     ],

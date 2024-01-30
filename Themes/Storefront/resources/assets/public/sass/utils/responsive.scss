@@ -12,7 +12,7 @@
 
 @media only screen and (max-width: 1199px) {
     .container-fluid { padding-left: 20px; padding-right: 20px; }
-    #search-popup { padding: 20px 20px 20px 20px; }
+    .search-popup { padding: 20px 20px 20px 20px; }
 
     #siteNav > li > a .navLbl { top:-20px; }
     .topBar .item.center { border:0; }
@@ -20,8 +20,8 @@
     .slideshow__text-content { max-width:450px; }
     .slideshow .slideshow__title { font-size:30px; }
     .slideshow .slideshow__subtitle { font-size:14px; }
-    .slideshow .middle-left .slideshow-content-in { left:30px; }
-    .slideshow .middle-right .slideshow-content-in { right:30px; }
+    .slideshow .middle-left .slideshow-content-in { left:100px; }
+    .slideshow .middle-right .slideshow-content-in { right:100px; }
     .slideshow .bottom-middle .slideshow-content-in { bottom:35px; }
     .slideshow .middle-bottom .slideshow-content-in { right: 30px; }
 
@@ -79,7 +79,7 @@
     .slideshow .slick-arrow { opacity:1; visibility:visible; }
     .slideshow--medium { height: 450px; }
 
-    #search-popup { padding:20px 15px 20px 15px; }
+    .search-popup { padding:20px 15px 20px 15px; }
 
     .button-set { opacity:1; visibility:visible; top:5px; }
     .button-set.style0 li .btn-icon, .button-set.style2 li .btn-icon { -webkit-transform:scale(1); transform:scale(1); }
@@ -125,7 +125,7 @@
 
 
     .template-index .slideshow--large { height: 500px; }
-    .template-index .slideshow .ss-mega-title { font-size: 60px; }
+    //.template-index .slideshow .ss-mega-title { font-size: 60px; }
     .template-index .hero--medium { height: 350px; }
 
 }
@@ -142,7 +142,7 @@
     .mobile-icon { display:inline-block; padding-right:20px; vertical-align:middle; }
     #siteNav, .d-menu-col { display:none; }
     .header .header-main, .header-wrap { min-height:60px; }
-    .logo img { max-width:110px; margin:0; }
+    .logo img { max-width:160px; margin:0; }
     .mih-50:not(.sticky-header), .mih-55:not(.sticky-header), .header-13 .header-main { min-height:50px !important; }
     .mih-70:not(.sticky-header), .mih-80:not(.sticky-header), .mih-90:not(.sticky-header) { min-height:60px !important; }
     .search-drawer { padding:30px 20px; }
@@ -158,15 +158,15 @@
     .js-mobile-nav-toggle.mobile-nav--open .bi-list,
     .js-mobile-nav-toggle.mobile-nav--close .icon.bi.bi-x-lg { display:inline-block; }
     #MobileNav { height:100%; overflow:auto; list-style:none; padding:0; margin:0; }
-    .mobile-nav-wrapper .closemobileMenu { color:#000; font-size:14px; font-weight:600; text-transform:uppercase; padding:10px; background-color:#eee; cursor:pointer; }
+    .mobile-nav-wrapper .closemobileMenu { color: #0e0e12; font-size:14px; font-weight:600; text-transform:uppercase; padding:10px; background-color:#24b4a7; cursor:pointer; }
     .mobile-nav-wrapper .closemobileMenu .bi { font-size:15px; padding:2px; float:right; width:20px; height:23px; line-height:18px; }
-    .mobile-nav-wrapper { width:300px; height:100%;position:fixed; left:-300px; top:0; z-index:10000; background-color:#ffffff; box-shadow:0 0 5px rgba(0,0,0,0.3); opacity:0; visibility:hidden;-ms-transition:all 0.4s ease-in-out; -webkit-transition:all 0.4s ease-in-out; transition:all 0.4s ease-in-out; }
+    .mobile-nav-wrapper { width:300px; height:100%;position:fixed; left:-300px; top:0; z-index:10000; background-color:#0e0e12; box-shadow:0 0 5px rgba(0,0,0,0.3); opacity:0; visibility:hidden;-ms-transition:all 0.4s ease-in-out; -webkit-transition:all 0.4s ease-in-out; transition:all 0.4s ease-in-out; }
     .mobile-nav-wrapper.active { left:0; opacity:1; visibility:visible; }
-    #MobileNav li { border-top:1px solid #eeeeee; position:relative }
-    #MobileNav li.acLink { border-top:1px solid rgba(34, 34, 34, 0.5); }
+    #MobileNav li { border-top:1px solid #027373; position:relative }
+    #MobileNav li.acLink { border-top:1px solid #24b4a7; }
     #MobileNav li.grid__item {float:none;padding:0 }
-    #MobileNav li a { color:#333333; font-size:14px; text-decoration:none; display:block; padding:15px 45px 15px 15px; opacity:1; -webkit-font-smoothing:antialiased; font-weight:400; letter-spacing:0.05em; text-transform:uppercase; position:relative }
-    #MobileNav li a .bi { color:#333333; font-size:15px; display:block; width:40px; height:100%; line-height:53px; position:absolute; right:0; top:0; text-align:center  }
+    #MobileNav li a { color:#ffffff; font-size:14px; text-decoration:none; display:block; padding:15px 45px 15px 15px; opacity:1; -webkit-font-smoothing:antialiased; font-weight:400; letter-spacing:0.05em; text-transform:uppercase; position:relative }
+    #MobileNav li a .bi { color:#24b4a7; font-size:15px; display:block; width:40px; height:100%; line-height:53px; position:absolute; right:0; top:0; text-align:center  }
     #MobileNav li a .lbl { color:#ffffff; font-size:10px; font-weight:400; letter-spacing:0; line-height:1; text-transform:uppercase; display:inline-block; padding:2px 4px; background-color:#f00; position:relative; vertical-align:middle }
     #MobileNav li a .lbl.nm_label1 { background-color:#01bad4 }
     #MobileNav li a .lbl.nm_label1:after { border-right-color:#01bad4 }
@@ -179,13 +179,13 @@
     #MobileNav li a .lbl.nm_label5 { background-color:#af4de2  }
     #MobileNav li a .lbl.nm_label5:after { border-right-color:#af4de2 }
     #MobileNav.medium li a { font-weight: 500; }
-    #MobileNav.text-capitalize li a { text-transform: capitalize; }
+    [lang=en] #MobileNav.text-capitalize li a { text-transform: capitalize; }
     #MobileNav li ul { display:none; list-style:none; padding:0; margin:0; }
     #MobileNav li li a { padding-left:20px; padding-top:12px; padding-bottom:12px;  }
     #MobileNav li li li a { padding-left:30px; font-size: 13px; }
     #MobileNav li li li li a { padding-left:40px; font-size: 13px; }
     #MobileNav li li a .bi { line-height: 45px; }
-    #MobileNav li.help { padding:15px; background-color:rgba(34,34,34,.05); }
+    #MobileNav li.help { padding:15px; background-color: rgba(36, 180, 167, 0.25); color: #ffffff}
 
     .layout-boxed { margin: 0 auto; box-shadow: none; }
     .layout-boxed .container, .layout-boxed .container-fluid { padding-left: 15px; padding-right: 15px; }
@@ -454,7 +454,7 @@
     .text-md-left { text-align: left !important; }
     .shop-masonry-grid .grid-sizer.col-lg-4,
     .shop-masonry-grid .collection-page-item.col-lg-4 { max-width:33.33333333%; }
-    .product-sticky-style { position:sticky; position:-webkit-sticky; top:110px; margin-bottom:40px; }
+    .product-sticky-style { position:sticky; position:-webkit-sticky; top:130px; margin-bottom:40px; }
 
     .prstyle2 .prFeatures { float:left; width:100%; padding-top:30px; }
     .prstyle2 .prFeatures img { max-width:40px; }
@@ -606,7 +606,11 @@
     .imgBanners .inner .ttl { font-size:15px; padding:10px; }
     .imgBanners .row .img-banner-item:first-of-type { margin-bottom:20px; }
 
-    .tab-slider-product .tabs { display:none; }
+    .tab-slider-product .tabs { display: flex;
+        flex-wrap: nowrap;
+        overflow: auto;
+        align-items: center;
+        justify-content: space-between; }
     .tab-slider-product .tab_drawer_heading { font-size:12px; border:0; color:#111; display:block; padding:15px 30px 15px 15px; margin:0 0 10px; text-decoration:none; background-color:#eee; position:relative; cursor:pointer; }
     .tab-slider-product-style1 .tab_drawer_heading { font-size:13px; text-align:center; }
     .tab-slider-product	.tab_drawer_heading.d_active { color:#fff; background-color:#111; }
@@ -911,7 +915,7 @@
     #newsletter-modal .mfp-close { color: #222; }
 
     .template-index .slideshow--large { height: 340px; }
-    .template-index .slideshow .ss-mega-title { font-size: 35px; }
+    .template-index .slideshow .ss-mega-title { font-size: 2rem; }
     .template-index .slideshow .ss-sub-title { font-size: 13px !important; margin-bottom: 15px; }
     .template-index .slideshow .btn-lg { font-size: 13px; }
     .template-index .hero .text-small .mega-title { font-size: 22px; }
@@ -1060,7 +1064,7 @@
     .top-header p, .top-header a, .top-header select, .top-header .fa,
     .top-header span.selected-currency, .language-dd { font-size:11px; letter-spacing:0; }
 
-    #search-popup {  padding:12px 15px; }
+    .search-popup {  padding:12px 15px; }
     .search-drawer .search-category { display:none; }
     .search-drawer .searchField { display:block; }
     .search-drawer .search-category select { padding:0; }

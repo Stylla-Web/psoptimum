@@ -56,7 +56,9 @@ export default {
         this.changeShippingCountry(this.firstCountry);
 
         this.$nextTick(() => {
-            if (this.firstShippingMethod) {
+            if (this.cart.availableShippingMethods[store.state.cart.shippingMethodName]) {
+                this.changeShippingMethod(store.state.cart.shippingMethodName);
+            } else {
                 this.updateShippingMethod(this.firstShippingMethod);
             }
 
@@ -123,6 +125,9 @@ export default {
                 data: { qty: qty || 1 },
             }).then((cart) => {
                 store.updateCart(cart);
+                if (! this.cart.availableShippingMethods[store.state.cart.shippingMethodName]) {
+                    this.updateShippingMethod(this.firstShippingMethod);
+                }
                 if (this.hasShippingAddress) {
                     this.loadingOrderSummary = true;
                     this.getRates();
@@ -189,7 +194,7 @@ export default {
                 shippingMethod = { name: shippingMethod };
             }
 
-            this.shippingMethodName = shippingMethod.name ? this.cart.availableShippingMethods[shippingMethod.name] : this.cart.availableShippingMethods[this.firstShippingMethod];
+            this.shippingMethodName = shippingMethod.name ? this.cart.availableShippingMethods[shippingMethod.name].name : this.cart.availableShippingMethods[this.firstShippingMethod].name;
         },
 
         fetchCrossSellProducts() {

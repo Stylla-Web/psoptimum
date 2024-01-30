@@ -3,6 +3,8 @@
         <h5>{{ $label }}</h5>
     </div>
 
+{{--    @dd($banner)--}}
+
     <div class="panel-body">
         @hasAccess('admin.media.index')
         {{--            @include('media::admin.image_picker.single', [--}}
@@ -26,6 +28,24 @@
         <div class="panel-content clearfix">
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-6 clearfix">
+                    @if(isset($extra_fields) && $extra_fields)
+                        <div class="form-group">
+                            <label
+                                for="{{ $name }}-call-to-action-title">{{ trans("storefront::attributes.call_to_action_title") }}</label>
+                            <input type="text" name="translatable[{{ $name }}_call_to_action_title]"
+                                   value="{{ $banner->call_to_action_title }}" class="form-control"
+                                   id="{{ $name }}-call-to--action-title">
+                        </div>
+                        <div class="form-group">
+                            <label
+                                for="{{ $name }}-call-to-action-body">{{ trans("storefront::attributes.call_to_action_body") }}</label>
+                            <textarea
+                                name="translatable[{{ $name }}_call_to_action_body]"
+                                class="form-control"
+                                rows="5"
+                                id="{{ $name }}-call-to--action-body">{{ $banner->call_to_action_body }}</textarea>
+                        </div>
+                    @endif
                     <div class="form-group">
                         <label
                             for="{{ $name }}-call-to-action-url">{{ trans("storefront::attributes.call_to_action_url") }}</label>

@@ -96,9 +96,9 @@ class CartCoupon implements JsonSerializable
             return $this->inApplicableCategories($cartItem);
         })->reject(function ($cartItem) {
             return $this->inExcludedCategories($cartItem);
-        })->reject(function ($cartItem) {
-            return $this->inApplicableBrands($cartItem);
         })->filter(function ($cartItem) {
+            return $this->inApplicableBrands($cartItem);
+        })->reject(function ($cartItem) {
             return $this->inExcludedBrands($cartItem);
         });
     }

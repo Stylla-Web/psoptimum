@@ -5,27 +5,24 @@
 @section('content')
     <section class="all-categories-wrap">
         <div class="container">
-            <div class="all-categories">
+            <div class="row">
                 @forelse ($categories as $category)
-                    <div class="single-category">
-                        <h4 class="section-title">
-                            <a href="{{ $category->url() }}" title="{{ $category->name }}">
+                    <div class="category-wrap col-4 mb-5">
+                        <h4 class="d-flex flex-column align-items-center">
+                            <img src="{{$category->logo->path}}" alt="{{ $category->name }}" width="100px"/>
+                            <a class="pt-3" href="{{ $category->url() }}" title="{{ $category->name }}">
                                 {{ $category->name }}
                             </a>
                         </h4>
-
+                        <h6>{{ $category->products->count() }} produits</h6>
                         @if ($category->items->isNotEmpty())
-                            <ul class="list-inline single-category-list">
+                            <p>
                                 @foreach ($category->items as $subCategory)
-                                    <li>
-                                        <a href="{{ $subCategory->url() }}" title="{{ $subCategory->name }}">
-                                            {{ $subCategory->name }}
-                                        </a>
-
-                                        @include('public.categories.index.sub_category_items')
-                                    </li>
+                                    <a href="{{ $subCategory->url() }}"
+                                       title="{{ $subCategory->name }}">{{ $subCategory->name }}</a>@if($loop->last).@else,@endif
+                                    @include('public.categories.index.sub_category_items')
                                 @endforeach
-                            </ul>
+                            </p>
                         @endif
                     </div>
                 @empty

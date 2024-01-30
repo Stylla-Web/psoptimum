@@ -1,6 +1,6 @@
 <div class="form-group variant-input">
     <div class="row">
-        <div class="col-xl-4 col-lg-6">
+        <div class="col-12">
             <label for="option-{{ $option->id }}">
                 {!!
                     $option->name .
@@ -10,7 +10,7 @@
             </label>
         </div>
 
-        <div class="col-xl-10 col-lg-12">
+        <div class="col-12">
             <div class="form-input">
                 <textarea
                     class="form-control"

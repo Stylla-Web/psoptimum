@@ -1,22 +1,19 @@
 <template>
-    <section class="features-wrap">
+    <!--Store Feature-->
+    <section class="store-features style2">
         <div class="container">
-            <div class="features">
-                <div class="feature-list">
-                    <div class="single-feature" v-for="(feature, index) in features" :key="index">
-                        <div class="feature-icon">
-                            <i :class="feature.icon"></i>
-                        </div>
-
-                        <div class="feature-details">
-                            <h6>{{ feature.title }}</h6>
-                            <span>{{ feature.subtitle }}</span>
-                        </div>
+            <div class="row store-info">
+                <div class="col d-flex align-items-center mb-2 mb-md-0" v-for="(feature, index) in features" :key="index">
+                    <i :class="feature.icon"></i>
+                    <div class="detail">
+                        <h5 class="fs-6 text-uppercase mb-0">{{ feature.title }}</h5>
+                        <span>{{ feature.subtitle }}</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <!--End Store Feature-->
 </template>
 
 <script>

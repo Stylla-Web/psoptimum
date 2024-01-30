@@ -27,13 +27,36 @@
         <link rel="stylesheet" href="{{ v(Theme::url('public/css/theme.css')) }}">
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
         <link rel="stylesheet" href="{{ v(Theme::url('public/css/responsive.css')) }}">
+        <style>
+            .pace {
+                -webkit-pointer-events: none;
+                pointer-events: none;
 
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                user-select: none;
+            }
+
+            .pace-inactive {
+                display: none;
+            }
+
+            .pace .pace-progress {
+                background: #24b4a7;
+                position: fixed;
+                z-index: 9999999;
+                top: 0;
+                right: 100%;
+                width: 100%;
+                height: 2px;
+            }
+        </style>
         <link rel="shortcut icon" href="{{ $favicon }}" type="image/x-icon">
 
         @stack('styles')
 
         {!! setting('custom_header_assets') !!}
-
+        <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
         <script>
             window.FleetCart = {
                 baseUrl: '{{ config("app.url") }}',
@@ -95,19 +118,22 @@
             --color-primary-transparent-lite: {{ color2rgba($themeColor, 0.3) }};"
     >
         <!-- Page Loader -->
-{{--        <div id="pre-loader"><img src="assets/images/loader.gif" alt="Loading..." /></div>--}}
+        <div id="pre-loader">
+            <div id="html-spinner"></div>
+            <img src="{{ v(Theme::url('public/images/logo-ps-emblem.png')) }}">
+        </div>
         <!-- End Page Loader -->
 
         <div class="page-wrapper" id="app">
             @include('public.layout.header')
-{{--            @include('public.layout.breadcrumb')--}}
+            @include('public.layout.breadcrumb')
 
             @yield('content')
 
             @include('public.home.sections.subscribe')
             @include('public.layout.footer')
 
-            <div class="overlay"></div>
+{{--            <div class="overlay"></div>--}}
 
             @include('public.layout.sidebar_menu')
             @include('public.layout.sidebar_cart')
@@ -122,10 +148,9 @@
 
         {{--  Theme js --}}
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-{{--        <script src="{{ v(Theme::url('public/js/plugins.js')) }}"></script>--}}
+        <script src="{{ v(Theme::url('public/js/plugins.js')) }}"></script>
         <script src="{{ v(Theme::url('public/js/main.js')) }}"></script>
 
-        <script src="/background-check.min.js" type="text/javascript"></script>
         <script src="https://kit.fontawesome.com/228006f19a.js" crossorigin="anonymous"></script>
         @stack('scripts')
 

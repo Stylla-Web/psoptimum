@@ -1,6 +1,6 @@
 <div class="form-group variant-check">
     <div class="row">
-        <div class="col-xl-4 col-lg-6">
+        <div class="col-12">
             <label>
                 {!!
                     $option->name .
@@ -9,7 +9,7 @@
             </label>
         </div>
 
-        <div class="col-xl-10 col-lg-12">
+        <div class="col-12">
             @foreach ($option->values as $value)
                 <div class="form-check">
                     <input
@@ -33,7 +33,7 @@
                 class="error-message"
                 v-if="errors.has('{{ "options.{$option->id}" }}')"
                 v-text="errors.get('{{ "options.{$option->id}" }}')"
-            >
+            ></span>
         </div>
     </div>
 </div>

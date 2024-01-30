@@ -32,6 +32,18 @@ export default {
             return `${window.FleetCart.baseUrl}/themes/storefront/public/images/image-placeholder.png`;
         },
 
+        hasAdditionalImages() {
+            return this.product.files.length > 1;
+        },
+
+        additionalImages() {
+            if (this.hasAdditionalImages) {
+                return this.product.files[1].path;
+            }
+
+            return `${window.FleetCart.baseUrl}/themes/storefront/public/images/image-placeholder.png`;
+        },
+
         inWishlist() {
             return store.inWishlist(this.product.id);
         },
@@ -60,8 +72,7 @@ export default {
                 store.updateCart(cart);
 
                 if (document.location.href !== route('cart.index').url()) {
-                    $('.header-cart').trigger('click');
-                    this.$root.$refs.sidebarcart.fetchCrossSellProducts();
+                    store.minicartDrawer().show();
                 }
             }).catch((xhr) => {
                 this.$notify(xhr.responseJSON.message);

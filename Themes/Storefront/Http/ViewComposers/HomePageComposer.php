@@ -33,6 +33,7 @@ class HomePageComposer
             'twoColumnBanners' => $this->twoColumnBanners(),
             'productGrid' => $this->productGrid(),
             'threeColumnBanners' => $this->threeColumnBanners(),
+            'fourColumnBanners' => $this->fourColumnBanners(),
             'tabProductsTwo' => $this->tabProductsTwo(),
             'oneColumnBanner' => $this->oneColumnBanner(),
             'logo' => $this->getHeaderLogo(),
@@ -152,6 +153,13 @@ class HomePageComposer
     {
         if (setting('storefront_three_column_banners_enabled')) {
             return Banner::getThreeColumnBanners();
+        }
+    }
+
+    private function fourColumnBanners()
+    {
+        if (setting('storefront_four_column_banners_enabled')) {
+            return Banner::getFourColumnBanners();
         }
     }
 

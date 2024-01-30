@@ -80,6 +80,12 @@ export default {
     },
 
     methods: {
+        toggleWidgetTitle(event) {
+            const element = event.currentTarget;
+            $(element).next().slideToggle('300');
+            $(element).toggleClass("active");
+        },
+
         addEventListeners() {
             $(this.$refs.sortSelect).on('change', (e) => {
                 this.queryParams.sort = e.currentTarget.value;

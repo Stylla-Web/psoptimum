@@ -38,24 +38,16 @@ export function chunk(array, size) {
 
 export function slickPrevArrow() {
     if (window.FleetCart.rtl) {
-        return `<div class="arrow-prev">
-                    <i class="las la-angle-right"></i> ${trans('storefront::layout.prev')}
-                </div>`;
+        return `<button class="slick-prev" aria-label="Previous" type="button">${trans('storefront::layout.prev')}</button>`;
     }
 
-    return `<div class="arrow-prev">
-                <i class="las la-angle-left"></i> ${trans('storefront::layout.prev')}
-            </div>`;
+    return `<button class="slick-prev" aria-label="Previous" type="button">${trans('storefront::layout.prev')}</button>`;
 }
 
 export function slickNextArrow() {
     if (window.FleetCart.rtl) {
-        return `<div class="arrow-next">
-                    ${trans('storefront::layout.next')} <i class="las la-angle-left"></i>
-                </div>`;
+        return `<button class="slick-next" aria-label="Next" type="button">${trans('storefront::layout.next')}</button>`;
     }
 
-    return `<div class="arrow-next">
-                ${trans('storefront::layout.next')} <i class="las la-angle-right"></i>
-            </div>`;
+    return `<button class="slick-next" aria-label="Next" type="button">${trans('storefront::layout.next')}</button>`;
 }

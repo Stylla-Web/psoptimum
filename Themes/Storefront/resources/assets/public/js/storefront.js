@@ -34,25 +34,26 @@ $(() => {
     /*      sidebar cart
     /*----------------------------------------*/
 
-    let headerCart = $('.header-column-right .header-cart'),
-        sidebarCart = $('.sidebar-cart-wrap'),
-        sidebarCartClose = $('.sidebar-cart-close');
+    // let headerCart = $('.header-cart'),
+    //     sidebarCart = $('.sidebar-cart-wrap'),
+    //     sidebarCartClose = $('.sidebar-cart-close');
+    //
+    // headerCart.on('click', (e) => {
+    //     e.stopPropagation();
+    //
+    //     overlay.addClass('active');
+    //     sidebarCart.addClass('active');
+    // });
+    //
+    // sidebarCartClose.on('click', () => {
+    //     overlay.removeClass('active');
+    //     sidebarCart.removeClass('active');
+    // });
+    //
+    // sidebarCart.on('click', (e) => {
+    //     e.stopPropagation();
+    // });
 
-    headerCart.on('click', (e) => {
-        e.stopPropagation();
-
-        overlay.addClass('active');
-        sidebarCart.addClass('active');
-    });
-
-    sidebarCartClose.on('click', () => {
-        overlay.removeClass('active');
-        sidebarCart.removeClass('active');
-    });
-
-    sidebarCart.on('click', (e) => {
-        e.stopPropagation();
-    });
 
     /*      header
     /*----------------------------------------*/
@@ -382,28 +383,28 @@ $(() => {
     let filterSectionWrap = $('.filter-section-wrap');
     let sidebarFilterClose = $('.sidebar-filter-close');
 
-    mobileViewFilter.on('click', (e) => {
-        e.stopPropagation();
-
-        filterSectionWrap.addClass('active');
-        overlay.addClass('active');
-    });
-
-    sidebarFilterClose.on('click', () => {
-        filterSectionWrap.removeClass('active');
-        overlay.removeClass('active');
-    });
-
-    filterSectionWrap.on('click', (e) => {
-        e.stopPropagation();
-    });
-
-    body.on('click', () => {
-        overlay.removeClass('active');
-        sidebarCart.removeClass('active');
-        sidebarMenuWrap.removeClass('active');
-        filterSectionWrap.removeClass('active');
-    });
+    // mobileViewFilter.on('click', (e) => {
+    //     e.stopPropagation();
+    //
+    //     filterSectionWrap.addClass('active');
+    //     overlay.addClass('active');
+    // });
+    //
+    // sidebarFilterClose.on('click', () => {
+    //     filterSectionWrap.removeClass('active');
+    //     overlay.removeClass('active');
+    // });
+    //
+    // filterSectionWrap.on('click', (e) => {
+    //     e.stopPropagation();
+    // });
+    //
+    // body.on('click', () => {
+        // overlay.removeClass('active');
+        // sidebarCart.removeClass('active');
+        // sidebarMenuWrap.removeClass('active');
+        // filterSectionWrap.removeClass('active');
+    // });
 
     /*      browse categories
     /*----------------------------------------*/
@@ -418,15 +419,15 @@ $(() => {
     let parentUls = $('.browse-categories li.active').parentsUntil('.browse-categories', 'ul');
 
     if (window.FleetCart.rtl) {
-        filterCategoriesLink.before('<i class="las la-angle-left"></i>');
+        filterCategoriesLink.after('<i class="las la-angle-left"></i>');
     } else {
-        filterCategoriesLink.before('<i class="las la-angle-right"></i>');
+        filterCategoriesLink.after('<i class="las la-plus"></i>');
     }
 
-    parentUls.show().siblings('i').addClass('open');
+    parentUls.show().siblings('i').toggleClass('la-plus').toggleClass('la-minus');
 
     $('.browse-categories li i').on('click', (e) => {
-        $(e.currentTarget).toggleClass('open').siblings('ul').slideToggle(300);
+        $(e.currentTarget).toggleClass('la-plus').toggleClass('la-minus').siblings('ul').slideToggle(300);
     });
 
     /*      image gallery
@@ -437,22 +438,20 @@ $(() => {
     $('.additional-image-wrap').slick({
         rows: 0,
         dots: false,
-        arrows: true,
-        vertical: true,
-        infinite: false,
+        arrows: false,
+        // vertical: true,
+        infinite: true,
         slidesToShow: 4,
         slideToScroll: 1,
         asNavFor: baseImage,
         focusOnSelect: true,
         adaptiveHeight: true,
-        verticalSwiping: true,
         responsive: [
             {
                 breakpoint: 577,
                 settings: {
                     vertical: false,
                     variableWidth: true,
-                    verticalSwiping: false,
                     rtl: window.FleetCart.rtl,
                 },
             },
@@ -547,5 +546,14 @@ $(() => {
             self.val(maxValue);
             $('.btn-number.btn-plus').attr('disabled', true);
         }
+    });
+
+    $('.vertical-products-slide').slick({
+        dots: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        autoplay: true,
+        autoplaySpeed: 5000
     });
 });

@@ -1,18 +1,41 @@
 <template>
-    <div :href="productUrl" class="vertical-product-card">
-        <a :href="productUrl" class="product-image">
-            <img :src="baseImage" :class="{ 'image-placeholder': ! hasBaseImage }" alt="product-image">
-        </a>
-
-        <div class="product-info">
-            <a :href="productUrl" class="product-name">
-                <h6>{{ product.name }}</h6>
+    <div class="col-12 item">
+        <!--Start Product Image-->
+        <div class="product-image">
+            <!--Start Product Image-->
+            <a :href="productUrl" class="product-img">
+                <!-- image -->
+                <img class="primary blur-up lazyload" :data-src="baseImage" :src="baseImage" alt="image" title="">
+                <!-- End image -->
+                <!-- Hover image -->
+                <img class="hover blur-up lazyload" :data-src="additionalImages" :src="additionalImages" v-if="hasAdditionalImages" alt="image" title="">
+                <!-- End hover image -->
             </a>
+            <!--End Product Image-->
 
-            <div class="product-price" v-html="product.formatted_price"></div>
-
-            <ProductRating :ratingPercent="product.rating_percent" :reviewCount="product.reviews.length"/>
+            <!--Countdown Timer-->
+<!--            <div class="saleTime" data-countdown="2029/03/01"></div>-->
+            <!--End Countdown Timer-->
         </div>
+        <!--End Product Image-->
+        <!--Start Product Details-->
+        <div class="product-details text-center">
+            <!--Product Name-->
+            <div class="product-name text-uppercase">
+                <a :href="productUrl">{{ product.name }}</a>
+            </div>
+            <!--End Product Name-->
+            <!--Product Price-->
+            <div class="product-price" v-html="product.formatted_price">
+            </div>
+            <!--End Product Price-->
+            <!--Product Review-->
+            <div class="product-review d-flex align-items-center justify-content-center">
+                <ProductRating :ratingPercent="product.rating_percent" :reviewCount="product.reviews.length"/>
+            </div>
+            <!--End Product Review-->
+        </div>
+        <!--End Product Details-->
     </div>
 </template>
 

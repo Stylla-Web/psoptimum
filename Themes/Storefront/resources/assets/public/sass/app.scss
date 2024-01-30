@@ -4,6 +4,7 @@ $grid-columns: 12;
     '~bootstrap/scss/bootstrap',
     '~bootstrap-icons/font/bootstrap-icons',
     '~line-awesome/dist/line-awesome/scss/line-awesome',
+    'vacuum.css',
     '~jquery-nice-select/scss/nice-select',
     '~animate.css/animate',
     '~slick-carousel/slick/slick',
@@ -52,11 +53,11 @@ $grid-columns: 12;
     'layout/_order-summary',
     'layout/_subscribe',
     'layout/_newsletter',
-    'layout/_cookie-bar',
-    'layout/_footer';
+    'layout/_cookie-bar';
+    //'layout/_footer';
 
 @import
-    //'pages/_home',
+    'pages/_home',
     'pages/_login',
     'pages/_register',
     'pages/_account',
@@ -98,4 +99,19 @@ $grid-columns: 12;
     p {
         padding-bottom: .85em;
     }
+}
+
+.nano-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    z-index: 10000;
+    background: linear-gradient(
+            to right,
+            #0346aa,
+            #8b1d41
+    ); /* Change the background color later */
+    transition: width 0.2s ease;
 }

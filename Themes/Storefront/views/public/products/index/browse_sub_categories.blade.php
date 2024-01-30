@@ -1,4 +1,4 @@
-<ul>
+<ul class="sub-category">
     @foreach ($subCategories as $subCategory)
         <li :class="{ active: queryParams.category === '{{ $subCategory->slug }}' }">
             <a

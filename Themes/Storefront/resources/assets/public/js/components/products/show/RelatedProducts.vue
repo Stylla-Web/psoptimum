@@ -1,13 +1,18 @@
 <template>
-    <section class="landscape-products-wrap" v-if="hasAnyProduct">
-        <div class="products-header">
-            <h5 class="section-title">{{ $trans('storefront::product.related_products') }}</h5>
-        </div>
-
-        <div class="landscape-products" ref="productsPlaceholder">
-            <ProductCard v-for="(product, index) in products" :key="index" :product="product"></ProductCard>
+    <!--You May Also Like Products-->
+    <section class="section product-slider pb-5 pt-0" v-if="hasAnyProduct">
+        <div class="container">
+            <div class="row">
+                <div class="section-header col-12">
+                    <h2 class="text-transform-none">{{ $trans('storefront::product.related_products') }}</h2>
+                </div>
+            </div>
+            <div class="productSlider grid-products" ref="productsPlaceholder">
+                <ProductCard v-for="(product, index) in products" :key="index" :product="product"></ProductCard>
+            </div>
         </div>
     </section>
+    <!--End You May Also Like Products-->
 </template>
 
 <script>

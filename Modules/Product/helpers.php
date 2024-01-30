@@ -31,9 +31,9 @@ if (! function_exists('product_price_formatted')) {
         }
 
         if (! $product->hasSpecialPrice()) {
-            return $price . $product->getUnit();
+            return "<span class='regular-price'>{$price} {$product->getUnit()}</span>";
         }
 
-        return "{$specialPrice} {$product->getUnit()} <span class='previous-price'>{$price}</span>";
+        return "<span>{$specialPrice} {$product->getUnit()}</span><span class='previous-price'>{$price}</span>";
     }
 }

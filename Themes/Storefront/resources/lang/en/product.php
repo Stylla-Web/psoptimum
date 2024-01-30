@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'left_in_stock' => ':count left in stock',
+    'left_in_stock' => '<span>Order now, Only  <span class="items">:count</span>  left!</span>',
     'in_stock' => 'In stock',
     'out_of_stock' => 'Out of stock',
     'wishlist' => 'Wishlist',
@@ -14,6 +14,7 @@ return [
     'add_to_cart' => 'ADD TO CART',
     'sku' => 'SKU:',
     'categories' => 'Categories:',
+    'brand' => 'Brand:',
     'tags' => 'Tags:',
     'share' => 'Share:',
     'facebook' => 'Facebook',

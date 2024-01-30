@@ -1,52 +1,51 @@
 <div class="filter-section-wrap">
-    <div class="filter-section-header">
-        <h4 class="section-title">
-            {{ trans('storefront::products.filters') }}
-        </h4>
-
+    <div class="filter-section-header mt-4">
         <i class="las la-times sidebar-filter-close"></i>
     </div>
 
-    <div class="filter-section-inner custom-scrollbar">
-        <div class="filter-section">
-            <h6>{{ trans('storefront::products.price') }}</h6>
 
-            <div class="filter-price">
-                <form @submit.prevent="fetchProducts">
-                    <div class="price-input">
-                        <div class="form-group">
-                            <input
-                                type="number"
-                                id="price-from"
-                                class="form-control price-from"
-                                :value="queryParams.fromPrice"
-                                @change="updatePriceRange($event.target.value, null)"
-                                ref="fromPrice"
-                            >
-                        </div>
-
-                        <div class="form-group">
-                            <input
-                                type="number"
-                                id="price-to"
-                                class="form-control price-to"
-                                :value="queryParams.toPrice"
-                                @change="updatePriceRange(null, $event.target.value)"
-                                ref="toPrice"
-                            >
-                        </div>
-                    </div>
-
-                    <div ref="priceRange" @change="fetchProducts"></div>
-                </form>
-            </div>
+    <!--Price Filter-->
+    <div class="sidebar_widget filterBox filter-widget filter-price">
+        <div class="widget-title" @click="toggleWidgetTitle($event)">
+            <h2 class="mb-0">{{ trans('storefront::products.price') }}</h2>
         </div>
+        <form @submit.prevent="fetchProducts" class="price-filter filterDD px-2 m-0">
+            <div ref="priceRange" class="my-4" @change="fetchProducts"></div>
+            <div class="row price-input">
+                <div class="col-5 form-group">
+                    <input
+                        type="number"
+                        id="price-from"
+                        class="no-margin price-from"
+                        :value="queryParams.fromPrice"
+                        @change="updatePriceRange($event.target.value, null)"
+                        ref="fromPrice"
+                    >
+                </div>
+                <div class="col-5 form-group">
+                    <input
+                        type="number"
+                        id="price-to"
+                        class="no-margin price-to"
+                        :value="queryParams.toPrice"
+                        @change="updatePriceRange(null, $event.target.value)"
+                        ref="toPrice"
+                    >
+                </div>
+            </div>
+        </form>
+    </div>
+    <!--End Price Filter-->
 
-        <div v-for="attribute in attributeFilters" :key="attribute.id" class="filter-section" v-cloak>
-            <h6 v-text="attribute.name"></h6>
 
-            <div class="filter-checkbox">
-                <div v-for="value in attribute.values" :key="value.id" class="form-check">
+    <!--Size Swatches-->
+    <div class="sidebar_widget filterBox filter-widget" v-for="attribute in attributeFilters" :key="attribute.id" v-cloak>
+        <div class="widget-title" @click="toggleWidgetTitle($event)">
+            <h2 class="mb-0" v-text="attribute.name"></h2>
+        </div>
+        <div class="filterDD">
+            <ul class="clearfix">
+                <li v-for="value in attribute.values" :key="value.id">
                     <input
                         type="checkbox"
                         :name="attribute.slug"
@@ -55,9 +54,10 @@
                         @click="toggleAttributeFilter(attribute.slug, value.value)"
                     >
 
-                    <label :for="'attribute-' + value.id" v-text="value.value"></label>
-                </div>
-            </div>
+                    <label :for="'attribute-' + value.id" v-html="'<span></span>' + value.value"></label>
+                </li>
+            </ul>
         </div>
     </div>
+    <!--End Size Swatches-->
 </div>

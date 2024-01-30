@@ -11,7 +11,7 @@ export default {
 
     computed: {
         hasLogo() {
-            return ! Array.isArray(this.initialLogo);
+            return this.initialLogo !== undefined;
         },
 
         logo() {

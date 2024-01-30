@@ -21,7 +21,11 @@
             >
 
             <input
+                <% if (value.type === 'color') { %>
                 type="<%- value.type %>"
+                <% } else { %>
+                type="text"
+                <% } %>
                 <% if (optionId === undefined) { %>
                     name="values[<%- valueId %>][label]"
                     id="values-<%- valueId %>-label"

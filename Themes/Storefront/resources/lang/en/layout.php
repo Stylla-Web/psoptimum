@@ -32,6 +32,7 @@ return [
     'enter_your_email_address' => 'Enter your email address',
     'enter_your_name' => 'Enter your name',
     'enter_your_last_name' => 'Enter your last name',
+    'need_help' => 'Need Help?',
     'subscribe' => 'SUBSCRIBE',
     'subscribed' => 'SUBSCRIBED',
     'the_website_uses_cookies' => 'The website uses cookies to ensure you get the best experience on our website.',
@@ -42,4 +43,6 @@ return [
     'contact_us' => 'Contact Us',
     'my_account' => 'My Account',
     'tags' => 'Tags',
+    'select_language' => 'Select language',
+    'spent_for_free_shipping' => 'SPENT <b>:amount</b> FOR FREE SHIPPING',
 ];

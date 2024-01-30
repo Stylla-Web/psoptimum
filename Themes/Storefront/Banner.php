@@ -9,12 +9,16 @@ class Banner
 {
     public $image;
     public $call_to_action_url;
+    public $call_to_action_title;
+    public $call_to_action_body;
     public $open_in_new_window;
 
-    public function __construct($image, $call_to_action_url, $open_in_new_window)
+    public function __construct($image, $call_to_action_url, $call_to_action_title, $call_to_action_body, $open_in_new_window)
     {
         $this->image = $image;
         $this->call_to_action_url = $call_to_action_url;
+        $this->call_to_action_title = $call_to_action_title;
+        $this->call_to_action_body = $call_to_action_body;
         $this->open_in_new_window = (bool) $open_in_new_window;
     }
 
@@ -58,6 +62,16 @@ class Banner
         ];
     }
 
+    public static function getFourColumnBanners()
+    {
+        return [
+            'banner_1' => self::findByName('storefront_four_column_banners_1'),
+            'banner_2' => self::findByName('storefront_four_column_banners_2'),
+            'banner_3' => self::findByName('storefront_four_column_banners_3'),
+            'banner_4' => self::findByName('storefront_four_column_banners_4'),
+        ];
+    }
+
     public static function getOneColumnBanner()
     {
         return self::findByName('storefront_one_column_banner');
@@ -70,7 +84,9 @@ class Banner
                 return new self(
                     File::findOrNew(setting("{$name}_file_id")),
                     setting("{$name}_call_to_action_url"),
-                    setting("{$name}_open_in_new_window")
+                    setting("{$name}_call_to_action_title"),
+                    setting("{$name}_call_to_action_body"),
+                    setting("{$name}_open_in_new_window"),
                 );
             });
     }

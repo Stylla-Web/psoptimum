@@ -58,3 +58,64 @@
         }
     }
 }
+
+.nice-select.search-category-select {
+    background-image: url(../images/arrow-select-white.png) !important;
+    min-width: 140px;
+    border-radius: 3px 0 0 3px;
+    height: 38px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    color: #fff;
+    border-color: rgba(255,255,255,.2);
+    padding: 0.6em 2em 0.6em 1em;
+
+    &:after {
+        border: none;
+    }
+
+    &.form-control {
+        color: $color-white;
+        border-color: rgba(255,255,255,.2);
+
+        &.arrow-black,
+        &.arrow-white {
+            background-position: right 10px center;
+        }
+    }
+
+    .list {
+        min-width: 190px;
+        margin-top: 1px;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+        border: 1px solid rgba(255,255,255,.2);
+        //transform: scale(0.8);
+        z-index: 9;
+        //left: -20px;
+        background: $color-black;
+        transition: all $transition-default cubic-bezier(0.5, 0, 0, 1.25);
+    }
+
+    .option {
+        line-height: 36px;
+        padding: 0 1em;
+
+        &:hover {
+            color: $color-white;
+            background-color: #24B4A730;
+        }
+
+        &.focus {
+            background-color: #24B4A730;
+        }
+
+        &.selected {
+            font-weight: 400;
+            color: $color-green-lite;
+
+            &.focus {
+                background-color: #24B4A730;
+            }
+        }
+    }
+}

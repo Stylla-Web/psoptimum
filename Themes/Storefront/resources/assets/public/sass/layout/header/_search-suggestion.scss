@@ -1,8 +1,9 @@
 .search-suggestions {
+    width: 530px;
     position: absolute;
-    left: 41px;
-    top: 60px;
-    right: 41px;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 100%);
     background: $color-white;
     border-bottom: 2px solid $color-default;
     border-bottom: 2px solid var(--color-primary);

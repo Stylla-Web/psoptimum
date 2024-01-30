@@ -189,10 +189,10 @@ v-click-outside@^3.0.1:
   resolved "https://registry.yarnpkg.com/v-click-outside/-/v-click-outside-3.1.2.tgz#1dbaa14bf09a21bd16f23a38f03bfa3988f71281"
   integrity sha512-gMdRqfRE6m6XU6SiFi3dyBlFB2MWogiXpof8Aa3LQysrl9pzTndqp/iEaAphLoadaQUFnQ0ec6fLLaxr7LiY6A==
 
-vue-toast-notification@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/vue-toast-notification/-/vue-toast-notification-0.0.3.tgz#be2bd4b85cc44b935e912e2ebcc6436f614dc3ea"
-  integrity sha512-3UQuEa2oQX5JcWwMcnm6Kf9djL4XwWWv2R8uIawFC/PSPHYp4JCnXiYu+BVNc/qCQhpSvfkXmmDVOLRau5kVDg==
+vue-toast-notification@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/vue-toast-notification/-/vue-toast-notification-1.0.1.tgz#b97d07c9b061d769b7c959ea303b3e5908b965d2"
+  integrity sha512-qaBDz6jjaRxTXqimb0+NUtfj1Yjz2nd/tSpDePkw04mIyi57dcx1oGTnyqEZpvM6KeXoeYte/Qo9363QdKVQow==
 
 vue@^2.6.11:
   version "2.6.14"

@@ -14,14 +14,14 @@
                     <div class="slideshow--large bg-size">
 
                         @if($slide->url_video)
-                            <div data-vbg="{{ $slide->url_video }}"
+                            <div class="lazyload" data-vbg="{{ $slide->url_video }}"
                                  data-vbg-play-button="{{ $slide->video_btn_play }}"
                                  data-vbg-mute-button="{{ $slide->video_btn_mute }}"
                                  data-vbg-always-play="{{ $slide->video_auto_play }}"
                                  data-vbg-load-background="true">
                             </div>
                         @else
-                            <img class="bg-img blur-up lazyload"
+                            <img loading="lazy" class="bg-img blur-up lazyload"
                                  data-src="{{ $slide->file->path }}"
                                  src="{{ $slide->file->path }}"
                                  alt="{{ $slide->file->name }}"

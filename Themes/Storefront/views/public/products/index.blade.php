@@ -53,152 +53,184 @@
         initial-promotions="{{request('promotions', false)}}"
         inline-template
     >
-        <section class="product-search-wrap" id="product-search-wrap" ref="productsearchwrap">
-            <div class="container">
-                <div class="product-search">
-                    <div class="product-search-left">
-                        @if ($categories->isNotEmpty())
-                            <div class="d-none d-lg-block browse-categories-wrap">
-                                <h4 class="section-title">
-                                    {{ trans('storefront::products.browse_categories') }}
-                                </h4>
-
-                                @include('public.products.index.browse_categories')
-                            </div>
-                        @endif
-
+        <div class="container">
+            <div class="row my-5">
+                <!--Sidebar-->
+                <div class="col-12 col-sm-12 col-md-12 col-lg-3 sidebar sidebar-bg filterbar"
+                     id="product-search-wrap" ref="productsearchwrap">
+                    <div class="closeFilter d-block d-lg-none">
+                        <i class="icon icon an an-times-r"></i>
+                    </div>
+                    <div class="sidebar_tags">
+                        <!--Categories-->
+                        <div class="sidebar_widget categories filterBox filter-widget">
+                            @if ($categories->isNotEmpty())
+                                <div class="widget-title" @click="toggleWidgetTitle($event)">
+                                    <h2 class="mb-0">
+                                        {{ trans('storefront::products.browse_categories') }}
+                                    </h2>
+                                </div>
+                                <div class="widget-content filterDD">
+                                    @include('public.products.index.browse_categories')
+                                </div>
+                            @endif
+                        </div>
+                        <!--Categories-->
                         @include('public.products.index.filter')
                         @include('public.products.index.latest_products')
-                    </div>
 
-                    <div class="product-search-right" v-cloak>
-                        <div class="d-none d-lg-block categories-banner" v-if="brandBanner">
-                            <img :src="brandBanner" alt="Brand banner">
-                        </div>
-                        <div class="brand-presentation" v-if="brandPresentation">
-                            <div class="col-md-3 brand-image px-0">
-                                <img :src="brandLogo" alt="Brand logo">
-                            </div>
-                            <div class="col-md-15" v-if="brandPresentation" v-html="brandPresentation">
-                            </div>
-                        </div>
-
-                        <div class="d-none d-lg-block categories-banner" v-else-if="categoryBanner">
-                            <img :src="categoryBanner" alt="Category banner">
-                        </div>
-
-                        <div class="search-result">
-                            <div class="search-result-top">
-                                <div class="content-left">
-                                    <h1 v-if="queryParams.query">
-                                        {{ trans('storefront::products.search_results_for') }} <span>"@{{ queryParams.query }}"</span>
-                                    </h1>
-                                    <h1 v-else-if="queryParams.brand && !brandPresentation" v-text="initialBrandName"></h1>
-                                    <h1 v-else-if="queryParams.category" v-text="categoryName"></h1>
-                                    <h1 v-else-if="queryParams.tag" v-text="initialTagName"></h1>
-                                    <h1 v-else>{{ trans('storefront::products.shop') }}</h1>
-                                </div>
-
-                                <div class="content-right">
-                                    <div class="mobile-view-filter">
-                                        <i class="las la-sliders-h"></i>
-                                        {{ trans('storefront::products.filters') }}
-                                    </div>
-
-                                    <div class="sorting-bar">
-                                        <div class="view-type">
-                                            <button
-                                                type="submit"
-                                                class="btn btn-grid-view"
-                                                :class="{ active: viewMode === 'grid' }"
-                                                title="{{ trans('storefront::products.grid_view') }}"
-                                                @click="viewMode = 'grid'"
-                                            >
-                                                <i class="las la-th-large"></i>
-                                            </button>
-
-                                            <button
-                                                type="submit"
-                                                class="btn btn-list-view"
-                                                :class="{ active: viewMode === 'list' }"
-                                                title="{{ trans('storefront::products.list_view') }}"
-                                                @click="viewMode = 'list'"
-                                            >
-                                                <i class="las la-list"></i>
-                                            </button>
-                                        </div>
-
-                                        <div class="form-group m-r-20">
-                                            <select
-                                                class="form-control custom-select-option right arrow-black"
-                                                v-model="queryParams.sort"
-                                                ref="sortSelect"
-                                            >
-                                                @foreach (trans('storefront::products.sort_options') as $key => $value)
-                                                    <option
-                                                        value="{{ $key }}"
-                                                        {{ request('sort', 'latest') === $key ? 'selected' : '' }}
-                                                    >
-                                                        {{ $value }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <select
-                                                class="form-control custom-select-option right arrow-black"
-                                                v-model="queryParams.perPage"
-                                                ref="perPageSelect"
-                                            >
-                                                @foreach (trans('storefront::products.per_page_options') as $key => $value)
-                                                    <option
-                                                        value="{{ $key }}"
-                                                        {{ request('perPage', 30) == $key ? 'selected' : '' }}
-                                                    >
-                                                        {{ $value }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="search-result-middle"
-                                 :class="{ empty: emptyProducts, loading: fetchingProducts }">
-                                <div class="grid-view-products" v-if="viewMode === 'grid'">
-                                    <product-card-grid-view v-for="product in products.data" :key="product.id"
-                                                            :product="product"></product-card-grid-view>
-                                </div>
-
-                                <div class="list-view-products" v-if="viewMode === 'list'">
-                                    <product-card-list-view v-for="product in products.data" :key="product.id"
-                                                            :product="product"></product-card-list-view>
-                                </div>
-
-                                <div class="empty-message" v-if="! fetchingProducts && emptyProducts">
-                                    @include('public.products.index.empty_results_logo')
-
-                                    <h2>{{ trans('storefront::products.no_product_found') }}</h2>
-                                </div>
-                            </div>
-
-                            <div class="search-result-bottom" v-if="! emptyProducts">
-                                <span class="showing-results" v-text="showingResults"></span>
-
-                                <v-pagination
-                                    :total-page="totalPage"
-                                    :current-page="queryParams.page"
-                                    @page-changed="changePage"
-                                    v-if="products.total > queryParams.perPage"
-                                >
-                                </v-pagination>
-                            </div>
-                        </div>
                     </div>
                 </div>
+                <!--Main Content-->
+                <div class="col-12 col-sm-12 col-md-12 col-lg-9 main-col">
+                    <!--Category Slideshow-->
+                    <div class="category-banner mt-2 mt-lg-0" v-if="brandBanner" v-cloak>
+                        <img :src="brandBanner" alt="Brand banner">
+                    </div>
+
+                    <div class="brand-presentation" v-if="brandPresentation">
+                        <div class="col-md-3 brand-image px-0">
+                            <img :src="brandLogo" alt="Brand logo">
+                        </div>
+                        <div class="col-md-9 category-description" v-if="brandPresentation" v-html="brandPresentation">
+                        </div>
+                    </div>
+
+                    <div class="d-none d-lg-block categories-banner" v-else-if="categoryBanner">
+                        <img :src="categoryBanner" alt="Category banner">
+                    </div>
+
+                    <div class="page-title">
+                        <h1 v-if="queryParams.query">
+                            {{ trans('storefront::products.search_results_for') }}
+                            <span>"@{{ queryParams.query }}"</span>
+                        </h1>
+                        <h1 v-else-if="queryParams.brand && !brandPresentation"
+                            v-text="initialBrandName"></h1>
+                        <h1 v-else-if="queryParams.category" v-text="categoryName"></h1>
+                        <h1 v-else-if="queryParams.tag" v-text="initialTagName"></h1>
+                        <h1 v-else>{{ trans('storefront::products.shop') }}</h1>
+                    </div>
+
+                    <!--Toolbar-->
+                    <div class="toolbar">
+                        <div class="filters-toolbar-wrapper">
+                            <ul class="list-unstyled d-flex align-items-center">
+                                <li class="product-count d-flex align-items-center">
+                                    <button type="button"
+                                            class="btn btn-filter an an-slider-3 d-inline-flex d-lg-none me-2 me-sm-3">
+                                        <span class="hidden">Filter</span>
+                                    </button>
+                                </li>
+                                <li class="collection-view ms-sm-auto">
+                                    <div
+                                        class="filters-toolbar__item collection-view-as d-flex align-items-center me-3">
+                                        <a href="javascript:void(0)"
+                                           class="change-view prd-grid"
+                                           :class="{ 'change-view--active' : viewMode === 'grid' }"
+                                           title="{{ trans('storefront::products.grid_view') }}"
+                                           @click="viewMode = 'grid'"
+                                        >
+                                            <i class="icon an an-th" aria-hidden="true"></i>
+                                            <span class="tooltip-label">Grid View</span>
+                                        </a>
+                                        <a href="javascript:void(0)"
+                                           class="change-view prd-list"
+                                           :class="{ 'change-view--active' : viewMode === 'list' }"
+                                           title="{{ trans('storefront::products.list_view') }}"
+                                           @click="viewMode = 'list'"
+                                        >
+                                            <i class="icon an an-th-list" aria-hidden="true"></i>
+                                            <span class="tooltip-label">List View</span>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="filters-sort ms-auto ms-sm-0">
+                                    <div class="filters-toolbar__item">
+                                        <label for="SortBy" class="hidden">
+                                            Sort by:
+                                        </label>
+                                        <select id="SortBy"
+                                                class="filters-toolbar__input filters-toolbar__input--sort"
+                                                v-model="queryParams.sort"
+                                                ref="sortSelect"
+                                        >
+                                            @foreach (trans('storefront::products.sort_options') as $key => $value)
+                                                <option
+                                                    value="{{ $key }}"
+                                                    {{ request('sort', 'latest') === $key ? 'selected' : '' }}
+                                                >
+                                                    {{ $value }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </li>
+                                <li class="filters-sort ms-3">
+                                    <select
+                                        class="filters-toolbar__input filters-toolbar__input--sort"
+                                        v-model="queryParams.perPage"
+                                        ref="perPageSelect"
+                                    >
+                                        @foreach (trans('storefront::products.per_page_options') as $key => $value)
+                                            <option
+                                                value="{{ $key }}"
+                                                {{ request('perPage', 30) == $key ? 'selected' : '' }}
+                                            >
+                                                {{ $value }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--End Toolbar-->
+
+                    <!--Product Grid-->
+                    <div class="grid-products grid--view-items prd-grid" v-if="viewMode === 'grid'">
+                        <div class="row"
+                             :class="{ empty: emptyProducts, loading: fetchingProducts }">
+                            <product-card-grid-view v-for="product in products.data" :key="product.id"
+                                                    :product="product"></product-card-grid-view>
+                            <div class="empty-message" v-if="! fetchingProducts && emptyProducts">
+                                @include('public.products.index.empty_results_logo')
+
+                                <h2>{{ trans('storefront::products.no_product_found') }}</h2>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--Product List-->
+                    <div class="grid-products grid--view-items prd-list" v-if="viewMode === 'list'">
+                        <div class="row"
+                             :class="{ empty: emptyProducts, loading: fetchingProducts }">
+                            <product-card-list-view v-for="product in products.data" :key="product.id"
+                                                    :product="product"></product-card-list-view>
+                            <div class="empty-message" v-if="! fetchingProducts && emptyProducts">
+                                @include('public.products.index.empty_results_logo')
+
+                                <h2>{{ trans('storefront::products.no_product_found') }}</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Pagination Classic-->
+                    <hr class="clear">
+                    <div class="pagination" v-if="! emptyProducts">
+                        <span class="showing-results" v-text="showingResults"></span>
+
+                        <v-pagination
+                            :total-page="totalPage"
+                            :current-page="queryParams.page"
+                            @page-changed="changePage"
+                            v-if="products.total > queryParams.perPage"
+                        >
+                        </v-pagination>
+                    </div>
+                    <!--End Pagination Classic-->
+                </div>
             </div>
-        </section>
+        </div>
     </product-index>
 @endsection

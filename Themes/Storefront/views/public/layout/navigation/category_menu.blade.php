@@ -9,11 +9,13 @@
         <div class="megamenu style2">
             <div class="row">
                 @foreach ($categoryMenu->menus() as $menu)
-                    <div class="d-flex flex-column justify-content-between lvl-1 col-md-3 col-lg-3">
-                        <a href="{{ $menu->url() }}" target="{{ $menu->target() }}" class="site-nav lvl-1 menu-title">
+                    <div class="lvl-1 col">
+                        <a href="{{ $menu->url() }}" target="{{ $menu->target() }}" class="site-nav lvl-1 menu-title mb-2">
                             {{ $menu->name() }}
                         </a>
-                        <ul class="subLinks flex-fill">
+
+                        @if($menu->subMenus()->count())
+                        <ul class="subLinks flex-fill mb-4">
                             @foreach ($menu->subMenus() as $subMenu)
                                 <li class="lvl-2">
                                     <a href="{{ $subMenu->url() }}"
@@ -27,9 +29,10 @@
                                 </li>
                             @endforeach
                         </ul>
+                        @endif
 
                         @if ($menu->hasBackgroundImage())
-                            <a class="mt-4" href="{{ $menu->url() }}">
+                            <a href="{{ $menu->url() }}" class="megamenu-img-url">
                                 <img src="{{ $menu->backgroundImage() }}"
                                      data-src="{{ $menu->backgroundImage() }}" alt="image"/>
                             </a>
