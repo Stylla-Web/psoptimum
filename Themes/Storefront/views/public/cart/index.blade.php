@@ -23,7 +23,7 @@
             </div>
             <!--End Collection Banner-->
             <!--Cart Page-->
-            <div class="row mt-5" v-if="cartIsNotEmpty">
+            <div class="row mt-5 cart-top-wrapper" v-if="cartIsNotEmpty">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 main-col">
                     <div class="alert alert-success py-2 rounded-1 alert-dismissible fade show cart-alert"
                          role="alert"

@@ -4,69 +4,73 @@
 
 @section('content')
     <section class="contact-wrap">
+        <div class="map-canvas">
+            <iframe
+                width="600"
+                height="500"
+                src="https://maps.google.com/maps?q={{ setting('storefront_address') }}&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                frameborder="0"
+                scrolling="no"
+                marginheight="0"
+                marginwidth="0">
+            </iframe>
+        </div>
         <div class="container">
-            <div class="map-canvas">
-                <iframe
-                    width="600"
-                    height="500"
-                    src="https://maps.google.com/maps?q={{ setting('storefront_address') }}&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                    frameborder="0"
-                    scrolling="no"
-                    marginheight="0"
-                    marginwidth="0">
-                </iframe>
-            </div>
 
             <div class="contact-form-wrap">
-                <div class="contact-form-inner">
-                    <div class="contact-form-left">
-                        <h3 class="title">{{ trans('storefront::contact.contact') }}</h3>
+                <div class="contact-form-inner row">
+                    <div class="contact-form-left col-12 col-md-5">
+                        <div class="contact-form-left-wrap p-5">
+                            <h3 class="title">{{ trans('storefront::contact.contact') }}</h3>
 
-                        <ul class="list-inline contact-info">
-                            @if (setting('store_phone') && ! setting('store_phone_hide'))
-                                <li>
-                                    <i class="las la-phone"></i>
-                                    <span><a href="tel:{{ setting('store_phone') }}">{{ format_phone_number(setting('store_phone')) }}</a></span>
-                                    @if (setting('store_fax') && ! setting('store_phone_hide'))
-                                    <i class="las la-fax"></i>
-                                        <span>{{ format_phone_number(setting('store_fax')) }}</span>
-                                    @endif
-                                </li>
-                            @endif
-
-                            @if(! setting('store_email_hide'))
-                                <li>
-                                    <i class="las la-envelope"></i>
-                                    <span><a href="mailto:{{ setting('store_email') }}">{{ setting('store_email') }}</a></span>
-                                </li>
-                            @endif
-
-                            @if (setting('storefront_address'))
-                                <li>
-                                    <i class="las la-map"></i>
-                                    <span><a href="{{ setting('storefront_google_map_url') }}" target="_blank">{{ setting('storefront_address') }}</a></span>
-                                </li>
-                            @endif
-                        </ul>
-
-                        @if (social_links()->isNotEmpty())
-                            <ul class="list-inline social-links">
-                                @foreach (social_links() as $icon => $socialLink)
+                            <ul class="list-inline contact-info">
+                                @if (setting('store_phone') && ! setting('store_phone_hide'))
                                     <li>
-                                        <a href="{{ $socialLink }}" target="_blank">
-                                            <i class="{{ $icon }}"></i>
-                                        </a>
+                                        <i class="las la-phone"></i>
+                                        <span><a
+                                                href="tel:{{ setting('store_phone') }}">{{ format_phone_number(setting('store_phone')) }}</a></span>
+                                        @if (setting('store_fax') && ! setting('store_phone_hide'))
+                                            <i class="las la-fax"></i>
+                                            <span>{{ format_phone_number(setting('store_fax')) }}</span>
+                                        @endif
                                     </li>
-                                @endforeach
-                            </ul>
-                        @endif
+                                @endif
 
-                        <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 512.000000 512.000000"
-                            preserveAspectRatio="xMidYMid meet">
-                            <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-                            fill="#ffffff" stroke="none">
-                                <path d="M2521 5003 c-7 -3 -118 -81 -245 -174 l-231 -169 -457 0 c-266 0
+                                @if(! setting('store_email_hide'))
+                                    <li>
+                                        <i class="las la-envelope"></i>
+                                        <span><a
+                                                href="mailto:{{ setting('store_email') }}">{{ setting('store_email') }}</a></span>
+                                    </li>
+                                @endif
+
+                                @if (setting('storefront_address'))
+                                    <li>
+                                        <i class="las la-map"></i>
+                                        <span><a href="{{ setting('storefront_google_map_url') }}"
+                                                 target="_blank">{{ setting('storefront_address') }}</a></span>
+                                    </li>
+                                @endif
+                            </ul>
+
+                            @if (social_links()->isNotEmpty())
+                                <ul class="list-inline social-links">
+                                    @foreach (social_links() as $icon => $socialLink)
+                                        <li>
+                                            <a href="{{ $socialLink }}" target="_blank">
+                                                <i class="{{ $icon }}"></i>
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @endif
+
+                            <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                                 viewBox="0 0 512.000000 512.000000"
+                                 preserveAspectRatio="xMidYMid meet">
+                                <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                                   fill="#ffffff" stroke="none">
+                                    <path d="M2521 5003 c-7 -3 -118 -81 -245 -174 l-231 -169 -457 0 c-266 0
                                 -467 -4 -482 -10 -14 -5 -33 -21 -43 -37 -16 -24 -19 -61 -23 -357 l-5 -330
                                 -410 -297 c-226 -164 -420 -310 -432 -324 l-23 -26 0 -1551 0 -1550 34 -34 34
                                 -34 2311 0 c1724 0 2316 3 2335 12 14 6 34 23 43 37 17 25 18 114 21 1568 l2
@@ -85,14 +89,15 @@
                                 196 96 68 50 127 89 132 87 4 -2 385 -304 845 -673 l837 -670 -990 -3 c-545
                                 -1 -1436 -1 -1979 0 l-989 3 836 673 c459 369 838 672 841 672 4 0 61 -40 129
                                 -90z"/>
-                                <path d="M1860 3835 l0 -105 705 0 705 0 0 105 0 105 -705 0 -705 0 0 -105z"/>
-                                <path d="M1860 3205 l0 -105 705 0 705 0 0 105 0 105 -705 0 -705 0 0 -105z"/>
-                                <path d="M1860 2565 l0 -105 705 0 705 0 0 105 0 105 -705 0 -705 0 0 -105z"/>
-                            </g>
-                        </svg>
+                                    <path d="M1860 3835 l0 -105 705 0 705 0 0 105 0 105 -705 0 -705 0 0 -105z"/>
+                                    <path d="M1860 3205 l0 -105 705 0 705 0 0 105 0 105 -705 0 -705 0 0 -105z"/>
+                                    <path d="M1860 2565 l0 -105 705 0 705 0 0 105 0 105 -705 0 -705 0 0 -105z"/>
+                                </g>
+                            </svg>
+                        </div>
                     </div>
 
-                    <div class="contact-form-right">
+                    <div class="contact-form-right col-12 col-md-7">
                         <h3 class="title">{{ trans('storefront::contact.leave_a_message') }}</h3>
 
                         <div class="contact-form">
@@ -100,60 +105,64 @@
                                 @csrf
 
                                 <div class="row">
-                                    <div class="col-md-9">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="email">
                                                 {{ trans('contact::attributes.email') }}<span>*</span>
                                             </label>
 
-                                            <input type="text" name="email" value="{{ old('email') }}" id="email" class="form-control">
+                                            <input type="text" name="email" value="{{ old('email') }}" id="email"
+                                                   class="form-control">
 
                                             @error('email')
-                                                <span class="error-message">{{ $message }}</span>
+                                            <span class="error-message">{{ $message }}</span>
                                             @enderror
                                         </div>
                                     </div>
 
-                                    <div class="col-md-9">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="subject">
                                                 {{ trans('contact::attributes.subject') }}<span>*</span>
                                             </label>
 
-                                            <input type="text" name="subject" value="{{ old('subject') }}" id="subject" class="form-control">
+                                            <input type="text" name="subject" value="{{ old('subject') }}" id="subject"
+                                                   class="form-control">
 
                                             @error('subject')
-                                                <span class="error-message">{{ $message }}</span>
+                                            <span class="error-message">{{ $message }}</span>
                                             @enderror
                                         </div>
                                     </div>
 
-                                    <div class="col-md-18">
+                                    <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="message">
                                                 {{ trans('contact::attributes.message') }}<span>*</span>
                                             </label>
 
-                                            <textarea rows="5" name="message" id="message" class="form-control">{{ old('message') }}</textarea>
+                                            <textarea rows="5" name="message" id="message"
+                                                      class="form-control">{{ old('message') }}</textarea>
 
                                             @error('message')
-                                                <span class="error-message">{{ $message }}</span>
+                                            <span class="error-message">{{ $message }}</span>
                                             @enderror
                                         </div>
                                     </div>
 
-                                    <div class="col-md-18">
+                                    <div class="col-md-12">
                                         <div class="form-group p-t-5">
                                             @captcha
-                                            <input type="text" name="captcha" class="captcha-input" placeholder="{{ trans('storefront::layout.enter_captcha_code') }}">
+                                            <input type="text" name="captcha" class="captcha-input"
+                                                   placeholder="{{ trans('storefront::layout.enter_captcha_code') }}">
 
                                             @error('captcha')
-                                                <span class="error-message">{{ $message }}</span>
+                                            <span class="error-message">{{ $message }}</span>
                                             @enderror
                                         </div>
                                     </div>
 
-                                    <div class="col-md-18">
+                                    <div class="col-md-12">
                                         <button type="submit" class="btn btn-lg btn-primary" data-loading>
                                             {{ trans('storefront::contact.send_message') }}
                                         </button>
@@ -164,6 +173,15 @@
                     </div>
                 </div>
             </div>
+            <p class="px-5 pt-5">
+                Nous sommes là pour vous assister, que ce soit pour des informations sur nos produits, des
+                préoccupations liées à votre expérience d'achat, ou toute autre demande. N'hésitez pas à nous
+                contacter, et nous nous engageons à fournir une assistance rapide et efficace.
+            </p>
         </div>
     </section>
+
+    @if (setting('storefront_features_section_enabled'))
+        <home-features :features="{{ json_encode($features) }}"></home-features>
+    @endif
 @endsection

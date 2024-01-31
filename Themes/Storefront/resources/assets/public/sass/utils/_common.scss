@@ -309,6 +309,7 @@
     border: 1px solid $color-gray-lite;
     border-radius: $radius-default;
     transition: $transition-default;
+    width: calc(100% - 191px);
 
     &:focus {
         outline: 0;

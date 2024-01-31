@@ -4,16 +4,16 @@ namespace Themes\Storefront\Providers;
 
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
-use Modules\Support\Traits\AddsAsset;
 use Illuminate\Support\ServiceProvider;
 use Modules\Admin\Ui\Facades\TabManager;
 use Modules\FlashSale\Entities\FlashSale;
+use Modules\Support\Traits\AddsAsset;
 use Themes\Storefront\Admin\StorefrontTabs;
-use Themes\Storefront\Http\ViewComposers\LayoutComposer;
 use Themes\Storefront\Http\ViewComposers\HomePageComposer;
-use Themes\Storefront\Http\ViewComposers\StorefrontTabsComposer;
-use Themes\Storefront\Http\ViewComposers\ProductShowPageComposer;
+use Themes\Storefront\Http\ViewComposers\LayoutComposer;
 use Themes\Storefront\Http\ViewComposers\ProductIndexPageComposer;
+use Themes\Storefront\Http\ViewComposers\ProductShowPageComposer;
+use Themes\Storefront\Http\ViewComposers\StorefrontTabsComposer;
 
 class StorefrontServiceProvider extends ServiceProvider
 {
@@ -33,6 +33,7 @@ class StorefrontServiceProvider extends ServiceProvider
         TabManager::register('storefront', StorefrontTabs::class);
 
         View::composer('public.layout', LayoutComposer::class);
+        View::composer('public.contact.create', HomePageComposer::class);
         View::composer('public.home.index', HomePageComposer::class);
         View::composer('public.products.index', ProductIndexPageComposer::class);
         View::composer('public.products.show', ProductShowPageComposer::class);

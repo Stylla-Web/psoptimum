@@ -42,7 +42,7 @@
     <p class="cart__shipping m-0 fst-normal freeShipclaim"
        v-if="{{ json_encode(setting('free_shipping_enabled')) }} && cart.subTotal.amount >= {{ setting('free_shipping_min_amount') }}">
         <i class="me-1 align-middle icon an an-truck-l"></i>
-        {{ trans('storefront::cart.free_shipping_eligible') }}
+        {!! trans('storefront::cart.free_shipping_eligible') !!}
     </p>
     <a href="{{ route('checkout.create') }}" id="cartCheckout"
        class="btn btn-primary btn--small-wide rounded mt-4 checkout">
