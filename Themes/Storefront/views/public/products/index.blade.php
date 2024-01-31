@@ -57,7 +57,7 @@
             <div class="row my-5">
                 <!--Sidebar-->
                 <div class="col-12 col-sm-12 col-md-12 col-lg-3 sidebar sidebar-bg filterbar"
-                     id="product-search-wrap" ref="productsearchwrap">
+                     ref="productsearchwrap">
                     <div class="closeFilter d-block d-lg-none">
                         <i class="icon icon an an-times-r"></i>
                     </div>

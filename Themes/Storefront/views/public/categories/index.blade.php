@@ -8,12 +8,12 @@
             <div class="row">
                 @forelse ($categories as $category)
                     <div class="category-wrap col-4 mb-5">
+                        <a class="pt-3" href="{{ $category->url() }}" title="{{ $category->name }}">
                         <h4 class="d-flex flex-column align-items-center">
-                            <img src="{{$category->logo->path}}" alt="{{ $category->name }}" width="100px"/>
-                            <a class="pt-3" href="{{ $category->url() }}" title="{{ $category->name }}">
+                            <img src="{{$category->logo->path}}" alt="{{ $category->name }}" width="100px" class="mb-3"/>
                                 {{ $category->name }}
-                            </a>
                         </h4>
+                        </a>
                         <h6>{{ $category->products->count() }} produits</h6>
                         @if ($category->items->isNotEmpty())
                             <p>
