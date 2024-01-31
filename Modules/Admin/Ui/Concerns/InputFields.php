@@ -2,11 +2,11 @@
 
 namespace Modules\Admin\Ui\Concerns;
 
-use LogicException;
-use Modules\Support\Money;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Collection;
 use Illuminate\Support\HtmlString;
-use Illuminate\Database\Eloquent\Relations\Relation;
+use LogicException;
+use Modules\Support\Money;
 
 trait InputFields
 {
@@ -111,6 +111,11 @@ trait InputFields
     protected function field($name, $title, $errors, $entity, $options, callable $fieldCallback, ...$args)
     {
         $value = $this->getValue($entity, $name);
+
+        // If min attribut exists we set the value as default.
+        if(isset($options['min'])){
+            $value = $value ?? $options['min'];
+        }
 
         if (is_string($value)) {
             $value = e($value);
