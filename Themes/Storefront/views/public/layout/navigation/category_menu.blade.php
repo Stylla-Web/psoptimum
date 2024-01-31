@@ -10,7 +10,7 @@
             <div class="row">
                 @foreach ($categoryMenu->menus() as $menu)
                     <div class="lvl-1 col">
-                        <a href="{{ $menu->url() }}" target="{{ $menu->target() }}" class="site-nav lvl-1 menu-title mb-2">
+                        <a href="{{ $menu->url() }}" target="{{ $menu->target() }}" class="lvl-1 menu-title mb-2">
                             {{ $menu->name() }}
                         </a>
 
