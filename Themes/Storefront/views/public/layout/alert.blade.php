@@ -1,6 +1,6 @@
 @if(session()->has('success'))
     <div class="alert alert-success alert-dismissible fade show">
-        <a data-dismiss="alert" class="close">
+        <a data-bs-dismiss="modal" aria-label="Close">
             <i class="las la-times"></i>
         </a>
 
@@ -12,7 +12,7 @@
 
 @if(session()->has('error'))
     <div class="alert alert-danger alert-dismissible fade show">
-        <a data-dismiss="alert" class="close">
+        <a data-bs-dismiss="modal" aria-label="Close">
             <i class="las la-times"></i>
         </a>
 

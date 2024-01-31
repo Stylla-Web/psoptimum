@@ -80,9 +80,9 @@
 
                             <div class="newsletter-right" style="background-image: url({{ $newsletterBgImage }})"></div>
 
-                            <button type="button" class="close" data-dismiss="modal">
+                            <a class="close" data-bs-dismiss="modal" aria-label="Close">
                                 <i class="las la-times"></i>
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
