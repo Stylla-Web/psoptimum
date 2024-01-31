@@ -153,7 +153,7 @@
     body.menuOn .page-wrapper { left:270px; }
     body.menuOn:after { content:""; background: rgba(0,0,0,0.5); position: fixed; top: 0; bottom: 0; left: 0; right: 0; z-index: 99; }
     #pageWrapper { position:relative; left:0; -ms-transition:all 0.4s ease-in-out; -webkit-transition: all 0.4s ease-in-out; transition: all 0.4s ease-in-out; }
-    .js-mobile-nav-toggle .bi { display:none; font-size:16px; color:#fff; }
+    .js-mobile-nav-toggle .bi { display:none; font-size:2em; color:#fff; }
     .site-header__menu { border:0; padding:0; font-size:16px; display:block; cursor:pointer; }
     .js-mobile-nav-toggle.mobile-nav--open .bi-list,
     .js-mobile-nav-toggle.mobile-nav--close .icon.bi.bi-x-lg { display:inline-block; }
