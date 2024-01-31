@@ -1084,7 +1084,7 @@
             return false;
         });
     }
-    scroll_top();
+    // scroll_top();
 
     $(window).scroll(function () {
         if ($(this).scrollTop() > 300) {

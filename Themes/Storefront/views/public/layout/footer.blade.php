@@ -3,7 +3,7 @@
     <div class="footer-top clearfix">
         <div class="container">
             <div class="row">
-                <a class="d-flex mb-4" href="{{ route("home") }}">
+                <a class="d-flex order-0 mb-4 col-12 order-md-4 mt-md-2 mt-lg-0 order-lg-0" href="{{ route("home") }}">
                     @if (is_null($logo))
                         <span class="logo-txt">{{ setting('store_name') }}</span>
                     @else
@@ -12,8 +12,9 @@
                              alt="{{ setting('store_name') }}"
                              title="{{ setting('store_name') }}" width="250px"/>
                     @endif
+                    <hr class="d-none d-md-block d-lg-none" style="height: 1px; color: #fff; width: 100%; margin-left: 1em;" />
                 </a>
-                <div class="col-12 col-sm-12 col-md-3 col-lg-3 footer-contact pt-4 pt-md-0">
+                <div class="col-12 mb-3 order-0 col-sm-12 col-md-6 order-md-4 mt-md-0 col-lg-3 order-lg-0 mt-lg-0 footer-contact">
                     @if (setting('storefront_address'))
                         <p class="d-flex mb-2">
                             <i class="bi bi-geo-alt"></i>
@@ -66,35 +67,45 @@
                     @endif
                 </div>
 
-                <div class="col-12 col-sm-12 col-md-3 col-lg-2 ps-lg-4 footer-links">
+                <div class="col-12 order-0 col-sm-12 col-md-4 order-md-1 mb-md-3 col-lg-2 mt-lg-0 order-lg-0 ps-lg-4 footer-links">
                     <h4 class="h4 body-font">{{ trans('storefront::layout.my_account') }}</h4>
                     <ul>
-                        <li>
-                            <a href="{{ route('account.dashboard.index') }}">
-                                {{ trans('storefront::account.pages.dashboard') }}
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="{{ route('account.orders.index') }}">
-                                {{ trans('storefront::account.pages.my_orders') }}
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="{{ route('account.reviews.index') }}">
-                                {{ trans('storefront::account.pages.my_reviews') }}
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="{{ route('account.profile.edit') }}">
-                                {{ trans('storefront::account.pages.my_profile') }}
-                            </a>
-                        </li>
-
                         @auth
                             <li>
+                                <a href="{{ route('account.dashboard.index') }}">
+                                    {{ trans('storefront::account.pages.dashboard') }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('account.orders.index') }}">
+                                    {{ trans('storefront::account.pages.my_orders') }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('account.wishlist.index') }}">
+                                    {{ trans('storefront::layout.wishlist') }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('compare.index') }}">
+                                    {{ trans('storefront::layout.compare') }}
+                                </a>
+                            </li>
+                        @else
+                            <li>
+                                <a href="{{ route('login') }}">
+                                    {{ trans('storefront::layout.login') }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('register') }}">
+                                    {{ trans('user::auth.create_account') }}
+                                </a>
+                            </li>
+                        @endauth
+
+                        @auth
+                            <li class="logout">
                                 <a href="{{ route('logout') }}">
                                     {{ trans('storefront::account.pages.logout') }}
                                 </a>
@@ -104,7 +115,7 @@
                 </div>
 
                 @if ($footerMenuOne->isNotEmpty())
-                    <div class="col-12 col-sm-12 col-md-3 col-lg-2 footer-links">
+                    <div class="col-12 order-0 col-sm-12 col-md-4 order-md-2 mb-md-3 col-lg-2 mt-lg-0 order-lg-0 footer-links">
                         <h4 class="h4 body-font">{{ setting('storefront_footer_menu_one_title') }}</h4>
                         <ul>
                             @foreach ($footerMenuOne as $menuItem)
@@ -119,8 +130,8 @@
                 @endif
 
                 @if ($footerMenuTwo->isNotEmpty())
-                    <div class="col-12 col-sm-12 col-md-3 col-lg-2 footer-links">
-                        <h4 class="h4 body-font">Customer Services</h4>
+                    <div class="col-12 order-0 col-sm-12 col-md-4 order-md-3 mb-md-3 col-lg-2 mt-lg-0 order-lg-0 footer-links">
+                        <h4 class="h4 body-font">{{ setting('storefront_footer_menu_two_title') }}</h4>
                         <ul>
                             @foreach ($footerMenuTwo as $menuItem)
                                 <li>
@@ -134,7 +145,7 @@
                     </div>
                 @endif
 
-                <div class="col-12 col-sm-12 col-md-12 col-lg-3 newsletter-col mt-0 pb-4 pb-lg-0">
+                <div class="col-12 order-0 mt-3 col-sm-12 col-md-6 order-md-5 mt-md-0 col-lg-3 order-lg-0 newsletter-col">
                     @include('public.home.sections.subscribe')
                 </div>
             </div>

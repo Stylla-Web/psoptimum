@@ -2,7 +2,7 @@ require('./storefront');
 
 import Vue from 'vue';
 import store from './store';
-import { notify, trans, chunk } from './functions';
+import {chunk, notify, trans} from './functions';
 import VueToast from 'vue-toast-notification';
 import vClickOutside from 'v-click-outside';
 import VPagination from './components/VPagination.vue';
@@ -39,6 +39,7 @@ import MyWishlist from './components/account/wishlist/Index';
 import MyAddresses from './components/account/addresses/Index';
 import 'youtube-background';
 import * as bootstrap from 'bootstrap';
+
 window.bootstrap = bootstrap;
 
 Vue.prototype.route = route;
@@ -135,6 +136,7 @@ $(function () {
             }
         }
     });
+
     $(window).scroll(function () {
         if ($(this).scrollTop() > 300) {
             $('.back-top').fadeIn();
@@ -144,10 +146,10 @@ $(function () {
     });
 
     // scroll body to 0px on click
-    $('.back-top').click(function () {
-        $('body,html').animate({
+    $('.back-top').on('click', function () {
+        $('html, body').animate({
             scrollTop: 0,
-        }, 1600);
+        });
         return false;
     });
 });
