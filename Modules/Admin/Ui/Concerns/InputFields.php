@@ -112,11 +112,6 @@ trait InputFields
     {
         $value = $this->getValue($entity, $name);
 
-        // If min attribut exists we set the value as default.
-        if(isset($options['min'])){
-            $value = $value ?? $options['min'];
-        }
-
         if (is_string($value)) {
             $value = e($value);
         }
