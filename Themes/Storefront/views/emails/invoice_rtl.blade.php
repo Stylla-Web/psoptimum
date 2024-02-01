@@ -65,11 +65,12 @@
                                             </h1>
                                         @else
                                             <div style="display: flex;
-                                                        height: 64px;
+                                                        height: auto;
                                                         width: 200px;
                                                         align-items: center;
                                                         justify-content: center;
-                                                        margin: auto;"
+                                                        margin: auto;
+                                                        padding: 1.5em 1em"
                                             >
                                                 <img src="{{ $logo }}" style="max-height: 100%; max-width: 100%;" alt="logo">
                                             </div>
