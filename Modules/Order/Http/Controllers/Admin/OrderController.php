@@ -2,8 +2,8 @@
 
 namespace Modules\Order\Http\Controllers\Admin;
 
-use Modules\Order\Entities\Order;
 use Modules\Admin\Traits\HasCrudActions;
+use Modules\Order\Entities\Order;
 
 class OrderController
 {
@@ -21,7 +21,7 @@ class OrderController
      *
      * @var array
      */
-    protected $with = ['products', 'coupon', 'taxes'];
+    protected $with = ['products', 'coupon', 'taxes', 'user'];
 
     /**
      * Label of the resource.

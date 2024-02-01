@@ -92,11 +92,13 @@ class User extends EloquentUser implements AuthenticatableContract
         return $this->hasRoleName('reseller');
     }
 
-    public function getMargeInterest() {
+    public function getMargeInterest()
+    {
         return $this->global_marge;
     }
 
-    public function isMargeIncrease() {
+    public function isMargeIncrease()
+    {
         return $this->increase_or_decrease === '1';
     }
 
@@ -120,6 +122,15 @@ class User extends EloquentUser implements AuthenticatableContract
     public function hasRoleName($name)
     {
         return $this->roles()->whereTranslation('name', $name)->count() !== 0;
+    }
+
+    public function getRoleName()
+    {
+        if(! $this->isCustomer()) {
+            return $this->getRoles()->first()->name;
+        }
+
+        return trans('order::orders.registered');
     }
 
     /**

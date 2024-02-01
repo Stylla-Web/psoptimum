@@ -163,7 +163,7 @@
                             <td>{{ trans('order::orders.customer_group') }}</td>
 
                             <td>
-                                {{ is_null($order->customer_id) ? trans('order::orders.guest') : trans('order::orders.registered') }}
+                                {{ is_null($order->customer_id) ? trans('order::orders.guest') : $order->user->getRoleName() }}
                             </td>
                         </tr>
                         </tbody>

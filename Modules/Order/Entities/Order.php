@@ -21,6 +21,7 @@ use Modules\Support\Money;
 use Modules\Support\State;
 use Modules\Tax\Entities\TaxRate;
 use Modules\Transaction\Entities\Transaction;
+use Modules\User\Entities\User;
 
 class Order extends Model
 {
@@ -120,6 +121,11 @@ class Order extends Model
     public function downloads()
     {
         return $this->hasMany(OrderDownload::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'customer_id', 'id');
     }
 
     public function coupon()
