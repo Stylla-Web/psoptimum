@@ -1,5 +1,5 @@
 @import 'checkout/_checkout-left',
-        'checkout/_checkout-right';
+'checkout/_checkout-right';
 
 .checkout-wrap {
     margin-top: 50px;
@@ -23,5 +23,32 @@
 @media screen and (max-width: $lg) {
     .checkout {
         flex-direction: column;
+    }
+}
+
+
+.cart__meta-text {
+    //color: #222222;
+    //font-size: 11px;
+    //font-style: italic;
+    //line-height: 1.6;
+    //padding: 5px 0;
+    color: #777;
+    font-size: 11px;
+
+    ul.product-options {
+        list-style: none;
+        margin-bottom: 5px;
+
+        li {
+            font-size: 10px;
+            margin-right: 0;
+
+            label {
+                display: inline;
+                color: #61656b;
+                font-weight: 700;
+            }
+        }
     }
 }

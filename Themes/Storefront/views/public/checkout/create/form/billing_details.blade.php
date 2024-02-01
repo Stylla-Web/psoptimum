@@ -1,4 +1,4 @@
-<div class="card card--grey mt-2">
+<div class="card card--grey mt-2 mt-md-0">
     <div class="card-body">
         <h2 class="fs-6">{{ trans('storefront::checkout.billing_details') }}</h2>
 

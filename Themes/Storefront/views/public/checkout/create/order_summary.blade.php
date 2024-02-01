@@ -25,7 +25,7 @@
                 <div class="cart__meta-text">
                     <ul class="list-inline product-options" v-cloak>
                         <li v-for="option in cartItem.options">
-                            <span>@{{ option.name }}:</span> @{{ optionValues(option) }}
+                            <label>@{{ option.name }}:</label> @{{ optionValues(option) }}
                         </li>
                     </ul>
                 </div>
@@ -94,7 +94,7 @@
         {{ trans('storefront::checkout.place_order') }}
     </button>
 </div>
-<div class="paymnet-img text-center">
+<div class="paymnet-img text-center mt-4">
     <img src="{{ asset('themes/storefront/public/images/payment-img.jpg') }}" alt="Payment">
 </div>
 {{--<aside class="order-summary-wrap">--}}

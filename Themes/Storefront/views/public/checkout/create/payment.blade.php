@@ -34,8 +34,8 @@
                     :id="name"
                 >
                 <label :for="name">
-                    <span class="fw-bold d-block" v-text="gateway.label"></span>
-                    <span class="helper-text" v-text="gateway.description"></span>
+                    <div class="fw-bold d-block" v-text="gateway.label"></div>
+                    <div class="helper-text" v-text="gateway.description"></div>
                 </label>
             </div>
 

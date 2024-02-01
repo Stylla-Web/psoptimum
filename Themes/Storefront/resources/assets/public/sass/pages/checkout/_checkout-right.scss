@@ -61,10 +61,10 @@
 }
 
 #stripe-card-element {
-    margin-top: 30px;
-    padding: 30px;
-    background: $color-white-dark;
-    border-radius: $radius-default;
+    padding: 1.5em 1em;
+    background: #fff;
+    border: 1px solid #d7d7d7;
+    border-radius: 6px;
 }
 
 @media screen and (min-width: 1281px) {

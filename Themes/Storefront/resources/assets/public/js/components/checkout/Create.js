@@ -173,6 +173,19 @@ export default {
     },
 
     methods: {
+        optionValues(option) {
+            let values = [];
+
+            if (option.type !== 'color') {
+                for (let value of option.values) {
+                    values.push(value.label);
+                }
+                return values.join(', ');
+            } else {
+                return `<span style="background-color: ${option.values[0].label} ; display: inline-block; height: 15px; width: 15px"></span>`;
+            }
+        },
+
         addNewBillingAddress() {
             this.errors.reset();
 

@@ -1,5 +1,5 @@
 <div class="ship-to-different-address-form" v-show="form.ship_to_a_different_address" v-cloak>
-    <div class="card card--grey mt-2">
+    <div class="card card--grey mt-2 mt-md-0">
         <div class="card-body">
             <h2 class="fs-6">{{ trans('storefront::checkout.shipping_details') }}</h2>
             <div class="select-address" v-if="hasAddress">
