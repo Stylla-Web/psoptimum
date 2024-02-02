@@ -1,7 +1,7 @@
 @if ($categoryMenu->menus()->isNotEmpty())
     <li class="lvl1 parent megamenu">
-        <a href="{{ route('categories.index') }}">
-            {{ trans('storefront::layout.all_categories') }}
+        <a href="{{ route('products.index') }}">
+            {{ trans('storefront::layout.all_categories_header') }}
             @if ($categoryMenu->menus()->count())
                 <span class="bi bi-chevron-down"></span>
             @endif
