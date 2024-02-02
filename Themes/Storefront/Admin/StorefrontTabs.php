@@ -2,18 +2,18 @@
 
 namespace Themes\Storefront\Admin;
 
+use Illuminate\Support\Facades\Cache;
 use Modules\Admin\Ui\Tab;
 use Modules\Admin\Ui\Tabs;
-use Modules\Tag\Entities\Tag;
-use Themes\Storefront\Banner;
+use Modules\Brand\Entities\Brand;
+use Modules\FlashSale\Entities\FlashSale;
+use Modules\Media\Entities\File;
 use Modules\Menu\Entities\Menu;
 use Modules\Page\Entities\Page;
-use Modules\Media\Entities\File;
-use Modules\Brand\Entities\Brand;
-use Modules\Slider\Entities\Slider;
-use Illuminate\Support\Facades\Cache;
 use Modules\Product\Entities\Product;
-use Modules\FlashSale\Entities\FlashSale;
+use Modules\Slider\Entities\Slider;
+use Modules\Tag\Entities\Tag;
+use Themes\Storefront\Banner;
 
 class StorefrontTabs extends Tabs
 {
@@ -38,7 +38,7 @@ class StorefrontTabs extends Tabs
         $this->group('home_page_sections', trans('storefront::storefront.tabs.group.home_page_sections'))
 //            ->add($this->sliderBanners())
 //            ->add($this->threeColumnFullWidthBanners())
-//            ->add($this->featuredCategories())
+            ->add($this->featuredCategories())
 //            ->add($this->productTabsOne())
             ->add($this->topBrands())
 //            ->add($this->flashSaleAndVerticalProducts())

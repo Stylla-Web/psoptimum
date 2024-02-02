@@ -19,3 +19,5 @@
         {!! $tabs->render(compact('settings')) !!}
     </form>
 @endsection
+
+@include('admin::partials.selectize_remote')
