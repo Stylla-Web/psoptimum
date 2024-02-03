@@ -209,13 +209,13 @@
                                 <!-- End Product Action -->
                                 <!-- Product Info link -->
                                 <p class="infolinks mt-2 mb-3">
-                                    <button class="btn add-to-wishlist" :class="{ 'added': inWishlist }" @click="syncWishlist">
+                                    <a class="btn add-to-wishlist" href="javascript:void(0)" :class="{ 'added': inWishlist }" @click="syncWishlist">
                                         <i class="icon la-heart me-1" :class="inWishlist ? 'las' : 'lar'" aria-hidden="true"></i> <span>Add to Wishlist</span>
-                                    </button>
-                                    <button class="btn add-to-wishlist" :class="{ 'added': inCompareList }" @click="syncCompareList">
+                                    </a>
+                                    <a class="btn add-to-wishlist" href="javascript:void(0);" :class="{ 'added': inCompareList }" @click="syncCompareList">
                                         <i class="icon an an-sync-ar me-1" aria-hidden="true"></i>
                                         <span>{{ trans('storefront::product.compare') }}</span>
-                                    </button>
+                                    </a>
                                     <a class="btn emaillink me-0" href="{{ route('contact.create') }}" target="_blank">
                                         <i class="icon an an-question-cil me-1"></i>
                                         {{ trans('storefront::product.ask_a_question') }}
