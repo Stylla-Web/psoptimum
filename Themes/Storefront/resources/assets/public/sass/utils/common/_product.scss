@@ -167,7 +167,7 @@ h1.product-single__title, .product-single__title.h1 { color:#000; font-size:22px
 .safecheckout .icon { color:#555; font-size:28px; line-height:1; }
 .safecheckout .content { color:#555; font-size:13px; line-height:1.7; text-transform:uppercase; font-weight:500; padding-left:10px; }
 
-.infolinks {display: flex; justify-content: space-between;}
+.infolinks {display: flex; justify-content: space-between; width: 100%}
 .infolinks .btn { border:0; background-color:transparent !important; color:#222222 !important; text-transform:none; font-weight:400; width:auto; height:auto; padding:0; margin:0 15px 0 0; display:inline-block; }
 .infolinks .btn:hover { color: $color-green-lite !important; }
 .infolinks .btn:focus { outline:0; box-shadow:none; }
