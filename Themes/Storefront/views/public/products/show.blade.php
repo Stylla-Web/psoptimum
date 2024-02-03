@@ -216,10 +216,7 @@
                                         <i class="icon an an-sync-ar me-1" aria-hidden="true"></i>
                                         <span>{{ trans('storefront::product.compare') }}</span>
                                     </button>
-                                    <a class="btn shippingInfo" href="#ShippingInfo">
-                                        <i class="icon an an-paper-l-plane me-1"></i> Delivery &amp; Returns
-                                    </a>
-                                    <a class="btn emaillink me-0" href="{{ route('contact.create') }}">
+                                    <a class="btn emaillink me-0" href="{{ route('contact.create') }}" target="_blank">
                                         <i class="icon an an-question-cil me-1"></i>
                                         {{ trans('storefront::product.ask_a_question') }}
                                     </a>

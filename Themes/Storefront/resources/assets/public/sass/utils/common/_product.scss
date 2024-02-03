@@ -378,9 +378,10 @@ button.mfp-close { width: 35px; height: 35px; line-height: 35px; }
 .product-single-style3 .storeFeatures { padding-top:10px; color:#111; margin:0 -10px 10px; -webkit-flex-wrap:wrap; -moz-flex-wrap:wrap; -ms-flex-wrap:wrap; flex-wrap:wrap; }
 .product-single-style3 .storeFeatures p { padding:5px 10px; margin:0; }
 .product-single-style3 .userViewMsg .an { font-size:14px; padding-right:5px; }
-.product-single-style3 .userViewMsg .an, .product-single-style3 .userViewMsg .uersView { color:#000; }
-.product-single-style3 .product-sticky-style { position:sticky; position:-webkit-sticky; top:70px; }
+.product-single-style3 .userViewMsg .an, .product-single-style3 .userViewMsg .userView { color:#000; }
 .product-single-style3 .product-single { margin-bottom:40px; }
+
+.product-sticky-style { position:sticky; position:-webkit-sticky; top:70px; }
 
 .block { background-color:#fbfbfb; padding:20px; }
 .block-cart .product-name { padding-right: 15px; }

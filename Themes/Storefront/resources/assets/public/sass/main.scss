@@ -5078,45 +5078,45 @@ input, button, select, textarea, .form-control {
 .loadMore {
     color: #fff !important;
 }
-
-.pagination {
-    width: 100%;
-    text-align: center;
-    list-style: none;
-    font-size: 1.15385em;
-}
-
-.pagination ul {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    margin: 0 auto;
-    list-style: none;
-}
-
-.pagination li a {
-    font-size: 12px;
-    color: #333333;
-    height: 35px;
-    width: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid #f5f5f5;
-    margin: 0 2px;
-    vertical-align: middle;
-}
-
-.pagination li:hover a {
-    color: #333333;
-    border-color: #333333;
-}
-
-.pagination li.active a {
-    color: #fe877b;
-    border-width: 2px;
-    border-color: #fe877b;
-}
+//
+//.pagination {
+//    width: 100%;
+//    text-align: center;
+//    list-style: none;
+//    font-size: 1.15385em;
+//}
+//
+//.pagination ul {
+//    display: flex;
+//    flex-wrap: wrap;
+//    align-items: center;
+//    margin: 0 auto;
+//    list-style: none;
+//}
+//
+//.pagination li a {
+//    font-size: 12px;
+//    color: #333333;
+//    height: 35px;
+//    width: 35px;
+//    display: flex;
+//    align-items: center;
+//    justify-content: center;
+//    border: 2px solid #f5f5f5;
+//    margin: 0 2px;
+//    vertical-align: middle;
+//}
+//
+//.pagination li:hover a {
+//    color: #333333;
+//    border-color: #333333;
+//}
+//
+//.pagination li.active a {
+//    color: #fe877b;
+//    border-width: 2px;
+//    border-color: #fe877b;
+//}
 
 .sideProSlider.grid-products .item .swatches li,
 .sideProSlider.grid-products .button-set.style0 ul li {

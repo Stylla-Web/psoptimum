@@ -217,7 +217,7 @@
 
                     <!--Pagination Classic-->
                     <hr class="clear">
-                    <div class="pagination" v-if="! emptyProducts">
+                    <div class="search-result-bottom" v-if="! emptyProducts">
                         <span class="showing-results" v-text="showingResults"></span>
 
                         <v-pagination

@@ -2,13 +2,13 @@
 
 namespace Themes\Storefront\Http\ViewComposers;
 
+use Illuminate\Support\Collection;
 use Illuminate\View\View;
+use Modules\Product\Entities\Product;
+use Spatie\SchemaOrg\ItemAvailability;
 use Spatie\SchemaOrg\Schema;
 use Themes\Storefront\Banner;
 use Themes\Storefront\Feature;
-use Illuminate\Support\Collection;
-use Modules\Product\Entities\Product;
-use Spatie\SchemaOrg\ItemAvailability;
 
 class ProductShowPageComposer
 {
@@ -69,7 +69,7 @@ class ProductShowPageComposer
         $breadcrumb = '';
 
         foreach ($categories as $category) {
-            $breadcrumb .= "<li><a href='{$category->url()}'>{$category->name}</a></li>";
+            $breadcrumb .= "<li class='d-none d-md-inline-block'><a href='{$category->url()}'>{$category->name}</a></li>";
 
             if ($category->items->isNotEmpty()) {
                 $breadcrumb .= $this->getCategoryBreadCrumb($category->items);
