@@ -14,7 +14,7 @@
                     @endif
                     <hr class="d-none d-md-block d-lg-none" style="height: 1px; color: #fff; width: 100%; margin-left: 1em;" />
                 </a>
-                <div class="col-12 mb-3 order-0 col-sm-12 col-md-6 order-md-4 mt-md-0 col-lg-3 order-lg-0 mt-lg-0 footer-contact">
+                <div class="col-12 col-lg-3 mb-3 order-0 order-md-4 mt-md-0 order-lg-0 mt-lg-0 footer-contact">
                     @if (setting('storefront_address'))
                         <p class="d-flex mb-2">
                             <i class="bi bi-geo-alt"></i>
@@ -67,7 +67,7 @@
                     @endif
                 </div>
 
-                <div class="col-12 order-0 col-sm-12 col-md-4 order-md-1 mb-md-3 col-lg-2 mt-lg-0 order-lg-0 ps-lg-4 footer-links">
+                <div class="col order-0 order-md-1 mb-md-3 mt-lg-0 order-lg-0 ps-lg-4 footer-links">
                     <h4 class="h4 body-font">{{ trans('storefront::layout.my_account') }}</h4>
                     <ul>
                         @auth
@@ -115,7 +115,7 @@
                 </div>
 
                 @if ($footerMenuOne->isNotEmpty())
-                    <div class="col-12 order-0 col-sm-12 col-md-4 order-md-2 mb-md-3 col-lg-2 mt-lg-0 order-lg-0 footer-links">
+                    <div class="col order-0 order-md-2 mb-md-3 mt-lg-0 order-lg-0 footer-links">
                         <h4 class="h4 body-font">{{ setting('storefront_footer_menu_one_title') }}</h4>
                         <ul>
                             @foreach ($footerMenuOne as $menuItem)
@@ -130,7 +130,7 @@
                 @endif
 
                 @if ($footerMenuTwo->isNotEmpty())
-                    <div class="col-12 order-0 col-sm-12 col-md-4 order-md-3 mb-md-3 col-lg-2 mt-lg-0 order-lg-0 footer-links">
+                    <div class="col order-0 order-md-3 mb-md-3 mt-lg-0 order-lg-0 footer-links">
                         <h4 class="h4 body-font">{{ setting('storefront_footer_menu_two_title') }}</h4>
                         <ul>
                             @foreach ($footerMenuTwo as $menuItem)
@@ -145,7 +145,7 @@
                     </div>
                 @endif
 
-                <div class="col-12 order-0 mt-3 col-sm-12 col-md-6 order-md-5 mt-md-0 col-lg-3 order-lg-0 newsletter-col">
+                <div class="col-12 col-lg-3 order-0 mt-3 order-md-5 mt-md-0 order-lg-0 newsletter-col">
                     @include('public.home.sections.subscribe')
                 </div>
             </div>

@@ -126,6 +126,7 @@ if (!function_exists('social_links')) {
             'bi bi-twitter' => setting('storefront_twitter_link'),
             'bi bi-instagram' => setting('storefront_instagram_link'),
             'bi bi-youtube' => setting('storefront_youtube_link'),
+            'bi bi bi-tiktok' => setting('storefront_tiktok_link'),
         ])->reject(function ($link) {
             return is_null($link);
         });

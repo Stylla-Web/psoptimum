@@ -29,8 +29,7 @@
                          role="alert"
                          v-if="{{ json_encode(setting('free_shipping_enabled')) }} && cart.subTotal.amount >= {{ setting('free_shipping_min_amount') }}"
                     >
-                        <i class="align-middle icon an an-truck me-2"></i>
-                        {!! trans('cart::messages.congrats_free_shipping') !!}
+                        <i class="align-middle icon an an-truck me-2"></i>{!! trans('cart::messages.congrats_free_shipping') !!}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
 

@@ -4,5 +4,6 @@
         {{ Form::text('storefront_twitter_link', trans('storefront::attributes.storefront_twitter_link'), $errors, $settings) }}
         {{ Form::text('storefront_instagram_link', trans('storefront::attributes.storefront_instagram_link'), $errors, $settings) }}
         {{ Form::text('storefront_youtube_link', trans('storefront::attributes.storefront_youtube_link'), $errors, $settings) }}
+        {{ Form::text('storefront_tiktok_link', trans('storefront::attributes.storefront_tiktok_link'), $errors, $settings) }}
     </div>
 </div>

@@ -210,7 +210,9 @@
                                 <!-- Product Info link -->
                                 <p class="infolinks mt-2 mb-3">
                                     <a class="btn add-to-wishlist" href="javascript:void(0)" :class="{ 'added': inWishlist }" @click="syncWishlist">
-                                        <i class="icon la-heart me-1" :class="inWishlist ? 'las' : 'lar'" aria-hidden="true"></i> <span>Add to Wishlist</span>
+                                        <i class="icon la-heart me-1" :class="inWishlist ? 'las' : 'lar'" aria-hidden="true"></i>
+                                        <span>
+                                        {{ trans('storefront::product.add_to_wishlist') }}</span>
                                     </a>
                                     <a class="btn add-to-wishlist" href="javascript:void(0);" :class="{ 'added': inCompareList }" @click="syncCompareList">
                                         <i class="icon an an-sync-ar me-1" aria-hidden="true"></i>

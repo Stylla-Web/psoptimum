@@ -28,6 +28,7 @@ return [
     'order_summary' => 'Order Summary',
     'subtotal' => 'Subtotal',
     'coupon' => 'Coupon',
+    'discount_codes' => 'Discount Codes',
     'shipping_method' => 'Shipping Method',
     'shipping_cost' => 'Shipping cost',
     'shipping_address' => [

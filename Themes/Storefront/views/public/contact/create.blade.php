@@ -95,89 +95,95 @@
                                 </g>
                             </svg>
                         </div>
+
+                        <p class="px-5 pt-5">
+                            Nous sommes là pour vous assister, que ce soit pour des informations sur nos produits, des
+                            préoccupations liées à votre expérience d'achat, ou toute autre demande. N'hésitez pas à nous
+                            contacter, et nous nous engageons à fournir une assistance rapide et efficace.
+                        </p>
                     </div>
 
                     <div class="contact-form-right col-12 col-md-7">
                         <h3 class="title">{{ trans('storefront::contact.leave_a_message') }}</h3>
 
                         <div class="contact-form">
-                            <form method="POST" action="{{ route('contact.store') }}">
-                                @csrf
+                            @if(locale() === 'fr')
+                                <iframe aria-label='PS Optimum - Contact' frameborder="0" style="height:910px;width:99%;border:none;" src='https://forms.zohopublic.com/styllaweb/form/PSOptimumContact/formperma/BjTazkQdf1Bgu666Q9IPQXANjfFuXzcr-L5zdZ9nCD8'></iframe>
+                            @else
+                                <iframe aria-label='PS Optimum - Contact' frameborder="0" style="height:910px;width:99%;border:none;" src='https://forms.zohopublic.com/styllaweb/form/PSOptimumContact/formperma/BjTazkQdf1Bgu666Q9IPQXANjfFuXzcr-L5zdZ9nCD8?zf_lang=en'></iframe>
+                            @endif
+                                {{--                            <form method="POST" action="{{ route('contact.store') }}">--}}
+{{--                                @csrf--}}
 
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="email">
-                                                {{ trans('contact::attributes.email') }}<span>*</span>
-                                            </label>
+{{--                                <div class="row">--}}
+{{--                                    <div class="col-md-6">--}}
+{{--                                        <div class="form-group">--}}
+{{--                                            <label for="email">--}}
+{{--                                                {{ trans('contact::attributes.email') }}<span>*</span>--}}
+{{--                                            </label>--}}
 
-                                            <input type="text" name="email" value="{{ old('email') }}" id="email"
-                                                   class="form-control">
+{{--                                            <input type="text" name="email" value="{{ old('email') }}" id="email"--}}
+{{--                                                   class="form-control">--}}
 
-                                            @error('email')
-                                            <span class="error-message">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
+{{--                                            @error('email')--}}
+{{--                                            <span class="error-message">{{ $message }}</span>--}}
+{{--                                            @enderror--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
 
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="subject">
-                                                {{ trans('contact::attributes.subject') }}<span>*</span>
-                                            </label>
+{{--                                    <div class="col-md-6">--}}
+{{--                                        <div class="form-group">--}}
+{{--                                            <label for="subject">--}}
+{{--                                                {{ trans('contact::attributes.subject') }}<span>*</span>--}}
+{{--                                            </label>--}}
 
-                                            <input type="text" name="subject" value="{{ old('subject') }}" id="subject"
-                                                   class="form-control">
+{{--                                            <input type="text" name="subject" value="{{ old('subject') }}" id="subject"--}}
+{{--                                                   class="form-control">--}}
 
-                                            @error('subject')
-                                            <span class="error-message">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
+{{--                                            @error('subject')--}}
+{{--                                            <span class="error-message">{{ $message }}</span>--}}
+{{--                                            @enderror--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
 
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label for="message">
-                                                {{ trans('contact::attributes.message') }}<span>*</span>
-                                            </label>
+{{--                                    <div class="col-md-12">--}}
+{{--                                        <div class="form-group">--}}
+{{--                                            <label for="message">--}}
+{{--                                                {{ trans('contact::attributes.message') }}<span>*</span>--}}
+{{--                                            </label>--}}
 
-                                            <textarea rows="5" name="message" id="message"
-                                                      class="form-control">{{ old('message') }}</textarea>
+{{--                                            <textarea rows="5" name="message" id="message"--}}
+{{--                                                      class="form-control">{{ old('message') }}</textarea>--}}
 
-                                            @error('message')
-                                            <span class="error-message">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
+{{--                                            @error('message')--}}
+{{--                                            <span class="error-message">{{ $message }}</span>--}}
+{{--                                            @enderror--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
 
-                                    <div class="col-md-12">
-                                        <div class="form-group p-t-5">
-                                            @captcha
-                                            <input type="text" name="captcha" class="captcha-input"
-                                                   placeholder="{{ trans('storefront::layout.enter_captcha_code') }}">
+{{--                                    <div class="col-md-12">--}}
+{{--                                        <div class="form-group p-t-5">--}}
+{{--                                            @captcha--}}
+{{--                                            <input type="text" name="captcha" class="captcha-input"--}}
+{{--                                                   placeholder="{{ trans('storefront::layout.enter_captcha_code') }}">--}}
 
-                                            @error('captcha')
-                                            <span class="error-message">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
+{{--                                            @error('captcha')--}}
+{{--                                            <span class="error-message">{{ $message }}</span>--}}
+{{--                                            @enderror--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
 
-                                    <div class="col-md-12">
-                                        <button type="submit" class="btn btn-lg btn-primary" data-loading>
-                                            {{ trans('storefront::contact.send_message') }}
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
+{{--                                    <div class="col-md-12">--}}
+{{--                                        <button type="submit" class="btn btn-lg btn-primary" data-loading>--}}
+{{--                                            {{ trans('storefront::contact.send_message') }}--}}
+{{--                                        </button>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </form>--}}
                         </div>
                     </div>
                 </div>
             </div>
-            <p class="px-5 pt-5">
-                Nous sommes là pour vous assister, que ce soit pour des informations sur nos produits, des
-                préoccupations liées à votre expérience d'achat, ou toute autre demande. N'hésitez pas à nous
-                contacter, et nous nous engageons à fournir une assistance rapide et efficace.
-            </p>
         </div>
     </section>
 

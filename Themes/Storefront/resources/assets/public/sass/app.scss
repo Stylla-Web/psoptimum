@@ -89,7 +89,7 @@ $grid-columns: 12;
         font-weight: bold;
     }
 
-    ul {
+    ul, ol {
         margin: revert;
         margin-top: 0;
         padding: revert;
@@ -98,6 +98,23 @@ $grid-columns: 12;
 
     p {
         padding-bottom: .85em;
+    }
+
+    ol {
+        counter-reset: item;
+
+        li {
+            display: block;
+
+            &:before {
+                content: counters(item, ".") ". ";
+                counter-increment: item;
+            }
+
+            ol{
+                margin: 0 0 1em;
+            }
+        }
     }
 }
 

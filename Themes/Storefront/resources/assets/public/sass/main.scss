@@ -1677,10 +1677,12 @@ label[for] {
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
+
 #cart-drawer {
     color: $color-black;
     background: $color-white;
 }
+
 #settingsBox, #userLinks {
     visibility: hidden;
     opacity: 0;
@@ -1726,6 +1728,7 @@ label[for] {
 
         li {
             display: block;
+
             &.logout {
                 border-top: 1px solid $color-green-lite;
             }
@@ -1739,6 +1742,7 @@ label[for] {
             color: #fff;
             text-transform: uppercase;
         }
+
         &:hover {
             color: $color-green-lite;
         }
@@ -2253,7 +2257,7 @@ label[for] {
         overflow: hidden;
 
         &.megamenu-img-url {
-            border:1px solid $color-green;
+            border: 1px solid $color-green;
         }
 
         img {
@@ -2261,6 +2265,7 @@ label[for] {
             min-height: 77px;
             object-fit: contain;
             transition: all ease-out 0.5s;
+
             &:hover {
                 filter: grayscale(0);
                 scale: 1.1;
@@ -5078,6 +5083,7 @@ input, button, select, textarea, .form-control {
 .loadMore {
     color: #fff !important;
 }
+
 //
 //.pagination {
 //    width: 100%;
@@ -7530,6 +7536,7 @@ input, button, select, textarea, .form-control {
     border-radius: 50%;
     color: $color-black;
     background: $color-green-lite;
+
     &:hover {
         color: $color-white;
         background: $color-black;
@@ -7687,22 +7694,22 @@ Table Checkout
     border-color: #dee2e6
 }
 
-.table>:not(caption)>*>* {
+.table > :not(caption) > * > * {
     padding: .5rem .5rem;
     background-color: var(--bs-table-bg);
     border-bottom-width: 1px;
     box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg)
 }
 
-.table>tbody {
+.table > tbody {
     vertical-align: inherit
 }
 
-.table>thead {
+.table > thead {
     vertical-align: bottom
 }
 
-.table>:not(:last-child)>:last-child>* {
+.table > :not(:last-child) > :last-child > * {
     border-bottom-color: currentColor
 }
 
@@ -7710,23 +7717,23 @@ Table Checkout
     caption-side: top
 }
 
-.table-sm>:not(caption)>*>* {
+.table-sm > :not(caption) > * > * {
     padding: .25rem .25rem
 }
 
-.table-bordered>:not(caption)>* {
+.table-bordered > :not(caption) > * {
     border-width: 1px 0
 }
 
-.table-bordered>:not(caption)>*>* {
+.table-bordered > :not(caption) > * > * {
     border-width: 0 1px
 }
 
-.table-borderless>:not(caption)>*>* {
+.table-borderless > :not(caption) > * > * {
     border-bottom-width: 0
 }
 
-.table-striped>tbody>tr:nth-of-type(odd) {
+.table-striped > tbody > tr:nth-of-type(odd) {
     --bs-table-accent-bg: var(--bs-table-striped-bg);
     color: var(--bs-table-striped-color)
 }
@@ -7736,7 +7743,7 @@ Table Checkout
     color: var(--bs-table-active-color)
 }
 
-.table-hover>tbody>tr:hover {
+.table-hover > tbody > tr:hover {
     --bs-table-accent-bg: var(--bs-table-hover-bg);
     color: var(--bs-table-hover-color)
 }
@@ -7844,35 +7851,35 @@ Table Checkout
 
 @media (max-width: 575.98px) {
     .table-responsive-sm {
-        overflow-x:auto;
+        overflow-x: auto;
         -webkit-overflow-scrolling: touch
     }
 }
 
 @media (max-width: 767.98px) {
     .table-responsive-md {
-        overflow-x:auto;
+        overflow-x: auto;
         -webkit-overflow-scrolling: touch
     }
 }
 
 @media (max-width: 991.98px) {
     .table-responsive-lg {
-        overflow-x:auto;
+        overflow-x: auto;
         -webkit-overflow-scrolling: touch
     }
 }
 
 @media (max-width: 1199.98px) {
     .table-responsive-xl {
-        overflow-x:auto;
+        overflow-x: auto;
         -webkit-overflow-scrolling: touch
     }
 }
 
 @media (max-width: 1399.98px) {
     .table-responsive-xxl {
-        overflow-x:auto;
+        overflow-x: auto;
         -webkit-overflow-scrolling: touch
     }
 }
@@ -7881,4 +7888,16 @@ Table Checkout
     color: #fff;
     background-color: $color-green-lite;
     border-color: $color-green-lite;
+}
+
+ol {
+    counter-reset: item;
+
+    li {
+        display: block;
+        &:before {
+            content: counters(item, ".") ". ";
+            counter-increment: item
+        }
+    }
 }

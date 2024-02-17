@@ -1,4 +1,4 @@
-<h5>Discount Codes</h5>
+<h5>{{ trans('storefront::cart.discount_codes') }}</h5>
 <form @submit.prevent="applyCoupon">
     <div class="form-group">
         <label for="address_zip">{{ trans('storefront::cart.enter_coupon_code') }}</label>

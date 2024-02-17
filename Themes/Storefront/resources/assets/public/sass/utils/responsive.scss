@@ -632,7 +632,7 @@
 
     .footer .footer-top {  padding-top: 30px; padding-bottom: 30px; }
     .footer .social-icons-col { margin-top:20px; }
-    .footer .footer-top .footer-links { padding-top:8px; padding-bottom:8px; position:relative; }
+    .footer .footer-top .footer-links { padding-top:8px; padding-bottom:8px; position:relative; flex: 100%}
     .footer .footer-top .footer-links .h4 { cursor:pointer; border-bottom:1px solid #ececec; padding-bottom:12px; margin-bottom:0; }
     .footer .footer-top .footer-links .h4:after { content:"\ea45"; font-family:"annimex-icons"; font-size:15px; display:block; position:absolute; right:5px; top:8px; }
     .footer .footer-top .footer-links .h4.active:after { content:"\ea48"; }

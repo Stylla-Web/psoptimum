@@ -206,13 +206,14 @@
 <!--Mobile Menu-->
 <div class="mobile-nav-wrapper" role="navigation">
     <div class="closemobileMenu">
-        <i class="icon bi bi-x-lg pull-right"></i> Close Menu
+        <i class="icon bi bi-x-lg pull-right"></i>
+        {{ trans('storefront::layout.close_menu') }}
     </div>
     <ul id="MobileNav" class="mobile-nav">
         @if ($categoryMenu->menus()->isNotEmpty())
-            <li class="lvl1 parent megamenu">
+            <li class="lvl1 parent megamenu help">
                 <a href="{{ route('categories.index') }}">
-                    {{ trans('storefront::layout.all_categories') }}
+                    {{ trans('storefront::layout.shop') }}
                     @if ($categoryMenu->menus()->count())
                         <i class="bi bi-plus-lg"></i>
                     @endif
@@ -239,15 +240,30 @@
         @auth
             <li class="lvl1 bottom-link">
                 <a href="{{ route('account.dashboard.index') }}">
-                    {{ trans('storefront::layout.account') }}
+                    {{ trans('storefront::layout.my_account') }}
                 </a>
             </li>
             <li class="lvl1 bottom-link">
-                <a href="{{ route('account.orders.index') }}">
-                    {{ trans('storefront::layout.order') }}
+                <a href="{{ route('account.wishlist.index') }}">
+                    {{ trans('storefront::layout.wishlist') }}
+                </a>
+            </li>
+            <li class="lvl1 bottom-link">
+                <a href="{{ route('compare.index') }}">
+                    {{ trans('storefront::layout.compare') }}
+                </a>
+            </li>
+            <li class="lvl1 bottom-link">
+                <a href="{{ route('logout') }}">
+                    {{ trans('storefront::account.pages.logout') }}
                 </a>
             </li>
         @else
+            <li class="lvl1 bottom-link">
+                <a href="{{ route('compare.index') }}">
+                    {{ trans('storefront::layout.compare') }}
+                </a>
+            </li>
             <li class="lvl1 bottom-link">
                 <a href="{{ route('login') }}">
                     {{ trans('storefront::layout.login') }}
@@ -259,16 +275,6 @@
                 </a>
             </li>
         @endauth
-        <li class="lvl1 bottom-link">
-            <a href="{{ route('account.wishlist.index') }}">
-                {{ trans('storefront::layout.wishlist') }}
-            </a>
-        </li>
-        <li class="lvl1 bottom-link">
-            <a href="{{ route('compare.index') }}">
-                {{ trans('storefront::layout.compare') }}
-            </a>
-        </li>
         <li class="help bottom-link">
             <b>{{ trans('storefront::layout.need_help') }}</b><br>Call: {{ format_phone_number(setting('store_phone')) }}
         </li>

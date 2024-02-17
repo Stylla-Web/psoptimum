@@ -5,6 +5,7 @@ return [
     'in_stock' => 'In stock',
     'out_of_stock' => 'Out of stock',
     'wishlist' => 'Wishlist',
+    'add_to_wishlist' => 'Add to Wishlist',
     'compare' => 'Compare',
     'capacitance' => 'Capacitance',
     'options' => [
