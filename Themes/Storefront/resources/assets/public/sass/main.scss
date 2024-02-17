@@ -7901,3 +7901,11 @@ ol {
         }
     }
 }
+
+@media (max-width: 425px) {
+    .product-grid-tabs {
+        li{
+            height: 30px;
+        }
+    }
+}

@@ -24,7 +24,7 @@
                 </ul>
             </div>
 
-            <div class="tab-content featured-category-products row mt-3" v-if="products.length > 0">
+            <div class="tab-content featured-category-products row pb-5 mt-3" v-if="products.length > 0">
                 <ProductCard v-for="product in products" :key="product.id" :product="product" :nbr-columns="'col-6 col-sm-6 col-md-4 col-lg-4'"/>
             </div>
             <div class="empty-products text-center p-5" v-else>

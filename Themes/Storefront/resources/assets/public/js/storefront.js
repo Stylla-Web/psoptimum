@@ -376,6 +376,12 @@ $(() => {
         ],
     });
 
+    if (window.matchMedia("(max-width: 425px)").matches) {
+        let productGridTabs = $('.product-grid-tabs');
+        /* the viewport is less than 768 pixels wide */
+        productGridTabs.slick();
+    }
+
     /*      sidebar filter
     /*----------------------------------------*/
 
