@@ -7910,3 +7910,37 @@ ol {
         }
     }
 }
+
+
+.row-container {
+    .col-txt {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .col-img {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        text-align: center;
+        background-size: cover;
+        background-position: center;
+        height: 275px;
+        &:before {
+            content: ' ';
+            height: 100%;
+            width: 100%;
+            display: block;
+            opacity: 0.5;
+            position: absolute;
+            background: #000;
+            left: 0;
+        }
+    }
+    h3 {
+        font-size: 3.5em;
+        position: relative;
+        color: white;
+    }
+}
