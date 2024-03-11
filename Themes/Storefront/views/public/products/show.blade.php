@@ -228,7 +228,7 @@
                             <!-- End Product Form -->
                             <!-- Social Sharing -->
                             <div class="social-sharing d-flex-center mb-3">
-                                <span class="sharing-lbl me-2">Share :</span>
+                                <span class="sharing-lbl me-2">{{ trans('storefront::product.share') }}</span>
                                 <a href="https://www.facebook.com/sharer/sharer.php?u={{ url()->current() }}" title="{{ trans('storefront::product.facebook') }}" target="_blank" class="d-flex-center btn btn-link btn--share share-facebook"
                                    data-bs-toggle="tooltip" data-bs-placement="top" title="Share on Facebook"><i
                                         class="icon an an-facebook mx-1"></i><span

@@ -14,7 +14,7 @@
                     @endif
                     <hr class="d-none d-md-block d-lg-none" style="height: 1px; color: #fff; width: 100%; margin-left: 1em;" />
                 </a>
-                <div class="col-12 col-lg-3 mb-3 order-0 order-md-4 mt-md-0 order-lg-0 mt-lg-0 footer-contact">
+                <div class="col-12 col-md-6 col-lg-3 mb-3 order-0 order-md-4 mt-md-0 order-lg-0 mt-lg-0 footer-contact">
                     @if (setting('storefront_address'))
                         <p class="d-flex mb-2">
                             <i class="bi bi-geo-alt"></i>
@@ -145,7 +145,7 @@
                     </div>
                 @endif
 
-                <div class="col-12 col-lg-3 order-0 mt-3 order-md-5 mt-md-0 order-lg-0 newsletter-col">
+                <div class="col-12 col-md-6 col-lg-3 order-0 mt-3 order-md-5 mt-md-0 order-lg-0 newsletter-col">
                     @include('public.home.sections.subscribe')
                 </div>
             </div>

@@ -97,9 +97,7 @@
                         </div>
 
                         <p class="px-5 pt-5">
-                            Nous sommes là pour vous assister, que ce soit pour des informations sur nos produits, des
-                            préoccupations liées à votre expérience d'achat, ou toute autre demande. N'hésitez pas à nous
-                            contacter, et nous nous engageons à fournir une assistance rapide et efficace.
+                            {{ trans('storefront::contact.text_note') }}
                         </p>
                     </div>
 
