@@ -2,8 +2,8 @@
 	display: flex;
 
 	.left-sidebar {
-		width: 285px;
-		min-width: 285px;
+        width: 20%;
+        flex:2;
 		padding-right: 15px;
 
         .vertical-products {
@@ -23,7 +23,8 @@
 	}
 
 	.product-details-bottom-inner {
-		width: calc(100% - 282px);
+		width: 80%;
+		flex:1;
 		padding-left: 15px;
 	}
 }

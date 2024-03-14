@@ -11,6 +11,7 @@ return [
     'storefront_privacy_page' => 'Privacy Policy Page',
     'storefront_address' => 'Address',
     'storefront_google_map_url' => 'Business Profile on GMaps',
+    'storefront_google_map_iframe_snippet' => 'Integrate a map (iframe)',
     'storefront_meta_title' => 'Meta Title',
     'storefront_meta_description' => 'Meta Description',
     'storefront_navbar_text' => 'Navbar Text',

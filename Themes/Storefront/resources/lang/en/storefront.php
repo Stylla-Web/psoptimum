@@ -6,6 +6,7 @@ return [
         'favicon' => 'Favicon',
         'header_logo' => 'Header Logo',
         'mail_logo' => 'Mail Logo',
+        'invoice_logo' => 'Invoice Logo',
         'accepted_payment_methods_image' => 'Accepted Payment Methods Image',
         'newsletter_bg_image' => 'Background Image',
         'please_select' => 'Please Select',

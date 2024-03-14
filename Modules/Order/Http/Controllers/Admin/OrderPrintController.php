@@ -17,7 +17,7 @@ class OrderPrintController
     public function show(Order $order)
     {
         $order->load('products', 'coupon', 'taxes');
-        $logo = is_null(Cache::get(md5("files.".setting('storefront_header_logo')))) ? null : Cache::get(md5("files.".setting('storefront_header_logo')))->path;
+        $logo = is_null(Cache::get(md5("files.".setting('storefront_invoice_logo')))) ? Cache::get(md5("files.".setting('storefront_header_logo')))->path : Cache::get(md5("files.".setting('storefront_invoice_logo')))->path;
 
         return view('order::admin.orders.print.show', compact('order', 'logo'));
     }

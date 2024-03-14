@@ -5131,15 +5131,18 @@ input, button, select, textarea, .form-control {
     padding: 0;
 }
 
-.sideProSlider .slick-next {
+.sideProSlider .slick-next,
+.grid-products .slick-next {
     right: 0;
 }
 
-.sideProSlider .slick-prev {
+.sideProSlider .slick-prev,
+.grid-products .slick-prev {
     left: 0;
 }
 
-.sideProSlider .slick-arrow {
+.sideProSlider .slick-arrow,
+.grid-products .slick-arrow {
     opacity: 0;
     visibility: hidden;
     width: 32px;
@@ -5148,12 +5151,14 @@ input, button, select, textarea, .form-control {
     border-radius: 4px;
 }
 
-.sideProSlider:hover .slick-arrow {
+.sideProSlider:hover .slick-arrow,
+.grid-products:hover .slick-arrow {
     opacity: 1;
     visibility: visible;
 }
 
-.sideProSlider .slick-prev:before, .sideProSlider .slick-next:before {
+.sideProSlider .slick-prev:before, .sideProSlider .slick-next:before,
+.grid-products .slick-prev:before, .grid-products .slick-next:before {
     font-size: 16px;
     line-height: 32px;
 }

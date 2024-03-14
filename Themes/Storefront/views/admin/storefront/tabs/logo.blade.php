@@ -19,3 +19,11 @@
     'inputName' => 'translatable[storefront_mail_logo]',
     'file' => $mailLogo,
 ])
+
+<div class="media-picker-divider"></div>
+
+@include('media::admin.image_picker.single', [
+    'title' => trans('storefront::storefront.form.invoice_logo'),
+    'inputName' => 'translatable[storefront_invoice_logo]',
+    'file' => $invoiceLogo,
+])

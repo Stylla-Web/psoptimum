@@ -209,12 +209,15 @@
                                 <!-- End Product Action -->
                                 <!-- Product Info link -->
                                 <p class="infolinks mt-2 mb-3">
-                                    <a class="btn add-to-wishlist" href="javascript:void(0)" :class="{ 'added': inWishlist }" @click="syncWishlist">
-                                        <i class="icon la-heart me-1" :class="inWishlist ? 'las' : 'lar'" aria-hidden="true"></i>
+                                    <a class="btn add-to-wishlist" href="javascript:void(0)"
+                                       :class="{ 'added': inWishlist }" @click="syncWishlist">
+                                        <i class="icon la-heart me-1" :class="inWishlist ? 'las' : 'lar'"
+                                           aria-hidden="true"></i>
                                         <span>
                                         {{ trans('storefront::product.add_to_wishlist') }}</span>
                                     </a>
-                                    <a class="btn add-to-wishlist" href="javascript:void(0);" :class="{ 'added': inCompareList }" @click="syncCompareList">
+                                    <a class="btn add-to-wishlist" href="javascript:void(0);"
+                                       :class="{ 'added': inCompareList }" @click="syncCompareList">
                                         <i class="icon an an-sync-ar me-1" aria-hidden="true"></i>
                                         <span>{{ trans('storefront::product.compare') }}</span>
                                     </a>
@@ -229,15 +232,21 @@
                             <!-- Social Sharing -->
                             <div class="social-sharing d-flex-center mb-3">
                                 <span class="sharing-lbl me-2">{{ trans('storefront::product.share') }}</span>
-                                <a href="https://www.facebook.com/sharer/sharer.php?u={{ url()->current() }}" title="{{ trans('storefront::product.facebook') }}" target="_blank" class="d-flex-center btn btn-link btn--share share-facebook"
+                                <a href="https://www.facebook.com/sharer/sharer.php?u={{ url()->current() }}"
+                                   title="{{ trans('storefront::product.facebook') }}" target="_blank"
+                                   class="d-flex-center btn btn-link btn--share share-facebook"
                                    data-bs-toggle="tooltip" data-bs-placement="top" title="Share on Facebook"><i
                                         class="icon an an-facebook mx-1"></i><span
                                         class="share-title d-none">Facebook</span></a>
-                                <a href="https://twitter.com/share?url={{ url()->current() }}&text={{ $product->name }}" title="{{ trans('storefront::product.twitter') }}" target="_blank" class="d-flex-center btn btn-link btn--share share-twitter"
+                                <a href="https://twitter.com/share?url={{ url()->current() }}&text={{ $product->name }}"
+                                   title="{{ trans('storefront::product.twitter') }}" target="_blank"
+                                   class="d-flex-center btn btn-link btn--share share-twitter"
                                    data-bs-toggle="tooltip" data-bs-placement="top" title="Tweet on Twitter"><i
                                         class="icon an an-twitter mx-1"></i><span
                                         class="share-title d-none">Tweet</span></a>
-                                <a href="http://www.linkedin.com/shareArticle?mini=true&url={{ url()->current() }}" title="{{ trans('storefront::product.linkedin') }}" target="_blank" class="d-flex-center btn btn-link btn--share share-linkedin"
+                                <a href="http://www.linkedin.com/shareArticle?mini=true&url={{ url()->current() }}"
+                                   title="{{ trans('storefront::product.linkedin') }}" target="_blank"
+                                   class="d-flex-center btn btn-link btn--share share-linkedin"
                                    data-bs-toggle="tooltip" data-bs-placement="top" title="Share on Linkedin"><i
                                         class="icon an an-linkedin mx-1"></i><span
                                         class="share-title d-none">Linkedin</span></a>
@@ -263,63 +272,63 @@
                                 </div>
 
                                 @if ($product->hasDownloadsAttribute())
-                                <div class="accordion-item border-0 bg-transparent mb-2">
-                                    <h2 class="accordion-header" id="headingTwo">
-                                        <button class="accordion-button collapsed" type="button"
-                                                data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                                                aria-expanded="false" aria-controls="collapseTwo">
-                                            {{ trans('product::products.tabs.downloads') }}
-                                        </button>
-                                    </h2>
-                                    <div id="collapseTwo" class="accordion-collapse collapse"
-                                         aria-labelledby="headingTwo" data-bs-parent="#productAccordian">
-                                        <div class="accordion-body pb-3 size-chart">
-                                            <p class="text-center">
-                                                {{ trans('storefront::product.here_you_will_find_full_user_manual') }}
-                                            </p>
+                                    <div class="accordion-item border-0 bg-transparent mb-2">
+                                        <h2 class="accordion-header" id="headingTwo">
+                                            <button class="accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                                    aria-expanded="false" aria-controls="collapseTwo">
+                                                {{ trans('product::products.tabs.downloads') }}
+                                            </button>
+                                        </h2>
+                                        <div id="collapseTwo" class="accordion-collapse collapse"
+                                             aria-labelledby="headingTwo" data-bs-parent="#productAccordian">
+                                            <div class="accordion-body pb-3 size-chart">
+                                                <p class="text-center">
+                                                    {{ trans('storefront::product.here_you_will_find_full_user_manual') }}
+                                                </p>
 
-                                            @include('public.products.show.tab_download')
-                                        </div>
-                                    </div>
-                                </div>
-                                @endif
-
-                                @if (setting('reviews_enabled'))
-                                <div class="accordion-item border-0 bg-transparent mb-2">
-                                    <h2 class="accordion-header" id="headingFour">
-                                        <button class="accordion-button collapsed" type="button"
-                                                data-bs-toggle="collapse" data-bs-target="#collapseFour"
-                                                aria-expanded="false" aria-controls="collapseFour">
-                                            @{{ $trans('storefront::product.reviews', { count: totalReviews }) }}
-                                        </button>
-                                    </h2>
-                                    <div id="collapseFour" class="accordion-collapse collapse"
-                                         aria-labelledby="headingFour" data-bs-parent="#productAccordian">
-                                        <div class="accordion-body" id="reviews">
-                                            <div class="row">
-                                                @include('public.products.show.tab_reviews')
+                                                @include('public.products.show.tab_download')
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                @endif
+
+                                @if (setting('reviews_enabled'))
+                                    <div class="accordion-item border-0 bg-transparent mb-2">
+                                        <h2 class="accordion-header" id="headingFour">
+                                            <button class="accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapseFour"
+                                                    aria-expanded="false" aria-controls="collapseFour">
+                                                @{{ $trans('storefront::product.reviews', { count: totalReviews }) }}
+                                            </button>
+                                        </h2>
+                                        <div id="collapseFour" class="accordion-collapse collapse"
+                                             aria-labelledby="headingFour" data-bs-parent="#productAccordian">
+                                            <div class="accordion-body" id="reviews">
+                                                <div class="row">
+                                                    @include('public.products.show.tab_reviews')
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 @endif
 
                                 @if ($product->hasAnyAttribute())
-                                <div class="accordion-item border-0 bg-transparent mb-2">
-                                    <h2 class="accordion-header" id="headingFive">
-                                        <button class="accordion-button collapsed" type="button"
-                                                data-bs-toggle="collapse" data-bs-target="#collapseFive"
-                                                aria-expanded="false" aria-controls="collapseFive">
-                                            {{ trans('storefront::product.specification') }}
-                                        </button>
-                                    </h2>
-                                    <div id="collapseFive" class="accordion-collapse collapse"
-                                         aria-labelledby="headingFive" data-bs-parent="#productAccordian">
-                                        <div class="accordion-body" id="specification-tabs">
-                                            @include('public.products.show.tab_specification')
+                                    <div class="accordion-item border-0 bg-transparent mb-2">
+                                        <h2 class="accordion-header" id="headingFive">
+                                            <button class="accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapseFive"
+                                                    aria-expanded="false" aria-controls="collapseFive">
+                                                {{ trans('storefront::product.specification') }}
+                                            </button>
+                                        </h2>
+                                        <div id="collapseFive" class="accordion-collapse collapse"
+                                             aria-labelledby="headingFive" data-bs-parent="#productAccordian">
+                                            <div class="accordion-body" id="specification-tabs">
+                                                @include('public.products.show.tab_specification')
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
                                 @endif
                             </div>
                             <!--End Product Accordian-->
@@ -329,9 +338,13 @@
                 </div>
             </div>
             <div class="container">
-                <related-products :products="{{ $relatedProducts }}"></related-products>
-                {{--                @include('public.products.show.left_sidebar')--}}
-                {{--                @include('public.products.show.right_sidebar')--}}
+                <div class="product-details-bottom pb-5">
+                    @include('public.products.show.left_sidebar')
+                    <div class="product-details-bottom-inner">
+                        <related-products :products="{{ $relatedProducts }}"></related-products>
+                        {{--                @include('public.products.show.right_sidebar')--}}
+                    </div>
+                </div>
             </div>
             @if (setting('storefront_features_section_enabled'))
                 <home-features :features="{{ json_encode($features) }}"></home-features>

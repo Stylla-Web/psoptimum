@@ -96,30 +96,12 @@
                 </div>
             </div>
             <!--End Cart Empty-->
+            <landscape-products
+                title="{{ trans('storefront::product.you_might_also_like') }}"
+                v-if="hasAnyCrossSellProduct"
+                :products="crossSellProducts"
+            >
+            </landscape-products>
         </div>
-
-
-        {{--        <div>--}}
-        {{--            <section class="shopping-cart-wrap">--}}
-        {{--                <div class="container">--}}
-        {{--                    @include('public.cart.index.steps')--}}
-
-        {{--                    <div class="shopping-cart">--}}
-        {{--                        <div class="shopping-cart-inner">--}}
-        {{--                        </div>--}}
-
-        {{--                    </div>--}}
-
-        {{--                    @include('public.cart.index.empty_cart')--}}
-        {{--                </div>--}}
-        {{--            </section>--}}
-
-        {{--            <landscape-products--}}
-        {{--                title="{{ trans('storefront::product.you_might_also_like') }}"--}}
-        {{--                v-if="hasAnyCrossSellProduct"--}}
-        {{--                :products="crossSellProducts"--}}
-        {{--            >--}}
-        {{--            </landscape-products>--}}
-        {{--        </div>--}}
     </cart-index>
 @endsection

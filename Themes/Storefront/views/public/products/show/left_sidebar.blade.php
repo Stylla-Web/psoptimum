@@ -1,29 +1,24 @@
-<aside class="left-sidebar">
-    @if ($upSellProducts->isNotEmpty())
+@if ($upSellProducts->isNotEmpty())
+    <aside class="left-sidebar">
         <div class="vertical-products">
-            <div class="vertical-products-header">
-                <h4 class="section-title">{{ trans('storefront::product.you_might_also_like') }}</h4>
-            </div>
+            <h4 class="text-transform-none">{{ trans('storefront::product.you_might_also_like') }}</h4>
 
             <div class="vertical-products-slider" ref="upSellProducts">
-                @foreach ($upSellProducts->chunk(5) as $latestProductChunks)
-                    <div class="vertical-products-slide">
-                        @foreach ($latestProductChunks as $latestProduct)
-                            <product-card-vertical :product="{{ $latestProduct }}"></product-card-vertical>
-                        @endforeach
-                    </div>
-                @endforeach
+                <div class="vertical-products-slide grid-products">
+                    @foreach ($upSellProducts as $upSellProduct)
+                        <product-card-vertical :product="{{ $upSellProduct }}"></product-card-vertical>
+                    @endforeach
+                </div>
             </div>
         </div>
-    @endif
-
-    @if ($banner->image->exists)
-        <a
-            href="{{ $banner->call_to_action_url }}"
-            class="banner d-none d-lg-block"
-            target="{{ $banner->open_in_new_window ? '_blank' : '_self' }}"
-        >
-            <img src="{{ $banner->image->path }}" alt="Banner">
-        </a>
-    @endif
-</aside>
+        @if ($banner->image->exists)
+            <a
+                href="{{ $banner->call_to_action_url }}"
+                class="banner d-none d-lg-block"
+                target="{{ $banner->open_in_new_window ? '_blank' : '_self' }}"
+            >
+                <img src="{{ $banner->image->path }}" alt="Banner">
+            </a>
+        @endif
+    </aside>
+@endif

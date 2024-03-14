@@ -558,7 +558,7 @@ $(() => {
         dots: false,
         slidesToShow: 1,
         slidesToScroll: 1,
-        arrows: true,
+        // arrows: true,
         autoplay: true,
         autoplaySpeed: 5000
     });
