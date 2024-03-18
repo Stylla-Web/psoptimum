@@ -3,7 +3,7 @@
         <div class="container">
             <div class="featured-categories-header row">
                 <div class="featured-categories-text row">
-                    <h2 class="title col-12 col-md-3 border-0 border-md-right">{{ data.title }}</h2>
+                    <h1 class="title col-12 col-md-3 border-0 border-md-right">{{ data.title }}</h1>
                     <span class="excerpt col-12 col-md-9">{{ data.subtitle }}</span>
                 </div>
 

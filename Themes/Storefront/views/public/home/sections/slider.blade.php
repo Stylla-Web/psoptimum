@@ -33,13 +33,13 @@
                             <div class="slideshow-content slideshow-overlay {{ $slide->isAlignedLeft() ? 'middle-left' : 'middle-right' }} d-flex justify-content-center align-items-center">
                                 <div class="slideshow-content-in">
                                     <div class="wrap-caption animation style2 p-0">
-                                        <h1 class="mega-title ss-mega-title text-transform-none mb-3 fw-bold"
+                                        <h2 class="mega-title ss-mega-title text-transform-none mb-3 fw-bold"
                                             style="color: {{ $slide->caption_1_color }}"
                                             data-animation-in="{{ data_get($slide->options, 'caption_1.effect', 'fadeInRight') }}"
                                             data-delay-in="{{ data_get($slide->options, 'caption_1.delay', '0') }}"
                                         >
                                             {!! $slide->caption_1 !!}
-                                        </h1>
+                                        </h2>
                                         <span class="mega-subtitle ss-sub-title"
                                               style="color: {{ $slide->caption_2_color }}"
                                               data-animation-in="{{ data_get($slide->options, 'caption_2.effect', 'fadeInRight') }}"
