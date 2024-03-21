@@ -44,10 +44,10 @@
                                 <div class="details center-left w-50">
                                     <div class="inner">
                                         <p class="subtitle mb-3">
-                                            {{  data.banner_1.call_to_action_title }}
+                                            {{  data.banner_2.call_to_action_title }}
                                         </p>
                                         <h3 class="title lh-1">
-                                            {{  data.banner_1.call_to_action_body }}
+                                            {{  data.banner_2.call_to_action_body }}
                                         </h3>
                                         <span class="btn btn-outline-primary mt-3 mt-sm-4" v-text="$trans('storefront::layout.shop')">
                                         </span>
