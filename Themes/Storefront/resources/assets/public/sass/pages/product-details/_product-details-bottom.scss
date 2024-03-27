@@ -1,9 +1,9 @@
 .product-details-bottom {
 	display: flex;
+    flex-wrap: wrap;
 
 	.left-sidebar {
         width: 20%;
-        flex:2;
 		padding-right: 15px;
 
         .vertical-products {
@@ -24,7 +24,6 @@
 
 	.product-details-bottom-inner {
 		width: 80%;
-		flex:1;
 		padding-left: 15px;
 	}
 }

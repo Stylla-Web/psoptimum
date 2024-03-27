@@ -13,6 +13,20 @@
             </a>
             <!--End Product Image-->
 
+            <!-- product label -->
+            <div class="product-labels">
+                <span class="lbl hot" v-if="product.has_percentage_special_price">
+                    -{{ product.special_price_percent }}%
+                </span>
+                <span class="lbl on-sale" v-if="product.is_out_of_stock">
+                    {{ $trans('storefront::product_card.out_of_stock') }}
+                </span>
+                <span class="lbl new" v-else-if="product.is_new">
+                    {{ $trans('storefront::product_card.new') }}
+                </span>
+            </div>
+            <!-- End product label -->
+
             <!--Countdown Timer-->
 <!--            <div class="saleTime" data-countdown="2029/03/01"></div>-->
             <!--End Countdown Timer-->
@@ -40,10 +54,10 @@
 </template>
 
 <script>
-    import ProductRating from './ProductRating.vue';
-    import ProductCardMixin from '../mixins/ProductCardMixin';
+import ProductRating from './ProductRating.vue';
+import ProductCardMixin from '../mixins/ProductCardMixin';
 
-    export default {
+export default {
         components: { ProductRating },
 
         mixins: [

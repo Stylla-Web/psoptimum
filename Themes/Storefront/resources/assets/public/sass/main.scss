@@ -7296,6 +7296,10 @@ input, button, select, textarea, .form-control {
             -ms-transition: all ease-out 0.4s;
             -webkit-transition: all ease-out 0.4s;
             transition: all ease-out 0.4s;
+            position: absolute;
+            bottom: 50%;
+            right: 50%;
+            transform: translate(50%, 50%);
         }
 
         .hover {
@@ -7318,6 +7322,42 @@ input, button, select, textarea, .form-control {
                 opacity: 1;
                 visibility: visible;
             }
+        }
+    }
+
+    .product-labels {
+        position: absolute;
+        left: 5px;
+        top: 5px;
+        z-index: 1;
+
+        .lbl {
+            display: block;
+            white-space: nowrap;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 400;
+            text-transform: uppercase;
+            text-align: center;
+            padding: 0 8px;
+            height: 20px;
+            line-height: 20px;
+            margin-bottom: 5px;
+        }
+
+        .on-sale {
+            right: 5px;
+            background: #f54337;
+        }
+
+        .new {
+            left: 5px;
+            background: #01bad4;
+        }
+
+        .hot {
+            left: 5px;
+            background: #e9a400;
         }
     }
 }
